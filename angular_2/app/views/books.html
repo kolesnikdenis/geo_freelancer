@@ -1,0 +1,57 @@
+<div ng-controller="BooksListController">
+    <div class="page-header">
+        <h1>Books List</h1>
+    </div>
+
+    <!-- <form ng-submit="formAdd.$valid && addBook()" novalidate name="formAdd">
+        <div class="form-group" ng-class="{'has-error': formAdd.$submitted && formAdd.title.$invalid}">
+            <input type="text" class="form-control" placeholder="Title" name="title" required ng-model="newBook.title">
+        </div>
+        <div class="form-group" ng-class="{'has-error': formAdd.$submitted && formAdd.author.$invalid}">
+            <input type="text" class="form-control" placeholder="Author" name="author" required ng-model="newBook.author">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" placeholder="Rate" ng-model="newBook.rate">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" placeholder="Cost" ng-model="newBook.cost">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Date" ng-model="newBook.date">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Save</button>
+        </div>
+    </form> -->
+
+    <div class="text-right">
+        <button class="btn btn-primary" ng-click="openModal()"><i class="glyphicon glyphicon-plus"></i> Add book</button>
+    </div>
+
+    <input type="text" placeholder="Filter" ng-model="filterField">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th ng-click="orderBy('title')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up': orderField === 'title', 'glyphicon-chevron-down': orderField === '-title'}"></i>Title</th>
+            <th ng-click="orderBy('author')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up': orderField === 'author', 'glyphicon-chevron-down': orderField === '-author'}"></i>Author</th>
+            <th ng-click="orderBy('rate')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up': orderField === 'rate', 'glyphicon-chevron-down': orderField === '-rate'}"></i>Rate</th>
+            <th ng-click="orderBy('cost')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up': orderField === 'cost', 'glyphicon-chevron-down': orderField === '-cost'}"></i>Cost</th>
+            <th ng-click="orderBy('date')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up': orderField === 'date', 'glyphicon-chevron-down': orderField === '-date'}"></i>Date</th>
+            <th class="text-right">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="book in books | limitTo : 10 | orderBy : orderField | filter : filterField track by $index">
+            <td>{{book.title | uppercase}}</td>
+            <td>{{book.author | lowercase}}</td>
+            <td>{{book.rate | number : 2}}</td>
+            <td>{{book.cost | currency}}</td>
+            <td>{{book.date | date : 'MMMM dd, yyyy'}}</td>
+            <td class="text-right">
+                <a href="#/books/{}" class="btn btn-info"></a>
+                <button class="btn btn-danger btn-xs" ng-click="deleteBook(book.id)"><i class="glyphicon glyphicon-remove"></i></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

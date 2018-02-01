@@ -1,0 +1,28 @@
+<div class="modal-header">
+	<h3 class="modal-title">Add new book</h3>
+</div>
+<div class="modal-body">
+	<form>
+		<div class="form-group">
+			<input type="text" placeholder="Title" class="form-control" ng-model="newBook.title">
+		</div>
+		<div class="form-group">
+			<select class="form-control" ng-model="newBook.author_id" ng-options="author.id as author.name for author in authors">
+				<option value="" disabled>-- Select author --</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<input type="number" placeholder="Cost" class="form-control" ng-model="newBook.cost">
+		</div>
+		<div class="form-group">
+			<input type="number" placeholder="Rate" class="form-control" min="0" max="10" ng-model="newBook.rate">
+		</div>
+		<div class="form-group">
+			<textarea rows="10" placeholder="Intro" class="form-control" ng-model="newBook.intro"></textarea>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+	<button class="btn btn-success" ng-click="ok()">Ok</button>
+</div>

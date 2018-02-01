@@ -1,0 +1,1 @@
+app.controller('BookController',  ['$scope', 'books.repository', '$route'])

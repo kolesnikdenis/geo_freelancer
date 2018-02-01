@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="advanced2">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+
+</head>
+<body>
+<div class="container">
+    <!--<ng-include src="'./app/views/books.html'"></ng-include>-->
+    <div ng-view></div>
+</div>
+
+<script src="./node_modules/angular/angular.js"></script>
+<script src="./node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+<script src="./node_modules/angular-route/angular-route.js"></script>
+
+<script src="./app/app.js"></script>
+<script src="./app/controller/BooksListController.js"></script>
+<script src="./app/controller/BookController.js"></script>
+<script src="./app/constants/webApi.js"></script>
+<script src="./app/app.config.js"></script>
+<script src="app/servises/booksRepository.js"></script>
+<script src="./app/modals/add-book/addBookController.js"></script>
+
+</body>
+</html>
