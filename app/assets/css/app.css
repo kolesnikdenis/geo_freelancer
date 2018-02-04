@@ -1,0 +1,25 @@
+body {
+}
+
+.login {
+    float: none;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.login .input-group {
+    padding: 10px;
+}
+
+.login form {
+    padding: 20px;
+}
+
+.login .text-center button {
+    margin-top: 10px;
+}
+
+.login .input-group-addon {
+    min-width: 150px;
+    text-align: left;
+}
