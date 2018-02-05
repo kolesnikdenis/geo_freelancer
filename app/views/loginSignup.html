@@ -2,7 +2,28 @@
     <div class="col-xs-6 login">
         <uib-tabset justified="true">
 
-            <uib-tab index="0" heading="Регистрация">
+            <uib-tab index="0" heading="Вход">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form ng-submit="loginSignupCtrl.login(username, password)">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon8">Логин</span>
+                                <input type="email" class="form-control" placeholder="john.doe@example.com" aria-describedby="basic-addon8" ng-model="username" required>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon9">Пароль</span>
+                                <input type="password" class="form-control" placeholder="*****" aria-describedby="basic-addon9"  ng-model="password" required>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-default">Войти</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </uib-tab>
+
+            <uib-tab index="1" heading="Регистрация">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <form ng-submit="loginSignupCtrl.signup(signUpUsername, signUpPassword, signUpPasswordRepeat, firstName, lastName, city, phone)">
@@ -42,26 +63,7 @@
                 </div>
             </uib-tab>
 
-            <uib-tab index="1" heading="Вход">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <form ng-submit="loginSignupCtrl.login(username, password)">
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon8">Логин</span>
-                                <input type="email" class="form-control" placeholder="john.doe@example.com" aria-describedby="basic-addon8" ng-model="username" required>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon9">Пароль</span>
-                                <input type="password" class="form-control" placeholder="*****" aria-describedby="basic-addon9"  ng-model="password" required>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-default">Войти</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
 
-            </uib-tab>
         </uib-tabset>
     </div>
 </div>
