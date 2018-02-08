@@ -5,14 +5,33 @@
             <uib-tab index="0" heading="Вход">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <form ng-submit="loginSignupCtrl.login(username, password)">
+                        <form name="loginSignupCtrl.loginForm" ng-submit="loginSignupCtrl.login(username, password)" novalidate>
                             <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon8">Логин</span>
-                                <input type="email" class="form-control" placeholder="john.doe@example.com" aria-describedby="basic-addon8" ng-model="username" required>
+                                <span class="input-group-addon" id="basic-addon1">Логин</span>
+                                <input type="email"
+                                       name="username"
+                                       class="form-control"
+                                       placeholder="john.doe@example.com"
+                                       aria-describedby="basic-addon1"
+                                       ng-model="username"
+                                       required>
+                                <div ng-messages="loginSignupCtrl.loginForm.username.$error" ng-show="loginSignupCtrl.loginForm.username.$touched || loginSignupCtrl.loginForm.$submitted" class="vtooltip">
+                                    <div ng-message="required"  class="vtooltiptext">Введите ваш email</div>
+                                    <div ng-message="email" class="vtooltiptext">Убедитесь что вводите email</div>
+                                </div>
                             </div>
                             <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon9">Пароль</span>
-                                <input type="password" class="form-control" placeholder="*****" aria-describedby="basic-addon9"  ng-model="password" required>
+                                <span class="input-group-addon" id="basic-addon2">Пароль</span>
+                                <input type="password"
+                                       name="password"
+                                       class="form-control"
+                                       placeholder="*****"
+                                       aria-describedby="basic-addon2"
+                                       ng-model="password"
+                                       required>
+                                <div ng-messages="loginSignupCtrl.loginForm.password.$error" ng-show="loginSignupCtrl.loginForm.password.$touched || loginSignupCtrl.loginForm.$submitted" class="vtooltip">
+                                    <div ng-message="required" class="vtooltiptext">Введите ваш пароль</div>
+                                </div>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-default">Войти</button>
@@ -26,34 +45,52 @@
             <uib-tab index="1" heading="Регистрация">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <form ng-submit="loginSignupCtrl.signup(signUpUsername, signUpPassword, signUpPasswordRepeat, firstName, lastName, city, phone)">
+                        <form name="loginSignupCtrl.signupForm" ng-submit="loginSignupCtrl.signup(signUpUsername, signUpPassword)" novalidate>
                             <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1" ng-model="signUpUsername">Логин</span>
-                                <input type="email" class="form-control" placeholder="john.doe@example.com" aria-describedby="basic-addon1" required>
+                                <span class="input-group-addon" id="basic-addon3" >Логин</span>
+                                <input type="email"
+                                       name="username"
+                                       class="form-control"
+                                       placeholder="john.doe@example.com"
+                                       aria-describedby="basic-addon3"
+                                       required
+                                       ng-model="signUpUsername">
+                                <div ng-messages="loginSignupCtrl.signupForm.username.$error" ng-show="loginSignupCtrl.signupForm.username.$touched || loginSignupCtrl.signupForm.$submitted" class="vtooltip">
+                                    <div ng-message="required" class="vtooltiptext">Введите ваш email</div>
+                                    <div ng-message="email" class="vtooltiptext">Убедитесь что вводите email</div>
+                                </div>
                             </div>
                             <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon2" ng-model="signUpPassword">Пароль</span>
-                                <input type="password" class="form-control" placeholder="*****" aria-describedby="basic-addon2" required>
+                                <span class="input-group-addon" id="basic-addon4">Пароль</span>
+                                <input type="password"
+                                       name="password"
+                                       class="form-control"
+                                       placeholder="*****"
+                                       aria-describedby="basic-addon4"
+                                       required
+                                       ng-minlength=4
+                                       ng-model="signUpPassword">
+                                <div ng-messages="loginSignupCtrl.signupForm.password.$error" ng-show="loginSignupCtrl.signupForm.password.$touched || loginSignupCtrl.signupForm.$submitted" class="vtooltip">
+                                    <div ng-message="required" class="vtooltiptext">Введите ваш пароль</div>
+                                    <div ng-message="minlength" class="vtooltiptext">Пароль должен быть не короче 4 символов</div>
+                                </div>
                             </div>
                             <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon3" ng-model="signUpPasswordRepeat">Повторите пароль</span>
-                                <input type="password" class="form-control" placeholder="*****" aria-describedby="basic-addon3" required>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon4" ng-model="firstName">Имя</span>
-                                <input type="text" class="form-control" aria-describedby="basic-addon4">
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon5" ng-model="lastName">Фамилия</span>
-                                <input type="text" class="form-control" aria-describedby="basic-addon5">
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon6" ng-model="city">Город</span>
-                                <input type="text" class="form-control" aria-describedby="basic-addon6">
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon7" ng-model="phone">Телефон</span>
-                                <input type="text" class="form-control" aria-describedby="basic-addon7">
+                                <span class="input-group-addon" id="basic-addon5">Повторите пароль</span>
+                                <input type="password"
+                                       name="passwordRepeat"
+                                       class="form-control"
+                                       placeholder="*****"
+                                       aria-describedby="basic-addon5"
+                                       required
+                                       ng-minlength=4
+                                       ng-model="signUpPasswordRepeat"
+                                       compare-passwords="loginSignupCtrl.signupForm.password">
+                                <div ng-messages="loginSignupCtrl.signupForm.passwordRepeat.$error" ng-show="loginSignupCtrl.signupForm.passwordRepeat.$touched || loginSignupCtrl.signupForm.$submitted" class="vtooltip">
+                                    <div ng-message="required" class="vtooltiptext">Повторите ваш пароль</div>
+                                    <div ng-message="minlength" class="vtooltiptext">Пароль должен быть не короче 4 символов</div>
+                                    <div ng-message="comparePasswords" class="vtooltiptext">Пароли не совпадают</div>
+                                </div>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-default">Зарегистрироваться</button>

@@ -1,33 +1,56 @@
-angular.module('app').controller('LoginSignupController', function(UserService) {
+angular.module('app').controller('LoginSignupController', function($location, UserService, notify) {
     this.login = function(username, password) {
+
+        if (this.loginForm.$invalid) {
+            return;
+        }
+
         const loginData = {
             username: username,
             password: password
         };
         UserService.login(loginData)
             .then((response) => {
-                console.log(response);
+                notify({
+                    message: 'Вход выполнен успешно',
+                    duration: 10000,
+                    classes: 'alert alert-success'
+                });
+                $location.path("/");
             })
             .catch((error) => {
-                console.log(error);
+                notify({
+                    message: 'Произошла ошибка, попробуйте позже',
+                    classes: 'alert alert-danger',
+                    duration: 0,
+                });
             })
     };
-    this.signup = function(username, password, passwordRepeat, firstName="", lastName="", city="", phone="") {
+    this.signup = function(username, password) {
+
+        if (this.signupForm.$invalid) {
+            return;
+        }
+
         const signUpData = {
             username: username,
-            password: password,
-            passwordRepeat: passwordRepeat,
-            firstName: firstName,
-            lastName: lastName,
-            city: city,
-            phone: phone
+            password: password
         };
         UserService.signup(signUpData)
             .then((response) => {
-                console.log(response);
+                notify({
+                    message: 'Спасибо за регистрацию! На Вашу почту был выслан запрос на подтверждение email адреса.',
+                    duration: 10000,
+                    classes: 'alert alert-success'
+                });
+                $location.path("/");
             })
             .catch((error) => {
-                console.log(error);
+                notify({
+                    message: 'Ошибка регистрации, попробуйте позже',
+                    classes: 'alert alert-danger',
+                    duration: 0,
+                });
             })
     }
 });
