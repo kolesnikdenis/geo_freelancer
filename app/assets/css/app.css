@@ -1,7 +1,4 @@
-body {
-}
-
-.login {
+.container>.login {
     float: none;
     margin: 0 auto;
     padding: 30px;
@@ -22,4 +19,33 @@ body {
 .login .input-group-addon {
     min-width: 150px;
     text-align: left;
+}
+
+.vtooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.vtooltip .vtooltiptext {
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    top: -5px;
+    left: 105%;
+    position: absolute;
+    z-index: 5;
+}
+
+.vtooltip .vtooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
 }
