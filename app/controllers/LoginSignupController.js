@@ -1,4 +1,4 @@
-angular.module('app').controller('LoginSignupController', function($location, UserService, notify, localStorageService) {
+angular.module('app').controller('LoginSignupController', function($rootScope, $location, UserService, notify, localStorageService) {
     this.login = function(username, password) {
 
         if (this.loginForm.$invalid) {
@@ -13,6 +13,7 @@ angular.module('app').controller('LoginSignupController', function($location, Us
             .then((response) => {
                 localStorageService.set('token', response.data.user_profile.token);
                 localStorageService.set('username', response.data.user_profile.mail);
+                $rootScope.$broadcast('authenticated');
                 notify({
                     message: 'Вход выполнен успешно',
                     duration: 10000,

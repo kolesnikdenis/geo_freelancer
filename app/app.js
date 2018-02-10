@@ -35,6 +35,20 @@ angular.module('app').factory('authInterceptor', function (localStorageService) 
     }
 });
 
+angular.module('app').factory('authErrorInterceptor', function ($rootScope, $location, localStorageService) {
+    return {
+        responseError: function (rejection) {
+            if(rejection.status === 401) {
+                $rootScope.$broadcast('unauthenticated');
+                localStorageService.remove('username');
+                localStorageService.remove('token');
+                $location.path('/login')
+            }
+            return rejection;
+        }
+    }
+});
+
 angular.module('app').config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
 });
