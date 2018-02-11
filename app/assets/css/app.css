@@ -49,3 +49,31 @@
     border-style: solid;
     border-color: transparent black transparent transparent;
 }
+
+.link-pointer {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+
+    .vtooltip .vtooltiptext {
+        width: 120px;
+        top: 100%;
+        left: 50%;
+        margin-left: -60px;
+    }
+    .vtooltip .vtooltiptext::after {
+        content: " ";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+    }
+    .login-text {
+        color: red;
+        padding-top: 5px;
+    }
+}
