@@ -1,7 +1,7 @@
-angular.module('app').controller('HeaderController', function ($rootScope) {
+angular.module('app').controller('HeaderController', function ($rootScope, $location, AuthService) {
     const self = this;
     self.isNavCollapsed = true;
-    self.showProfile = false;
+    self.showProfile = AuthService.isAuthenticated();
     $rootScope.$on('$routeChangeStart', function()  {
         self.isNavCollapsed = true;
     });
@@ -10,5 +10,10 @@ angular.module('app').controller('HeaderController', function ($rootScope) {
     });
     $rootScope.$on('unauthenticated', function() {
         self.showProfile = false;
-    })
+    });
+    self.signOut = function() {
+        $rootScope.$broadcast('unauthenticated');
+        AuthService.removeAuthData();
+        $location.path('/login');
+    }
 });

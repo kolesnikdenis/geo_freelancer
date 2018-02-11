@@ -5,6 +5,9 @@ angular.module('app').factory('UserService', function($http) {
         },
         signup(signUpData) {
             return $http.post('http://freelance.kolesnikdenis.com/api/registration', signUpData)
+        },
+        confirm(validationData) {
+            return $http.post('http://freelance.kolesnikdenis.com/api/validation', validationData)
         }
     }
 });

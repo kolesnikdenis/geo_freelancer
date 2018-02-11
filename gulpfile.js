@@ -34,7 +34,7 @@ gulp.task('dev', function () {
                     presets: ['env']
                 }))
                 .pipe(angularFilesort())
-        ), {relative: true}))
+        ), {relative: true, addRootSlash: true }))
         .pipe(gulp.dest('./app'))
         .pipe(connect.reload());
 });

@@ -50,6 +50,10 @@
     border-color: transparent black transparent transparent;
 }
 
+.link-pointer {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 400px) {
 
     .vtooltip .vtooltiptext {
