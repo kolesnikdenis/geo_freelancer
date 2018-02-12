@@ -1,4 +1,4 @@
-angular.module('app').controller('LoginSignupController', function($location, UserService, notify, localStorageService) {
+angular.module('app').controller('LoginSignupController', function($rootScope, $location, UserService, notify, AuthService) {
     this.login = function(username, password) {
 
         if (this.loginForm.$invalid) {
@@ -11,14 +11,24 @@ angular.module('app').controller('LoginSignupController', function($location, Us
         };
         UserService.login(loginData)
             .then((response) => {
-                localStorageService.set('token', response.data.user_profile.token);
-                localStorageService.set('username', response.data.user_profile.mail);
-                notify({
-                    message: 'Вход выполнен успешно',
-                    duration: 10000,
-                    classes: 'alert alert-success'
-                });
-                $location.path("/");
+
+                if (response.data.status === 'ok') {
+                    AuthService.saveAuthData(response.data.user_profile.token, response.data.user_profile.mail);
+                    $rootScope.$broadcast('authenticated');
+                    notify({
+                        message: 'Вход выполнен успешно',
+                        duration: 10000,
+                        classes: 'alert alert-success'
+                    });
+                    $location.path("/");
+                }
+                else {
+                    notify({
+                        message: 'Неверный юзернейм или пароль',
+                        classes: 'alert alert-danger',
+                        duration: 0,
+                    });
+                }
             })
             .catch((error) => {
                 notify({
@@ -40,12 +50,21 @@ angular.module('app').controller('LoginSignupController', function($location, Us
         };
         UserService.signup(signUpData)
             .then((response) => {
-                notify({
-                    message: 'Спасибо за регистрацию! На Вашу почту был выслан запрос на подтверждение email адреса.',
-                    duration: 10000,
-                    classes: 'alert alert-success'
-                });
-                $location.path("/");
+                if (response.data.status === 'ok') {
+                    notify({
+                        message: 'Спасибо за регистрацию! На Вашу почту был выслан запрос на подтверждение email адреса.',
+                        duration: 10000,
+                        classes: 'alert alert-success'
+                    });
+                    $location.path("/");
+                }
+                else {
+                    notify({
+                        message: 'Пользователь с таким именем уже существует',
+                        classes: 'alert alert-danger',
+                        duration: 0,
+                    });
+                }
             })
             .catch((error) => {
                 notify({

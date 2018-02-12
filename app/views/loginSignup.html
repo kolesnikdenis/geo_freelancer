@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="col-xs-6 login">
+    <div class="col-xs-12 col-md-6 login">
         <uib-tabset justified="true">
 
             <uib-tab index="0" heading="Вход">
@@ -7,7 +7,8 @@
                     <div class="panel-body">
                         <form name="loginSignupCtrl.loginForm" ng-submit="loginSignupCtrl.login(username, password)" novalidate>
                             <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1">Логин</span>
+                                <span class="input-group-addon hidden-xs" id="basic-addon1">Логин</span>
+                                <label class="visible-xs-block">Логин</label>
                                 <input type="email"
                                        name="username"
                                        class="form-control"
@@ -16,12 +17,19 @@
                                        ng-model="username"
                                        required>
                                 <div ng-messages="loginSignupCtrl.loginForm.username.$error" ng-show="loginSignupCtrl.loginForm.username.$touched || loginSignupCtrl.loginForm.$submitted" class="vtooltip">
-                                    <div ng-message="required"  class="vtooltiptext">Введите ваш email</div>
-                                    <div ng-message="email" class="vtooltiptext">Убедитесь что вводите email</div>
+                                    <div ng-message="required">
+                                        <div class="vtooltiptext hidden-xs">Введите ваш email</div>
+                                        <div class="visible-xs-block login-text">Введите ваш email</div>
+                                    </div>
+                                    <div ng-message="email">
+                                        <div class="vtooltiptext hidden-xs">Убедитесь что вводите email</div>
+                                        <div class="visible-xs-block login-text">Убедитесь что вводите email</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon2">Пароль</span>
+                                <span class="input-group-addon  hidden-xs" id="basic-addon2 ">Пароль</span>
+                                <label class="visible-xs-block">Пароль</label>
                                 <input type="password"
                                        name="password"
                                        class="form-control"
@@ -30,7 +38,10 @@
                                        ng-model="password"
                                        required>
                                 <div ng-messages="loginSignupCtrl.loginForm.password.$error" ng-show="loginSignupCtrl.loginForm.password.$touched || loginSignupCtrl.loginForm.$submitted" class="vtooltip">
-                                    <div ng-message="required" class="vtooltiptext">Введите ваш пароль</div>
+                                    <div ng-message="required">
+                                        <div class="vtooltiptext hidden-xs">Введите ваш пароль</div>
+                                        <div class="visible-xs-block login-text">Введите ваш пароль</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="text-center">
@@ -47,7 +58,8 @@
                     <div class="panel-body">
                         <form name="loginSignupCtrl.signupForm" ng-submit="loginSignupCtrl.signup(signUpUsername, signUpPassword)" novalidate>
                             <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon3" >Логин</span>
+                                <span class="input-group-addon hidden-xs" id="basic-addon3" >Логин</span>
+                                <label class="visible-xs-block">Логин</label>
                                 <input type="email"
                                        name="username"
                                        class="form-control"
@@ -56,12 +68,19 @@
                                        required
                                        ng-model="signUpUsername">
                                 <div ng-messages="loginSignupCtrl.signupForm.username.$error" ng-show="loginSignupCtrl.signupForm.username.$touched || loginSignupCtrl.signupForm.$submitted" class="vtooltip">
-                                    <div ng-message="required" class="vtooltiptext">Введите ваш email</div>
-                                    <div ng-message="email" class="vtooltiptext">Убедитесь что вводите email</div>
+                                    <div ng-message="required">
+                                        <div class="vtooltiptext hidden-xs">Введите ваш email</div>
+                                        <div class="visible-xs-block login-text">Введите ваш email</div>
+                                    </div>
+                                    <div ng-message="email">
+                                        <div class="vtooltiptext hidden-xs">Убедитесь что вводите email</div>
+                                        <div class="visible-xs-block login-text">Убедитесь что вводите email</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon4">Пароль</span>
+                                <span class="input-group-addon hidden-xs" id="basic-addon4">Пароль</span>
+                                <label class="visible-xs-block">Пароль</label>
                                 <input type="password"
                                        name="password"
                                        class="form-control"
@@ -71,12 +90,19 @@
                                        ng-minlength=4
                                        ng-model="signUpPassword">
                                 <div ng-messages="loginSignupCtrl.signupForm.password.$error" ng-show="loginSignupCtrl.signupForm.password.$touched || loginSignupCtrl.signupForm.$submitted" class="vtooltip">
-                                    <div ng-message="required" class="vtooltiptext">Введите ваш пароль</div>
-                                    <div ng-message="minlength" class="vtooltiptext">Пароль должен быть не короче 4 символов</div>
+                                    <div ng-message="required">
+                                        <div class="vtooltiptext hidden-xs">Введите ваш пароль</div>
+                                        <div class="visible-xs-block login-text">Введите ваш пароль</div>
+                                    </div>
+                                    <div ng-message="minlength">
+                                        <div class="vtooltiptext hidden-xs">Пароль должен быть не короче 4 символов</div>
+                                        <div class="visible-xs-block login-text">Пароль должен быть не короче 4 символов</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon5">Повторите пароль</span>
+                                <span class="input-group-addon hidden-xs" id="basic-addon5">Повторите пароль</span>
+                                <label class="visible-xs-block">Повторите пароль</label>
                                 <input type="password"
                                        name="passwordRepeat"
                                        class="form-control"
@@ -87,9 +113,18 @@
                                        ng-model="signUpPasswordRepeat"
                                        compare-passwords="loginSignupCtrl.signupForm.password">
                                 <div ng-messages="loginSignupCtrl.signupForm.passwordRepeat.$error" ng-show="loginSignupCtrl.signupForm.passwordRepeat.$touched || loginSignupCtrl.signupForm.$submitted" class="vtooltip">
-                                    <div ng-message="required" class="vtooltiptext">Повторите ваш пароль</div>
-                                    <div ng-message="minlength" class="vtooltiptext">Пароль должен быть не короче 4 символов</div>
-                                    <div ng-message="comparePasswords" class="vtooltiptext">Пароли не совпадают</div>
+                                    <div ng-message="required">
+                                        <div class="vtooltiptext hidden-xs">Повторите ваш пароль</div>
+                                        <div class="visible-xs-block login-text">Повторите ваш пароль</div>
+                                    </div>
+                                    <div ng-message="minlength">
+                                        <div class="vtooltiptext hidden-xs">Пароль должен быть не короче 4 символов</div>
+                                        <div class="visible-xs-block login-text">Пароль должен быть не короче 4 символов</div>
+                                    </div>
+                                    <div ng-message="comparePasswords">
+                                        <div class="vtooltiptext hidden-xs">Пароли не совпадают</div>
+                                        <div class="visible-xs-block login-text">Пароли не совпадают</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="text-center">
