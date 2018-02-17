@@ -21,6 +21,16 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 controller: 'EmailConfirmationController',
                 controllerAs: 'emailConfirmationCtrl',
             })
+            .when('/passResetEmail', {
+                templateUrl: '/views/passResetEmail.html',
+                controller: 'PassResetEmailController',
+                controllerAs: 'passResetEmailCtrl',
+            })
+            .when('/forget_password/:email/:token', {
+                templateUrl: '/views/passReset.html',
+                controller: 'PassResetController',
+                controllerAs: 'passResetCtrl',
+            })
             .otherwise({'template': '<h1>Route not found</h1>'})
     });
 
