@@ -8,6 +8,7 @@
     "angular-touch": "^1.6.9",
     "angular-messages": "^1.6.9",
     "angular-notify": "^2.5.1",
-    "angular-local-storage": "^0.7.1"
+    "angular-local-storage": "^0.7.1",
+    "angularjs-slider": "^6.5.0"
   }
 }
