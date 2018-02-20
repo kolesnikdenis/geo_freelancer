@@ -1,5 +1,5 @@
-angular.module('app').controller('LandingController', function() {
-
-    this.heading = "This is going to be a landing page";
-
+angular.module('app').controller('LandingController', function($scope, LandingService) {
+    LandingService.getAll().then((category) => {
+        $scope.category = category
+    })
 });
