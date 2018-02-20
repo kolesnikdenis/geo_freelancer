@@ -16,7 +16,8 @@ const streamQueue = require('streamqueue');
 gulp.task('connect', function () {
     connect.server({
         root: './app/',
-        port: 8888,
+        port: 8889,
+	host: '185.43.251.89',
         livereload: false,
         fallback: './app/index.html'
     });
@@ -39,7 +40,6 @@ gulp.task('dev', function () {
         .pipe(connect.reload());
 });
 
-
 gulp.task('build:js', function() {
     return streamQueue(
         { objectMode: true },
@@ -59,6 +59,7 @@ gulp.task('build:js', function() {
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./app/dist'));
 });
+
 
 gulp.task('build:css', function() {
     return streamQueue(
