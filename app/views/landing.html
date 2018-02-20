@@ -1,2 +1,117 @@
-<h1 ng-bind="landingCtrl.heading"></h1>
-<img src="/assets/img/inProgress.png"/>
+<div class="row">
+    <div class="picture col-lg-8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-2 col-xs-12 order">
+                    <h1>Заказ услуг для дома</h1>
+                    <div class="container">
+                        <form class="row plain-search">
+                            <div class="plain-search-wrapper">
+                                <div class="plain-search-field">
+                                    <input name="q" class="search-input col-md-2" placeholder="Что делать?">
+                                </div>
+                                <button class="plain-search-button-categor col-md-1" type="submit"><a href="#categories">Категории</a></button>
+                                <button class="plain-search-button col-md-2" type="submit">Заказать услугу</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="" class="maps col-md-4">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10257.704008118242!2d36.24384451262401!3d50.00337011128225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1518768065706" width="500" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!--Bootstrap Carousel Categories-->
+<div  class="row">
+        {{tt}}
+
+    <div class="owl-carousel owl-theme">
+
+
+
+            <div class="item" data-merge="1" ng-repeat="i in category" >
+                <img src={{i.icon}} width=100px alt="{{i.name}}">
+            </div>
+            <!--<div class="item" data-merge="1"><img src="../img_categor/2_2_Отделочные%20работы.jpeg" alt=""></div>
+            <div class="item" data-merge="1"><img src="https://images.unsplash.com/photo-1493995055064-702227616052?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9fc7e95a9b14416091269a9f1644cc01&auto=format&fit=crop&w=334&q=80"></div>
+            <div class="item" data-merge="1"><img src="../img_categor/4_Курьерские%20услуги.jpeg" alt=""></div>
+            <div class="item"><img src="../img_categor/6_Ремонт%20техники.jpeg" alt=""></div>
+            <div class="item"><img src="../img_categor/1_Домашний%20мастер.jpeg" alt=""></div>
+            <div class="item"><img src="../img_categor/7_Логистические%20и%20складские%20услуги.jpeg" alt=""></div>
+            <div class="item"><img src="../img_categor/5_Строительные%20работы.jpeg" alt=""></div>
+
+ -->
+
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 descrition">
+            <h1>Как это работает?</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row descrition-text">
+        <p class="col-md-5">Если у Вас нет времени ждать неделями выполнение задания, все специалисты
+            заняты или не могуть делать быстро и качественно,зарегистрируйтесь, оставте заявку, и уже
+            сегодня все Ваши проблемы будут решены!</p>
+        <button class="col-md-2 col-sm-6">Задание</button>
+        <button class="col-md-2 col-xs-12">Выбор исполнителя</button>
+        <button class="col-md-2 col-xs-12">Выполнение работы</button>
+        <h2 class="col-md-1 col-xs-12"><span>Neighbor</span>Hub</h2>
+    </div>
+</div>
+
+<div id="categories" class="access-service">
+    <h1>Узнайте какие услуги достойны уже сейчас в Вашем районе</h1>
+</div>
+<div class="row">
+    <div class="maps-access-service col-md-8">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10257.704008118242!2d36.24384451262401!3d50.00337011128225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1518768065706" width="920" height="470" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div class="pctr-access-service col-md-4"></div>
+</div>
+
+<div class="container">
+    <div class="row wage">
+        <div class="wage-pctr col-md-5"></div>
+        <div class="col-md-5 wage-h">
+            <h2>Желаете подзаработать?</h2>
+        </div>
+        <p class="col-md-4">Если у Вас нет времени ждать неделями выполнение задания, все специалисты
+            заняты или не могуть делать быстро и качественно,зарегистрируйтесь, оставте заявку, и уже
+            сегодня все Ваши проблемы будут решены!</p>
+        <button class="col-md-3 button-doer">Стать исполнителем</button>
+    </div>
+</div>
+
+<!--Owl Carousel Blog-->
+<div class="container">
+    <div class="row blog col-md-4">
+        <h1>На заметку</h1>
+    </div>
+</div>
+<div class="row col-md-offset-2">
+    <div class="owl-carousel">
+        <div class="item blog">
+            <img src="app/img_categor/5_5_Строительные работы.jpeg" alt="">
+            <div class="blog-info">
+                <h3>Статья</h3>
+                <p>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+            </div>
+        </div>
+        <div class="item"><img src="app/img_categor/2_2_Отделочные%20работы.jpeg" alt=""></div>
+        <div class="item"><img src="app/img_categor/4_Курьерские%20услуги.jpeg" alt=""></div>
+        <div class="item"><img src="app/img_categor/6_Ремонт%20техники.jpeg" alt=""></div>
+        <div class="item"><img src="app/img_categor/1_Домашний%20мастер.jpeg" alt=""></div>
+        <div class="item"><img src="app/img_categor/5_Строительные%20работы.jpeg" alt=""></div>
+        <div class="item"><img src="app/img_categor/7_Логистические%20и%20складские%20услуги.jpeg" alt=""></div>
+    </div>
+</div>
