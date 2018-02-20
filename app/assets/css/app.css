@@ -20,3 +20,60 @@
     min-width: 150px;
     text-align: left;
 }
+
+.vtooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.vtooltip .vtooltiptext {
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    top: -5px;
+    left: 105%;
+    position: absolute;
+    z-index: 5;
+}
+
+.vtooltip .vtooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+.link-pointer {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+
+    .vtooltip .vtooltiptext {
+        width: 120px;
+        top: 100%;
+        left: 50%;
+        margin-left: -60px;
+    }
+    .vtooltip .vtooltiptext::after {
+        content: " ";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+    }
+    .login-text {
+        color: red;
+        padding-top: 5px;
+    }
+}

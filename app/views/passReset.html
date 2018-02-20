@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="col-xs-12 col-md-6 login">
+        <uib-tabset justified="true">
+            <uib-tab index="1" heading="Введите новый пароль">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form name="passResetCtrl.resetPassForm" ng-submit="passResetCtrl.updatePassword(password)" novalidate>
+                            <div class="input-group">
+                                <span class="input-group-addon hidden-xs" id="basic-addon4">Пароль</span>
+                                <label class="visible-xs-block">Пароль</label>
+                                <input type="password"
+                                       name="password"
+                                       class="form-control"
+                                       placeholder="*****"
+                                       aria-describedby="basic-addon4"
+                                       required
+                                       ng-minlength=4
+                                       ng-model="password">
+                                <div ng-messages="passResetCtrl.resetPassForm.password.$error" ng-show="passResetCtrl.resetPassForm.password.$touched || passResetCtrl.resetPassForm.$submitted" class="vtooltip">
+                                    <div ng-message="required">
+                                        <div class="vtooltiptext hidden-xs">Введите ваш пароль</div>
+                                        <div class="visible-xs-block login-text">Введите ваш пароль</div>
+                                    </div>
+                                    <div ng-message="minlength">
+                                        <div class="vtooltiptext hidden-xs">Пароль должен быть не короче 4 символов</div>
+                                        <div class="visible-xs-block login-text">Пароль должен быть не короче 4 символов</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon hidden-xs" id="basic-addon5">Повторите пароль</span>
+                                <label class="visible-xs-block">Повторите пароль</label>
+                                <input type="password"
+                                       name="passwordRepeat"
+                                       class="form-control"
+                                       placeholder="*****"
+                                       aria-describedby="basic-addon5"
+                                       required
+                                       ng-minlength=4
+                                       ng-model="passwordRepeat"
+                                       compare-passwords="passResetCtrl.resetPassForm.password">
+                                <div ng-messages="passResetCtrl.resetPassForm.passwordRepeat.$error" ng-show="passResetCtrl.resetPassForm.passwordRepeat.$touched || passResetCtrl.resetPassForm.$submitted" class="vtooltip">
+                                    <div ng-message="required">
+                                        <div class="vtooltiptext hidden-xs">Повторите ваш пароль</div>
+                                        <div class="visible-xs-block login-text">Повторите ваш пароль</div>
+                                    </div>
+                                    <div ng-message="minlength">
+                                        <div class="vtooltiptext hidden-xs">Пароль должен быть не короче 4 символов</div>
+                                        <div class="visible-xs-block login-text">Пароль должен быть не короче 4 символов</div>
+                                    </div>
+                                    <div ng-message="comparePasswords">
+                                        <div class="vtooltiptext hidden-xs">Пароли не совпадают</div>
+                                        <div class="visible-xs-block login-text">Пароли не совпадают</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-default">Изменить пароль</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>

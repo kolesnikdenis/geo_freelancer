@@ -1,33 +1,77 @@
-angular.module('app').controller('LoginSignupController', function(UserService) {
+angular.module('app').controller('LoginSignupController', function($rootScope, $location, UserService, notify, AuthService) {
     this.login = function(username, password) {
+
+        if (this.loginForm.$invalid) {
+            return;
+        }
+
         const loginData = {
             username: username,
             password: password
         };
         UserService.login(loginData)
             .then((response) => {
-                console.log(response);
+
+                if (response.data.status === 'ok') {
+                    AuthService.saveAuthData(response.data.user_profile.token, response.data.user_profile.mail);
+                    $rootScope.$broadcast('authenticated');
+                    notify({
+                        message: 'Вход выполнен успешно',
+                        duration: 10000,
+                        classes: 'alert alert-success'
+                    });
+                    $location.path("/");
+                }
+                else {
+                    notify({
+                        message: 'Неверный юзернейм или пароль',
+                        classes: 'alert alert-danger',
+                        duration: 0,
+                    });
+                }
             })
             .catch((error) => {
-                console.log(error);
+                notify({
+                    message: 'Произошла ошибка, попробуйте позже',
+                    classes: 'alert alert-danger',
+                    duration: 0,
+                });
             })
     };
-    this.signup = function(username, password, passwordRepeat, firstName="", lastName="", city="", phone="") {
+    this.signup = function(username, password) {
+
+        if (this.signupForm.$invalid) {
+            return;
+        }
+
         const signUpData = {
             username: username,
-            password: password,
-            passwordRepeat: passwordRepeat,
-            firstName: firstName,
-            lastName: lastName,
-            city: city,
-            phone: phone
+            password: password
         };
         UserService.signup(signUpData)
             .then((response) => {
-                console.log(response);
+                if (response.data.status === 'ok') {
+                    notify({
+                        message: 'Спасибо за регистрацию! На Вашу почту был выслан запрос на подтверждение email адреса.',
+                        duration: 10000,
+                        classes: 'alert alert-success'
+                    });
+                    $location.path("/");
+                }
+                else {
+                    notify({
+                        message: 'Пользователь с таким именем уже существует',
+                        classes: 'alert alert-danger',
+                        duration: 0,
+                    });
+                }
             })
             .catch((error) => {
-                console.log(error);
+                notify({
+                    message: 'Ошибка регистрации, попробуйте позже',
+                    classes: 'alert alert-danger',
+                    duration: 0,
+                });
             })
     }
 });

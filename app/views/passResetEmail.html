@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="col-xs-12 col-md-6 login">
+        <uib-tabset justified="true">
+
+            <uib-tab index="0" heading="Восстановление пароля">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form name="passResetEmailCtrl.resetPassEmailForm" ng-submit="passResetEmailCtrl.requestReset(username)" novalidate>
+                            <div class="input-group">
+                                <span class="input-group-addon hidden-xs" id="basic-addon1">Логин</span>
+                                <label class="visible-xs-block">Логин</label>
+                                <input type="email"
+                                       name="username"
+                                       class="form-control"
+                                       placeholder="john.doe@example.com"
+                                       aria-describedby="basic-addon1"
+                                       ng-model="username"
+                                       required>
+                                <div ng-messages="passResetEmailCtrl.resetPassEmailForm.username.$error" ng-show="passResetEmailCtrl.resetPassEmailForm.username.$touched || passResetEmailCtrl.resetPassEmailForm.$submitted" class="vtooltip">
+                                    <div ng-message="required">
+                                        <div class="vtooltiptext hidden-xs">Введите ваш email</div>
+                                        <div class="visible-xs-block login-text">Введите ваш email</div>
+                                    </div>
+                                    <div ng-message="email">
+                                        <div class="vtooltiptext hidden-xs">Убедитесь что вводите email</div>
+                                        <div class="visible-xs-block login-text">Убедитесь что вводите email</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-default">Отправить емейл</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>
