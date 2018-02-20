@@ -1,6 +1,6 @@
 angular.module('app').controller('ExtendedSearchController', function(AdsService) {
     AdsService.getAll().then((resp) => {
-        this.ads = resp.data;
+        this.ads = resp.data.ads_rows;
     }).then(() => {
         this.priceSlider.maxValue = this.getMaxPrice(this.ads);
         this.experienceSlider.maxValue = this.getMaxExperience(this.ads);
