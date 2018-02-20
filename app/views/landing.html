@@ -26,9 +26,27 @@
 
 <!--Bootstrap Carousel Categories-->
 <div  class="row">
+        {{tt}}
+
     <div class="owl-carousel owl-theme">
-        <div class="item" data-merge="1" ng-repeat=""></div>
-        </div>
+
+
+
+            <div class="item" data-merge="1" ng-repeat="i in category" >
+                <img src={{i.icon}} width=100px alt="{{i.name}}">
+            </div>
+            <!--<div class="item" data-merge="1"><img src="../img_categor/2_2_Отделочные%20работы.jpeg" alt=""></div>
+            <div class="item" data-merge="1"><img src="https://images.unsplash.com/photo-1493995055064-702227616052?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9fc7e95a9b14416091269a9f1644cc01&auto=format&fit=crop&w=334&q=80"></div>
+            <div class="item" data-merge="1"><img src="../img_categor/4_Курьерские%20услуги.jpeg" alt=""></div>
+            <div class="item"><img src="../img_categor/6_Ремонт%20техники.jpeg" alt=""></div>
+            <div class="item"><img src="../img_categor/1_Домашний%20мастер.jpeg" alt=""></div>
+            <div class="item"><img src="../img_categor/7_Логистические%20и%20складские%20услуги.jpeg" alt=""></div>
+            <div class="item"><img src="../img_categor/5_Строительные%20работы.jpeg" alt=""></div>
+
+ -->
+
+    </div>
+
 </div>
 
 <div class="container">
