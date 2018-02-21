@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Поиск" ng-model="extendedSearchCtrl.search">
+        </div>
+        <div class="form-group">
+            <select ng-model="category" class="form-control" ng-init="category=''">
+                <option value="">Выберите категорию</option>
+                <option ng-repeat="item in extendedSearchCtrl.getCategories(extendedSearchCtrl.ads)" value={{item}}>{{item}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select ng-model="adType" class="form-control" ng-init="adType=''">
+                <option value="">Все объявления</option>
+                <option value="lookForWorker">Ищу рабочего</option>
+                <option value="lookForJob">Ищу работу</option>
+            </select>
+        </div>
+        <p>Опыт (лет):</p>
+        <div>
+            <rzslider rz-slider-model="extendedSearchCtrl.experienceSlider.minValue" rz-slider-high="extendedSearchCtrl.experienceSlider.maxValue" rz-slider-options="{floor: 0, ceil: extendedSearchCtrl.getMaxExperience(extendedSearchCtrl.ads)}"></rzslider>
+        </div>
+        <p>Зарплата:</p>
+        <div>
+            <rzslider rz-slider-model="extendedSearchCtrl.priceSlider.minValue" rz-slider-high="extendedSearchCtrl.priceSlider.maxValue" rz-slider-options="{floor: 0, ceil: extendedSearchCtrl.getMaxPrice(extendedSearchCtrl.ads)}"></rzslider>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <div ng-repeat="ad in filterAds = (extendedSearchCtrl.ads
+        | filter: {title: extendedSearchCtrl.search, category: category, adType: adType}
+        | filter:extendedSearchCtrl.byRange('price', extendedSearchCtrl.priceSlider.minValue, extendedSearchCtrl.priceSlider.maxValue)
+        | filter:extendedSearchCtrl.byRange('experience', extendedSearchCtrl.experienceSlider.minValue, extendedSearchCtrl.experienceSlider.maxValue))
+        | limitTo:extendedSearchCtrl.itemsPerPage:extendedSearchCtrl.itemsPerPage*(extendedSearchCtrl.currentPage-1)">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{ad.title}}</div>
+                <div class="panel-body">
+                    <p>{{ad.description}}</p>
+                    <p>Категория: {{ad.category}}</p>
+                    <p>Зарплата: {{ad.price}}</p>
+                    <p>Опыт работы: {{ad.experience}} лет</p>
+                </div>
+            </div>
+        </div>
+        <ul uib-pagination direction-links="false" boundary-links="true" total-items="filterAds.length" ng-model="extendedSearchCtrl.currentPage" items-per-page="extendedSearchCtrl.itemsPerPage"></ul>
+    </div>
+</div>
