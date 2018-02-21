@@ -40,27 +40,6 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
     });
 
 
-$(document).ready(function(){
-    $(".owl-carousel").owlCarousel({
-        items:4,
-        loop:true,
-        margin:10,
-        nav:false,
-        responsiveClass:true,
-        merge: true,
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:2
-            },
-            1000:{
-                items:3
-            }
-        }
-    });
-});
 
 angular.module('app').factory('authInterceptor', function (AuthService) {
     return {
