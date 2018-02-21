@@ -31,7 +31,7 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 controller: 'PassResetController',
                 controllerAs: 'passResetCtrl',
             })
-            .when('/extendedSearch', {
+            .when('/extendedSearch/:queryString', {
                 templateUrl: '/views/extendedSearch.html',
                 controller: 'ExtendedSearchController',
                 controllerAs: 'extendedSearchCtrl',

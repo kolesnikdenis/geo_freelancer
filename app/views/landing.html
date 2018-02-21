@@ -5,10 +5,10 @@
                 <div class="col-md-5 col-md-offset-2 col-xs-12 order">
                     <h1>Заказ услуг для дома</h1>
                     <div class="container">
-                        <form class="row plain-search">
+                        <form class="row plain-search" ng-submit="querySearch(queryString)">
                             <div class="plain-search-wrapper">
                                 <div class="plain-search-field">
-                                    <input name="q" class="search-input col-md-2" placeholder="Что делать?">
+                                    <input name="q" class="search-input col-md-2" placeholder="Что делать?" ng-model="queryString">
                                 </div>
                                 <button class="plain-search-button-categor col-md-1" type="submit"><a href="#categories">Категории</a></button>
                                 <button class="plain-search-button col-md-2" type="submit">Заказать услугу</button>

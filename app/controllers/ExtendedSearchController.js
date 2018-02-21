@@ -1,4 +1,4 @@
-angular.module('app').controller('ExtendedSearchController', function(AdsService) {
+angular.module('app').controller('ExtendedSearchController', function($routeParams, AdsService) {
     AdsService.getAll().then((resp) => {
         this.ads = resp.data.ads_rows;
     }).then(() => {
@@ -56,4 +56,6 @@ angular.module('app').controller('ExtendedSearchController', function(AdsService
     };
     this.currentPage = 1;
     this.itemsPerPage = 3;
+
+    this.search = $routeParams.queryString;
 });

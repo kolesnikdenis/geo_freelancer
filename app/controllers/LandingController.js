@@ -1,4 +1,4 @@
-angular.module('app').controller('LandingController', function($scope, LandingService) {
+angular.module('app').controller('LandingController', function($location, $scope, LandingService) {
     $scope.tt="test";
     $scope.category={};
     LandingService.getAll().then((category) => {
@@ -25,4 +25,7 @@ angular.module('app').controller('LandingController', function($scope, LandingSe
             });
         });
     });
+    $scope.querySearch = function(queryString) {
+        $location.path("/extendedSearch/" + queryString);
+    }
 });
