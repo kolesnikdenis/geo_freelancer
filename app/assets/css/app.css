@@ -1,5 +1,5 @@
 .login {
-    float: none;
+    float: none !important; /* To prevent this value from being overwritten by bootstrap */
     margin: 0 auto;
     padding: 30px;
 }

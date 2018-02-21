@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMessages', 'cgNotify', 'LocalStorageModule'])
+angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMessages', 'cgNotify', 'LocalStorageModule', 'rzModule'])
     .config(function($locationProvider, $routeProvider) {
         $locationProvider.html5Mode({
             enabled: true,
@@ -30,6 +30,11 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 templateUrl: '/views/passReset.html',
                 controller: 'PassResetController',
                 controllerAs: 'passResetCtrl',
+            })
+            .when('/extendedSearch/:queryString', {
+                templateUrl: '/views/extendedSearch.html',
+                controller: 'ExtendedSearchController',
+                controllerAs: 'extendedSearchCtrl',
             })
             .otherwise({'template': '<h1>Route not found</h1>'})
     });
