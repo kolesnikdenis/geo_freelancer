@@ -1,6 +1,5 @@
 angular.module('app').controller('ProfileController', function($rootScope, $location, UserService, notify, AuthService, Upload, $timeout,$http) {
-
-    $rootScope.files = "";
+    $rootScope.files="";
     $rootScope.table='user'; // что то придумаю с этим
     $rootScope.errorMsg="";
     $rootScope.photo = {filename: "", alt: ""};
