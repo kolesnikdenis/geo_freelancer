@@ -10,8 +10,7 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
     $rootScope.hidden_edit_component = function () {
         $rootScope.marker_work={ radius: 1, title: "",desc: "",lat: 0, lng: 0,id:-1 };
         console.log("null");
-    }
-
+    };
     $rootScope.uploadFiles = function (files) {
         console.log("test");
         $rootScope.files = files;
