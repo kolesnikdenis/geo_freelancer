@@ -1,0 +1,235 @@
+body{
+    font-family:  'Lato';
+    color: #4A4A4A;
+    font-size: 16px;
+}
+h1{
+    color: #9CBC7C;
+    padding-bottom: 30px;
+}
+p{
+    line-height: 1.7;
+    font-size: 16px;
+}
+header{
+    padding-top: 20px;
+    min-height: 100px;
+}
+.navbar-brand{
+    font-size: 36px;
+    color: #4A4A4A;
+}
+.navbar-brand span{
+    color: #9CBC7C;
+}
+.navbar-brand:hover{
+    color: #4A4A4A;
+}
+.top-mnu{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    text-align: right;
+}
+.top-mnu li{
+    display: inline-block;
+    line-height: 46px;
+    padding: 0 10px;
+}
+.top-mnu a{
+    text-decoration: none;
+    color: #4A4A4A;
+}
+.blog-li img{
+    padding-left: 5px;
+}
+.active a{
+    color: #9CBC7C;
+}
+.top-mnu a:hover{
+    color: #9CBC7C;
+}
+.picture{
+    background-image: url("https://images.unsplash.com/photo-1473366514866-3649b6c30284?ixlib=rb-0.3.5&s=702deee0571aaa40ee8c5fcbe5ad9ee4&auto=format&fit=crop&w=1504&q=80");
+    background-size: cover;
+    position: relative;
+    height: 470px;
+    padding: 0;
+}
+.picture::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(74,74,74,0.1);
+}
+.picture h1{
+    color: #ffffff;
+}
+.maps, .images, iframe{
+    padding: 0;
+}
+.order{
+    padding-top: 127px;
+    padding-left: 82px;
+}
+.search-input{
+    height: 63px;
+    outline: 0 none;
+    font-size: 16px;
+    border: none;
+    background-image: url("img_categor/Zoom.png");
+    background-repeat: no-repeat;
+    background-position: 10px;
+    padding-left: 36px;
+}
+.plain-search-button{
+    height: 63px;
+    font-size: 16px;
+    background-color: #9CBC7C;
+    color: #ffffff;
+    outline: 0;
+    border: none;
+}
+.plain-search-button-categor{
+    height: 63px;
+    outline: 0;
+    border: none;
+    color: #9CBC7C;
+    background-color: #ffffff;
+    font-size: 12px;
+}
+.descrition{
+    padding-top: 30px;
+}
+.descrition h1{
+    padding-left: 20px;
+}
+.descrition p{
+    vertical-align: middle;
+}
+.descrition-text button{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    background-color: #416777;
+    opacity: 0.6;
+    color: #ffffff;
+    outline: 0;
+    border: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+.descrition-text span{
+    color: #9CBC7C;
+}
+.descrition-text h2{
+    padding-top: 33px;
+}
+.descrition-text{
+    margin-bottom: 40px;
+}
+.access-service h1{
+    text-align: center;
+}
+.pctr-access-service{
+    background-image: url("https://images.unsplash.com/photo-1499083097717-a156f85f0516?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0857182ce680e944304c9980ec175b10&auto=format&fit=crop&w=751&q=80");
+    background-size: cover;
+    height: 470px;
+}
+.wage-center{
+    vertical-align: middle;
+}
+.wage-pctr{
+    background-image: url("https://images.unsplash.com/photo-1500837744038-ec60054ed01e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a6afec6e65db063cc6e263f5a955a54f&auto=format&fit=crop&w=750&q=80");
+    height: 470px;
+    margin-right: 100px;
+}
+.wage-h h2{
+    color: #9CBC7C;
+    padding-bottom: 20px;
+    padding-top: 100px;
+}
+.button-doer{
+    height: 63px;
+    font-size: 18px;
+    background-color: #9CBC7C;
+    color: #ffffff;
+    outline: 0;
+    border: none;
+    margin-left: 13px;
+}
+.wage{
+    margin-bottom: 40px;
+}
+.blog{
+    position: relative;
+}
+.blog-info{
+    position: absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    top:0;
+    background: rgba(0,0,0,0.5);
+    padding:5px;
+    display:none;
+    cursor: pointer;
+    transition: all 1s;
+    color: #fff;
+    text-align: center;
+}
+.blog:hover .blog-info{
+    display: block;
+}
+
+.blog-info h3{
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+@media screen and (max-width: 400px) {
+    .top-mnu{
+        display: none;
+    }
+     h1{
+        font-size: 24px;
+    }
+     p{
+         font-size: 18px;
+     }
+    .descrition-text button{
+        width: 100%;
+        height: 80px;
+        background-color: #416777;
+        opacity: 0.6;
+        color: #ffffff;
+        outline: 0;
+        border: none;
+        margin: 6px 10px;
+        font-size: 20px;
+        border-radius: unset;
+    }
+    .descrition-text h2{
+        display: none;
+    }
+     .pctr-access-service{
+         display: none;
+     }
+     .wage-pctr{
+         display: none;
+     }
+    iframe{
+        width: 100%;
+    }
+    .button-doer{
+        font-size: 20px;
+    }
+    .wage button{
+        width: 100%;
+        margin: 0 10px;
+    }
+}
