@@ -16,6 +16,40 @@
             border-top: 1px solid #ccc;
             padding-top: 10px;
         }
+
+
+
+        .Images_List {
+            border: 2px solid #8dbf41;
+        }
+        .wrapper {
+            display: inline-block;
+            position: relative;
+        }
+        .hover {
+            position: absolute;
+            border: 1px solid #31353d;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 188, 212, 0);
+            transition: background-color 0.5s;
+        }
+        .hover:hover {
+            background-color: rgba(0, 188, 212, 0.8);
+        }
+        img {
+            vertical-align: bottom;
+        }
+        ul.img {
+            margin: 0; /* Обнуляем значение отступов */
+            padding: 4px; /* Значение полей */
+        }
+        ul.img li {
+            display: inline; /* Отображать как строчный элемент */
+            margin-right: 5px; /* Отступ слева */
+        }
     </style>
 
 
@@ -24,9 +58,27 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="Upload photo">Выбрать фото:</label>
                 <div class="col-md-7">
-                    <input id="Upload photo" name="files" class="input-file" type="file">
+                    <button ngf-select="uploadFiles($files)" multiple  accept="image/*">Добавить фото</button>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Фото</label>
+                <div class="col-md-7">
+                    <div class="input-group">
+                        <div class="img">
+                            <div class="hover"><button type="button" ng-click="del_img(f.filename)" class="btn btn-danger btn-xs">X</button></div>
+                            <img src="//freelance.kolesnikdenis.com/upload/{{photo.filename}}" width=100 alt="{{photo.alt}}"/>
+
+                            <span class="progress" ng-show="progress >= 0">
+                        <div ng-show="progress >0 || progress < 100" style="width:{{progress}}%" ng-bind="progress + '%'"></div>
+                        </span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-group">
                 <label class="col-md-4 control-label" for="name">Имя</label>
                 <div class="col-md-7">
@@ -78,7 +130,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label col-xs-7" for="Address">Адресс:</label>
                 <div class="col-md-3  col-xs-12">
-                    <input id="Address" name="city" value="{{profile.city}}"  type="text" placeholder="Город" class="form-control input-md ">
+                    <input id="Address" name="city"  ng-model="profile.city"   type="text" placeholder="Город" class="form-control input-md ">
                 </div>
                 <div class="col-md-4 col-xs-12">
 

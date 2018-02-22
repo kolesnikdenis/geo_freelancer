@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMessages', 'cgNotify', 'LocalStorageModule', 'rzModule'])
+angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMessages', 'cgNotify', 'LocalStorageModule', 'rzModule','ngFileUpload'])
     .config(function($locationProvider, $routeProvider) {
         $locationProvider.html5Mode({
             enabled: true,
@@ -49,9 +49,7 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
 angular.module('app').factory('authInterceptor', function (AuthService) {
     return {
         request: function (config) {
-
             const auth = AuthService.getAuthData();
-
             if (config.url.match(/\/\/freelance\.kolesnikdenis\.com\/api/)) {
                 config.headers['Auth'] = JSON.stringify(auth);
             }

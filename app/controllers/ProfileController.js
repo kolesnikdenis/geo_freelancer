@@ -1,4 +1,9 @@
-angular.module('app').controller('ProfileController', function($rootScope, $location, UserService, notify, AuthService) {
+angular.module('app').controller('ProfileController', function($rootScope, $location, UserService, notify, AuthService, Upload, $timeout,$http) {
+
+    $rootScope.files = "";
+    $rootScope.table='user'; // что то придумаю с этим
+    $rootScope.errorMsg="";
+    $rootScope.photo = {filename: "", alt: ""};
 
     $rootScope.marker_work={ radius: 1, title: "",desc: "",lat: 0, lng: 0,id:-1 };
     $rootScope.select_marker="null select marker";
@@ -8,8 +13,60 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
         console.log("null");
     }
 
-    $rootScope.save_profile = function () {
+    $rootScope.uploadFiles = function (files) {
+        console.log("test");
+        $rootScope.files = files;
+        if (files && files.length) {
+            var data1 = { files: files,  table: $rootScope.table, id: $rootScope.profile.id }
+            Upload.upload({
+                url: '//freelance.kolesnikdenis.com/api/upload_stream',
+                data: data1
+            }).then(function (response) {
+                $timeout(function () {
+                    $rootScope.result = response.data;
+                    console.log( $rootScope.result);
+                    for ( var i in $rootScope.result.photos ) {
+                        $rootScope.photo = { filename: $rootScope.result.photos[i], alt: $rootScope.result.photos[i] };
+                    }
+                    if ($rootScope.result.status=="ok") {
+                        data1={ table:$rootScope.table, id: $rootScope.profile.id, filelist:[$rootScope.photo]};
+                        $http.post('//freelance.kolesnikdenis.com/api/save_list_img',data1).then(
+                            function (response) {
+                                if (response.data.status=="ok") {
+                                    console.log("files upload and blog update");
+                                    notify({
+                                        message: 'успешно загружено',
+                                        duration: 10000,
+                                        classes: 'alert alert-success'
+                                    });
 
+                                }
+                            });
+                    }
+                });
+            }, function (response) {
+                if (response.status > 0) {
+                    $rootScope.errorMsg = response.status + ': ' + response.data;
+                    console.log($rootScope.errorMsg);
+                }
+            }, function (evt) {
+                $rootScope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        }
+    };
+    $rootScope.del_img = function (img_name) {
+        console.log($rootScope.id,$rootScope.table,img_name);
+        var data={
+            id:$rootScope.id,table:$rootScope.table,del_file: img_name
+        };
+        $http.post('//freelance.kolesnikdenis.com/api/delete_file',data).then(
+            function (response) {
+                if (response.data.status=="ok"){
+                    $rootScope.photos = $rootScope.photos.filter(function (i){ if ( i.filename != response.data.del_file ) return i })
+                }
+            });
+    };
+    $rootScope.save_profile = function () {
         var update = {
             address: $rootScope.profile.address,
             apartment: $rootScope.profile.apartment,
@@ -45,8 +102,6 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
             })
         }
 
-
-
     $rootScope.profile =
         {
             address: "адресс",
@@ -68,10 +123,11 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
                         //AuthService.saveAuthData(response.data.user_profile.token, response.data.user_profile.mail);
                         $rootScope.profile=response.data.user_profile;
                         $rootScope.profile.geo = JSON.parse(response.data.user_profile.geo);
+                        $rootScope.photo =  JSON.parse(response.data.user_profile.photos)[0]
                         if ($rootScope.profile.geo.length>0 ){
                             for ( var i=0; i< $rootScope.profile.geo.length; i++){
                                 places.push($rootScope.profile.geo[i]);
-                                console.log($rootScope.profile.geo[i]);
+                                //console.log($rootScope.profile.geo[i]);
                             }
                         } else {
                             $rootScope.profile.geo = places;
@@ -84,12 +140,6 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
                             }
                         }
                         $rootScope.$broadcast('authenticated');
-                        notify({
-                            message: 'данные пользователя в консоли))',
-                            duration: 10000,
-                            classes: 'alert alert-success'
-                        });
-                        console.log(response.data.user_profile)
                     }
                     else {
                         notify({
