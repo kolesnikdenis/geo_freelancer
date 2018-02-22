@@ -36,6 +36,11 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 controller: 'ExtendedSearchController',
                 controllerAs: 'extendedSearchCtrl',
             })
+            .when('/profile', {
+                templateUrl: 'views/userInfo.html',
+                controller: 'ProfileController',
+                controllerAs: 'profileControllerCtrl',
+            })
             .otherwise({'template': '<h1>Route not found</h1>'})
     });
 
@@ -47,7 +52,7 @@ angular.module('app').factory('authInterceptor', function (AuthService) {
 
             const auth = AuthService.getAuthData();
 
-            if (config.url.match(/^http:\/\/freelance\.kolesnikdenis\.com\/api/)) {
+            if (config.url.match(/\/\/freelance\.kolesnikdenis\.com\/api/)) {
                 config.headers['Auth'] = JSON.stringify(auth);
             }
             return config;
