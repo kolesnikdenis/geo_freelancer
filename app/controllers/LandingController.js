@@ -1,5 +1,4 @@
 angular.module('app').controller('LandingController', function($location, $scope, LandingService) {
-    $scope.tt="test";
     $scope.category={};
     LandingService.getAll().then((category) => {
         $scope.category = category.data.response;
