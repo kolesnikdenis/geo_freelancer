@@ -1,0 +1,179 @@
+
+<div>
+<form class="form-horizontal">
+<legend>Вашь профиль</legend>
+
+    <style>
+        #ex1Slider .slider-selection {
+            background: #BABABA;
+        }
+        #map {
+            height:400px;
+            width:100%;
+        }
+        .infoWindowContent {
+            font-size:  14px !important;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+    </style>
+
+
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="Upload photo">Выбрать фото:</label>
+                <div class="col-md-7">
+                    <input id="Upload photo" name="files" class="input-file" type="file">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Имя</label>
+                <div class="col-md-7">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user">
+                            </i>
+                        </div>
+                        <input id="name" ng-model="profile.firstname" value="{{profile.firstname}}" name="name" type="text" placeholder="Ваше имя" class="form-control input-md">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Фамилия</label>
+                <div class="col-md-7">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user">
+                            </i>
+                        </div>
+                        <input id="name" ng-model="profile.surname"  value="{{profile.surname}}" name="name" type="text" placeholder="Ваша Фамилия" class="form-control input-md">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Отчество</label>
+                <div class="col-md-7">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user">
+                            </i>
+                        </div>
+                        <input id="name" ng-model="profile.patronymic" value="{{profile.patronymic}}" name="name" type="text" placeholder="Ваше Отчество" class="form-control input-md">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="Phone number">Номер телефона:</label>
+                <div class="col-md-7">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <input id="Phone number" ng-model="profile.phone" value="{{profile.phone}}"  name="Phone number " type="text" placeholder="Вашь номер телефона" class="form-control input-md">
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label col-xs-7" for="Address">Адресс:</label>
+                <div class="col-md-3  col-xs-12">
+                    <input id="Address" name="city" value="{{profile.city}}"  type="text" placeholder="Город" class="form-control input-md ">
+                </div>
+                <div class="col-md-4 col-xs-12">
+
+                    <input id="Address" name="Address" ng-model="profile.address" value="{{profile.address}}" type="text" placeholder="область \ р-н \ ул. и т.д." class="form-control input-md ">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label  " for="Address"></label>
+                <div class="col-md-3  col-xs-3">
+                    <input id="Address" name="apartment" ng-model="profile.apartment" value="{{profile.apartment}}" type="text" placeholder="Квартира" class="form-control input-md ">
+                </div>
+
+                <div class="col-md-4  col-xs-3">
+                    <input id="Address" name="house"  ng-model="profile.house"  value="{{profile.house}}" type="text" placeholder="Дом" class="form-control input-md ">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="descr">Пару слов о себе:</label>
+                <div class="col-md-7">
+                    <textarea class="form-control" ng-model="profile.description" rows="10"   id="descr" name="О себе:">{{profile.description}}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="Email Address">Email Address</label>
+                <div class="col-md-7">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-envelope-o fa-fw"></i>
+                        </div>
+                        <input disabled id="Email Address"  value="{{profile.mail}}" name="mail" type="text"  class="form-control input-md">
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" ></label>
+                <div class="col-md-7">
+                    <dl class="dl-horizontal">
+                        <dt>дата регистрации</dt>
+                        <dd>{{profile.datatime}}</dd>
+                        <dt>Ваш id в системе:</dt>
+                        <dd>{{profile.id}}</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" ></label>
+                <div class="col-md-7">
+                    <a  ng-href="javascript: return false;"  ng-click="save_profile()" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Submit</a>
+                    <a href="#" class="btn btn-danger" value=""><span class="glyphicon glyphicon-remove-sign"></span> Clear</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <p>карта:</p>
+
+            <div class="row">
+                <div class="col-xs-10 vcenter"> <rzslider ng-show="marker_work.id != '-1'" rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
+
+                    <div  ng-show="marker_work.id != '-1'" class="form-group">
+                        <label class="col-md-4 control-label" for="titlemarker">Заголовок:</label>
+                        <div class="col-md-7">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-envelope-o fa-fw"></i>
+                                </div>
+                                <input type="text" id=titlemarker ng-change="changeTitle()" placeholder="Title" class="form-control" ng-model="marker_work.title"><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div  ng-show="marker_work.id != '-1'" class="form-group">
+                        <label class="col-md-4 control-label" for="descriptionmarker">Описание:</label>
+                        <div class="col-md-7">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-envelope-o fa-fw"></i>
+                                </div>
+                                <input type="text" id="descriptionmarker" ng-change="changeDesc()" placeholder="Description" class="form-control" ng-model="marker_work.desc">
+                            </div>
+
+                        </div>
+                    </div>  </div>
+                <div class="col-xs-2 vcenter">
+                    <button  ng-click="hidden_edit_component()" ng-show="marker_work.id != '-1'" class="btn btn-danger">X</button>
+                </div>
+            </div>
+
+
+            <div id="map"></div>
+            <button class="btn btn-primary" ng-click="add_my_geo()" > show my position</button>
+            <div id="class" ng-repeat="(key, marker) in places " >
+                <a  ng-href="javascript: return false;" ng-click="openInfoWindow($event, marker)">{{marker.title}} </a><button type="button" ng-click="del_dot(key)" class="btn btn-danger"><i class="fa fa-trash" ></i></button>
+            </div>
+        </div>
+    </div>
+</form>
+    {{}}
+</div>
