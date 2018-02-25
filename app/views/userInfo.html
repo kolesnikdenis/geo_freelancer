@@ -16,9 +16,6 @@
             border-top: 1px solid #ccc;
             padding-top: 10px;
         }
-
-
-
         .Images_List {
             border: 2px solid #8dbf41;
         }
@@ -58,7 +55,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="Upload photo">Выбрать фото:</label>
                 <div class="col-md-7">
-                    <button ngf-select="uploadFiles($files)" multiple  accept="image/*">Добавить фото</button>
+                    <button class="btn btn-info" ngf-select="uploadFiles($files)" multiple  accept="image/*">Добавить фото</button>
                 </div>
             </div>
 
@@ -66,7 +63,7 @@
                 <label class="col-md-4 control-label" for="name">Фото</label>
                 <div class="col-md-7">
                     <div class="input-group">
-                        <div class="img">
+                        <div ng-show="!photo.filename==''"  class="img">
                             <div class="hover"><button type="button" ng-click="del_img(f.filename)" class="btn btn-danger btn-xs">X</button></div>
                             <img src="//freelance.kolesnikdenis.com/upload/{{photo.filename}}" width=100 alt="{{photo.alt}}"/>
 
@@ -218,14 +215,18 @@
                 </div>
             </div>
 
-
             <div id="map"></div>
-            <button class="btn btn-primary" ng-click="add_my_geo()" > show my position</button>
+            <button class="btn btn-primary" ng-click="add_my_geo()" >Показать меня на карте</button>
             <div id="class" ng-repeat="(key, marker) in places " >
-                <a  ng-href="javascript: return false;" ng-click="openInfoWindow($event, marker)">{{marker.title}} </a><button type="button" ng-click="del_dot(key)" class="btn btn-danger"><i class="fa fa-trash" ></i></button>
+                <a  href="javascript: google.maps.event.trigger(profileControllerCtrl.marker[key],'click');" >{{marker.title}} </a><button type="button" ng-click="del_dot(key)" class="btn btn-danger"><i class="fa fa-trash" ></i></button>
             </div>
+
+            <hr width="50%">
+            <button type="button" ng-click="show_all_message()" class="btn btn-primary">
+                (Новых \ всего) сообщений<span class="badge badge-light">{{new_message}}\{{all_msg}}</span>
+                <span class="sr-only">unread messages</span>
+            </button>
         </div>
     </div>
 </form>
-    {{}}
 </div>

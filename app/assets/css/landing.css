@@ -146,6 +146,16 @@ p{
     display: block;
 }
 
+#BigMap{
+/*width="920" height="470"*/
+    height:470px;
+    width:100%;
+}
+
+#LittleMap {
+    height:470px;
+    width:100%;
+}
 .blog-info h3{
     font-weight: bold;
 }

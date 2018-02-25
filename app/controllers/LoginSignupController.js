@@ -13,7 +13,7 @@ angular.module('app').controller('LoginSignupController', function($rootScope, $
             .then((response) => {
 
                 if (response.data.status === 'ok') {
-                    AuthService.saveAuthData(response.data.user_profile.token, response.data.user_profile.mail);
+                    AuthService.saveAuthData(response.data.user_profile.token, response.data.user_profile.mail, response.data.user_profile.id);
                     $rootScope.$broadcast('authenticated');
                     notify({
                         message: 'Вход выполнен успешно',
