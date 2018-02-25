@@ -16,7 +16,8 @@ const streamQueue = require('streamqueue');
 gulp.task('connect', function () {
     connect.server({
         root: './app/',
-        port: 8888,
+        port: 8889,
+	host: '185.43.251.89',
         livereload: false,
         fallback: './app/index.html'
     });
