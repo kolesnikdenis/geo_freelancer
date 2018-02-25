@@ -1,4 +1,8 @@
 angular.module('app').controller('ProfileController', function($rootScope, $location, UserService, notify, AuthService, Upload, $timeout,$http) {
+
+    $rootScope.new_message=0;
+    $rootScope.all_msg=0;
+
     $rootScope.files="";
     $rootScope.table='user'; // что то придумаю с этим
     $rootScope.errorMsg="";
@@ -11,6 +15,29 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
         $rootScope.marker_work={ radius: 1, title: "",desc: "",lat: 0, lng: 0,id:-1 };
         console.log("null");
     };
+
+    $rootScope.show_all_message= function(){
+        UserService.requestGetMsgAll(AuthService.getAuthData())
+            .then((response) => {
+                console.log(response.data);
+                if (response.data.status === 'ok') {
+                    var msg = "";
+                    console.log(response.data.arr_msg);
+
+                    response.data.arr_msg.map(function (m,i) {
+                        msg += "i: "+i+" "+m.msg + "\r\n"
+                    });
+
+
+                    notify({
+                        message: "все сообщения:<br>" + msg,
+                        duration: 30000,
+                        classes: 'alert alert-success'
+                    });
+                }
+            });
+
+    }
     $rootScope.uploadFiles = function (files) {
         console.log("test");
         $rootScope.files = files;
@@ -114,7 +141,25 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
             surname:"фамилия",
         };
     this.getInfoUser = function() {
+
+
+
         if ( AuthService.isAuthenticated() ) {
+            UserService.requestGetMsgNew(AuthService.getAuthData())
+                .then((response) => {
+                        if (response.data.status === 'ok') {
+                            $rootScope.new_message=(response.data.new_msg.length>0)?response.data.new_msg.length:0;
+                        }}
+                    );
+
+            UserService.requestGetMsgCountAll(AuthService.getAuthData())
+                .then((response) => {
+                    console.log(response.data);
+                    if (response.data.status === 'ok') {
+                        $rootScope.all_msg=(response.data.count_all_msg)?response.data.count_all_msg:0;
+                    }}
+                );
+
             UserService.requestUserInfo(AuthService.getAuthData())
                 .then((response) => {
                     if (response.data.status === 'ok') {
@@ -161,6 +206,8 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
     $rootScope.add_my_geo = function () {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(function(location) {
+                $rootScope.map.setCenter({lat : location.coords.latitude,lng : location.coords.longitude});
+                $rootScope.map.setZoom(13);
                 places.push(
                     {
                         title : 'Are you here!',
@@ -324,3 +371,5 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
         });
     }
 });
+
+

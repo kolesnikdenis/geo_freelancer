@@ -3,18 +3,21 @@ angular.module('app').factory('AuthService', function(localStorageService) {
         isAuthenticated() {
             return localStorageService.get('username') && localStorageService.get('token');
         },
-        saveAuthData(token, username) {
+        saveAuthData(token, username, user_id) {
             localStorageService.set('token', token);
+            localStorageService.set('user_id', user_id);
             localStorageService.set('username', username);
         },
         getAuthData() {
             return {
                 username: localStorageService.get('username'),
+                user_id: localStorageService.set('user_id'),
                 token: localStorageService.get('token')
             };
         },
         removeAuthData() {
             localStorageService.remove('username');
+            localStorageService.remove('user_id');
             localStorageService.remove('token');
         }
     }
