@@ -2,8 +2,9 @@ body{
     font-family:  'Lato';
     color: #4A4A4A;
     font-size: 16px;
+    max-width: 100%;
 }
-h1{
+.order h1, .descrition h1, .access-service h1, .blog h1{
     color: #9CBC7C;
     padding-bottom: 30px;
 }
@@ -36,16 +37,20 @@ p{
     padding-top: 127px;
     padding-left: 82px;
 }
+
 .search-input{
     height: 63px;
     outline: 0 none;
     font-size: 16px;
     border: none;
-    background-image: url("img_categor/Zoom.png");
+    background-image: url("../img/Zoom.png");
     background-repeat: no-repeat;
     background-position: 10px;
-    padding-left: 36px;
 }
+.search-input{
+    padding-left: 36px !important;
+}
+
 .plain-search-button{
     height: 63px;
     font-size: 16px;
@@ -54,6 +59,16 @@ p{
     outline: 0;
     border: none;
 }
+.plain-search-button-categor a{
+    color: #9CBC7C;
+}
+.plain-search-button-categor a:hover{
+    text-decoration: none;
+    color: #9CBC7C;
+}
+#categories{
+
+}
 .plain-search-button-categor{
     height: 63px;
     outline: 0;
@@ -61,6 +76,27 @@ p{
     color: #9CBC7C;
     background-color: #ffffff;
     font-size: 12px;
+}
+.item:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #4A4A4A;
+    opacity: 0.4;
+}
+.item h3{
+    color: #FFFFFF;
+    position: relative;
+    top: -70px;
+    left: 207px;
+    /*float: right;*/
+    display: inline-block;
+    height: 0;
+    margin: 0;
+    padding-right: 20px;
 }
 .descrition{
     padding-top: 30px;
