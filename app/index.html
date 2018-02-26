@@ -60,16 +60,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href='/'>NeighborHub</a>
+                    <a class="navbar-brand" href='/'><span>Neighbor</span>Hub</a>
                 </div>
                 <div class="collapse navbar-collapse" uib-collapse="headerCtrl.isNavCollapsed">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Стать исполнителем</a></li>
+                        <li class="active-li"><a href="#">Стать исполнителем</a></li>
                         <li><a href="#">О нас</a></li>
                         <li><a href="#">Блог</a></li>
                         <li ng-if="!headerCtrl.showProfile"><a href='/login'>Вход</a></li>
-                        <li ng-if="headerCtrl.showProfile"><a href='/profile'>Профиль</a></li>
+                        <li class="blog-li" ng-if="headerCtrl.showProfile"><a href='/profile'>Профиль</a>
+                            <img src="../img_categor/Zoom.png" alt="zoom">
+                        </li>
                         <li ng-if="headerCtrl.showProfile"><a class='link-pointer' ng-click="headerCtrl.signOut()">Выход</a></li>
                     </ul>
                 </div>
