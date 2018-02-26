@@ -51,7 +51,7 @@
 
 
     <div class="row">
-        <div class="col-xs-7">
+        <div class="col-sm-7">
             <div class="form-group">
                 <label class="col-md-4 control-label" for="Upload photo">Выбрать фото:</label>
                 <div class="col-md-7">
@@ -181,7 +181,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-5">
+        <div class="col-sm-5">
             <p>карта:</p>
 
             <div class="row">
@@ -214,7 +214,6 @@
                     <button  ng-click="hidden_edit_component()" ng-show="marker_work.id != '-1'" class="btn btn-danger">X</button>
                 </div>
             </div>
-
             <div id="map"></div>
             <button class="btn btn-primary" ng-click="add_my_geo()" >Показать меня на карте</button>
             <div id="class" ng-repeat="(key, marker) in places " >
@@ -225,7 +224,16 @@
             <button type="button" ng-click="show_all_message()" class="btn btn-primary">
                 (Новых \ всего) сообщений<span class="badge badge-light">{{new_message}}\{{all_msg}}</span>
                 <span class="sr-only">unread messages</span>
-            </button>
+            </button><br>
+            <button type="button"  class="btn btn-primary">
+                Написать в блог
+            </button><br>
+            <button type="button"  class="btn btn-primary">
+                Стать исполнителем
+            </button><br>
+            <button type="button"  class="btn btn-primary">
+                Поиск Исполнителя
+            </button><br>
         </div>
     </div>
 </form>
