@@ -54,6 +54,16 @@
     cursor: pointer;
 }
 
+.angular-google-map-container { height: 400px; }
+
+.marker_label {
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+}
+
 @media screen and (max-width: 400px) {
 
     .vtooltip .vtooltiptext {

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDAeSl4DaDVBBV8KrSc0Qz05kRk_rBf0gQ&sensor=false&extension=.js"></script>
     <!-- inject:css -->
     <link rel="stylesheet" href="/assets/css/app.css">
     <link rel="stylesheet" href="/assets/css/landing.css">
@@ -24,7 +25,15 @@
     <script src="/bower_components/angularjs-slider/dist/rzslider.js"></script>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="/bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="/bower_components/lodash/lodash.js"></script>
+    <script src="/bower_components/markerclustererplus/src/markerclusterer.js"></script>
+    <script src="/bower_components/google-maps-utility-library-v3-markerwithlabel/dist/markerwithlabel.js"></script>
+    <script src="/bower_components/google-maps-utility-library-v3-infobox/dist/infobox.js"></script>
+    <script src="/bower_components/google-maps-utility-library-v3-keydragzoom/dist/keydragzoom.js"></script>
+    <script src="/bower_components/js-rich-marker/src/richmarker.js"></script>
     <script src="/bower_components/owl.carousel/dist/owl.carousel.js"></script>
+    <script src="/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
     <script src="/app.js"></script>
     <script src="/services/UserService.js"></script>
     <script src="/services/PassRestoreService.js"></script>
@@ -42,7 +51,6 @@
     <script src="/controllers/ExtendedSearchController.js"></script>
     <script src="/controllers/EmailConfirmationController.js"></script>
     <!-- endinject -->
-    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDAeSl4DaDVBBV8KrSc0Qz05kRk_rBf0gQ&sensor=false&extension=.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <!-- endbuild -->
     <meta charset="UTF-8">
