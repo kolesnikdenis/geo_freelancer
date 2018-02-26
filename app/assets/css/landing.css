@@ -33,6 +33,9 @@ p{
 .maps, .images, iframe{
     padding: 0;
 }
+.maps .col-md-4{
+    padding-left: 0;
+}
 .order{
     padding-top: 127px;
     padding-left: 82px;
@@ -145,9 +148,12 @@ p{
     margin-right: 100px;
 }
 .wage-h h2{
-    color: #9CBC7C;
+    color: #4A4A4A;
     padding-bottom: 20px;
     padding-top: 100px;
+}
+.wage p{
+    margin-bottom: 50px;
 }
 .button-doer{
     height: 63px;
@@ -181,9 +187,11 @@ p{
 .blog:hover .blog-info{
     display: block;
 }
-
-.blog-info h3{
+.blog-info h4{
     font-weight: bold;
+    font-size: 18px;
+    margin-top: 50px;
+    margin-bottom: 120px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -191,22 +199,34 @@ p{
 }
 @media screen and (max-width: 400px) {
 
-    h1{
-        font-size: 24px;
+    .order h1, .descrition h1, .access-service h1, .blog h1{
+        font-size: 30px;
+        padding-bottom: 20px;
     }
     p{
+        font-size: 14px;
+    }
+    .search-input, .plain-search-button-categor, .plain-search-button {
+        height: 40px;
+        margin-bottom: 5px;
+        font-size: 13px;
+    }
+    .search-input, .plain-search-button-categor{
+        margin-left: 20px;
+    }
+    .item h3{
         font-size: 18px;
     }
     .descrition-text button{
         width: 100%;
-        height: 80px;
+        height: 40px;
         background-color: #416777;
         opacity: 0.6;
         color: #ffffff;
         outline: 0;
         border: none;
         margin: 6px 10px;
-        font-size: 20px;
+        font-size: 16px;
         border-radius: unset;
     }
     .descrition-text h2{
@@ -222,7 +242,8 @@ p{
         width: 100%;
     }
     .button-doer{
-        font-size: 20px;
+        height: 40px;
+        font-size: 16px;
     }
     .wage button{
         width: 100%;

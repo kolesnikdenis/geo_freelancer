@@ -56,9 +56,10 @@
 
 /*header style*/
 .navbar-default{
-    background-color: #FFFFFF;
+    background-color: #FFFFFF !important;
     padding-top: 20px;
-    min-height: 100px;
+    min-height: 100px !important;
+    margin: 0 !important;
 }
 .navbar-brand{
     font-size: 36px !important;
@@ -73,6 +74,9 @@
     position: relative;
     top: -35px;
     right: 10px;
+}
+.navbar-right li a:hover{
+    color: #9CBC7C !important;
 }
 
 @media screen and (max-width: 400px) {
@@ -96,5 +100,9 @@
     .login-text {
         color: red;
         padding-top: 5px;
+    }
+
+    .navbar-brand{
+        font-size: 30px !important;
     }
 }
