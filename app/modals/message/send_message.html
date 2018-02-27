@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h3 class="modal-title">Отправить сообщение:</h3>
+</div>
+
+<div class="modal-body">
+
+    <p class="text-danger" ng-show="send_message_body.from_id == '0'">Укажите, пожалуйста, свои контактные данные, по скольку вы не авторизированны на нашем сайте, и получатель не сможет ответить вам внутри (системы\сайта) сообщением.</p>
+    <form>
+        <div class="form-group">
+            <label for="Send_Msg_Body">Отправить сообщение:</label>
+            <textarea class="form-control" id="Send_Msg_Body" ng-model="send_message_body.msg" rows="3"></textarea>
+        </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-danger" ng-click="cancel()">Отмена</button>
+        <button type="submit" ng-click="send()" class="btn btn-primary mb-2">Отправить</button>
+    </div>
+    </form>
+</div>

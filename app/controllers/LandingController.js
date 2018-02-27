@@ -1,4 +1,4 @@
-angular.module('app').controller('LandingController', function($location, $scope, LandingService,AdsService,UserService) {
+angular.module('app').controller('LandingController', function($location, $scope, LandingService,AdsService,UserService,  $compile,$uibModal,AuthService,MsgService,notify) {
     $scope.category={};
     LandingService.getAll().then((category) => {
         $scope.category = category.data.response;
@@ -47,6 +47,67 @@ angular.module('app').controller('LandingController', function($location, $scope
         disableDefaultUI: true
     });
 
+    $scope.send_msg_to = function(to_user_id){
+        //console.log("test send to",to_user_id)
+        var modalInstance = $uibModal.open({
+            animation: false,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: '/modals/message/send_message.html',
+            //template: '<input type=text class="input"><br><button >отправить сообщение пользователю</button>',
+            controller:function($uibModalInstance ,$scope,items){
+                $scope.send_message_body ={to_user_id: to_user_id, from_id:!AuthService.getAuthData().user_id?0:AuthService.getAuthData().user_id, msg: ""};
+
+                $scope.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                    console.log('well  bye Bye');
+                };
+                $scope.send = function() {
+                    if (!$scope.send_message_body.msg || $scope.send_message_body.msg.length <=0 ) {
+                        notify({ message: "сообщение не может быть пустым", duration: 3000, classes: 'alert alert-danger'  });
+                    } else {
+                        console.log($scope.send_message_body);
+                        MsgService.requestSendMsg($scope.send_message_body).then((resp_user) => {
+                            if (resp_user.data.status=="ok"){
+                                notify({ message: "Спасибо, Ваше сообщение успешно отправлено", duration: 3000, classes: 'alert alert-info'  });
+                            }else {
+                                notify({ message: "произошла ошибка", duration: 3000, classes: 'alert alert-danger'  });
+                            }
+
+                        });
+                        $uibModalInstance.close($scope.send_message_body);
+                    }
+                };
+
+                $uibModalInstance.result.then(function (selectedItem) {
+                    console.log("тут шлем:",selectedItem);
+                    /*loginData={username: selectedItem.mail, password:selectedItem.password};
+                    $http.post('//freelance.kolesnikdenis.com/api/account', loginData).then(
+                        function (response) {
+                            if (response.data.status == "ok" ) {
+                                console.log("тут шлем:D")
+                            }else {
+                                console.log("error:",response);
+                            }
+                        })*/
+                    //modalInstance.close(console.log($scope.newUser));
+                }, function () {
+                    //console.log('Modal dismissed at: ' + new Date());
+                    console.log("почему??? :'(");
+                    //modalInstance.dismiss(console.log($scope.newUser));
+                });
+
+            },
+            //size: size,
+            //appendTo: parentElem,
+            resolve: {
+                items: function () {
+                    return $scope;
+                }
+            }
+        });
+
+    };
 
     //если геолокация абона доступна то:
     if ("geolocation" in navigator) {
@@ -80,25 +141,23 @@ angular.module('app').controller('LandingController', function($location, $scope
                     }
 
                     UserService.requestGetInfoAboutUser(arr_data[i].user_id).then((resp_user) => {
-                         var name = resp_user.data.user_find.surname + " " + resp_user.data.user_find.firstname;
-                         var mail= resp_user.data.user_find.mail;
-                         var photo= "";
-
-                         if ( JSON.parse(resp_user.data.user_find.photos) && JSON.parse(resp_user.data.user_find.photos)[0] && JSON.parse(resp_user.data.user_find.photos)[0].filename ) {
-                             photo = '<img src="/upload/' +JSON.parse(resp_user.data.user_find.photos)[0].filename+'" width="50px"><br>' ;
-                         }
-
-                        marker.content = '<div class="infoWindowContent"> user id: ' + name + '<br>mail: <a href="mailto:' + mail +'">mail</a> <br></div>'  +
-                            photo+
-                            '<div width="20px">Ration: <span class="glyphicon glyphicon-star"></span>'+resp_user.data.user_find.rating+'<div class="progress" style="height: 10px;">\n' +
-                            '<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 10px; width: '+resp_user.data.user_find.rating+'%">\n' +
-                            '<span class="sr-only">'+resp_user.data.user_find.rating+'%</span>\n' +
-                            ''+
-                            '</div>' +
-                            '</div></div>'+
-                            '<button class="btn btn-success">send msg to user</button><button class="btn btn-success">show profile touser</button>'
+                        $scope.name = resp_user.data.user_find.surname + " " + resp_user.data.user_find.firstname;
+                        $scope.mail = resp_user.data.user_find.mail;
+                        $scope.photo ="";
+                        $scope.rating= resp_user.data.user_find.rating;
+                        $scope.id=resp_user.data.user_find.id;
+                        //$scope.send_message_body.from_id = resp_user.from_user_id;  // если токен абонента пуст
+                        if ( JSON.parse(resp_user.data.user_find.photos) && JSON.parse(resp_user.data.user_find.photos)[0] && JSON.parse(resp_user.data.user_find.photos)[0].filename ) {
+                            $scope.photo = JSON.parse(resp_user.data.user_find.photos)[0].filename ;
+                        }
+                        var html = "<ng-include src=\"'" + "/modals/marker/lending_marker_info.html" + "'\"></ng-include>";
+                        var div = $('<div>');
+                        div.html(html);
+                        var newElem = $compile(div)($scope);
+                       // var compiled = $compile(marker.content)($scope);
                         google.maps.event.addListener(marker, 'click', function () {
                             infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+                            infoWindow.setContent( newElem[0]),
                             infoWindow.open($scope.map, marker);
                         });
                         $scope.markers.push(marker);
