@@ -54,6 +54,7 @@
     cursor: pointer;
 }
 
+
 .angular-google-map-container { height: 400px; }
 
 .marker_label {
@@ -62,6 +63,26 @@
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
+
+.navbar-default{
+    background-color: #FFFFFF;
+    padding-top: 20px;
+    min-height: 100px;
+}
+.navbar-brand{
+    font-size: 36px !important;
+}
+.navbar-brand span{
+    color: #9CBC7C;
+}
+.active-li>a{
+    color: #9CBC7C !important;
+}
+.blog-li img{
+    position: relative;
+    top: -35px;
+    right: 10px;
+
 }
 
 @media screen and (max-width: 400px) {
