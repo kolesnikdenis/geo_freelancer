@@ -18,6 +18,5 @@ angular.module('app').factory('UserService', function($http) {
         requestGetInfoAboutUser(UserId) {
             return $http.get('//freelance.kolesnikdenis.com/api/get_user_profile/'+UserId)
         },
-
     }
 });
