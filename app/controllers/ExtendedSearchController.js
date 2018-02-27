@@ -78,7 +78,11 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
     this.currentPosMarker = {
         id: 0,
         options: { draggable: true },
-        events: {},
+        events: {
+            dragend : () => {
+                this.adsMarkers = $scope.filterAds.map(createMarker).filter(filterMarkerByRadius.bind(this));
+            }
+        },
         coords: { latitude: 45, longitude: -73 }
     };
     this.mapCircle = {
