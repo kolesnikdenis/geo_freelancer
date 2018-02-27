@@ -1,10 +1,9 @@
-angular.module('app').controller('ProfileController', function($rootScope, $location, UserService, notify, AuthService, Upload, $timeout,$http) {
-
+angular.module('app').controller('ProfileController', function($rootScope, $location, UserService, notify, AuthService, Upload, $timeout,$http,MsgService) {
     $rootScope.new_message=0;
     $rootScope.all_msg=0;
 
     $rootScope.files="";
-    $rootScope.table='user'; // что то придумаю с этим
+    $rootScope.table='user';
     $rootScope.errorMsg="";
     $rootScope.photo = {filename: "", alt: ""};
 
@@ -17,18 +16,14 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
     };
 
     $rootScope.show_all_message= function(){
-        UserService.requestGetMsgAll(AuthService.getAuthData())
+        MsgService.requestGetMsgAll(AuthService.getAuthData())
             .then((response) => {
                 console.log(response.data);
                 if (response.data.status === 'ok') {
                     var msg = "";
-                    console.log(response.data.arr_msg);
-
                     response.data.arr_msg.map(function (m,i) {
                         msg += "i: "+i+" "+m.msg + "\r\n"
                     });
-
-
                     notify({
                         message: "все сообщения:<br>" + msg,
                         duration: 30000,
@@ -39,7 +34,6 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
 
     }
     $rootScope.uploadFiles = function (files) {
-        console.log("test");
         $rootScope.files = files;
         if (files && files.length) {
             var data1 = { files: files,  table: $rootScope.table, id: $rootScope.profile.id }
@@ -49,7 +43,6 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
             }).then(function (response) {
                 $timeout(function () {
                     $rootScope.result = response.data;
-                    console.log( $rootScope.result);
                     for ( var i in $rootScope.result.photos ) {
                         $rootScope.photo = { filename: $rootScope.result.photos[i], alt: $rootScope.result.photos[i] };
                     }
@@ -58,7 +51,6 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
                         $http.post('//freelance.kolesnikdenis.com/api/save_list_img',data1).then(
                             function (response) {
                                 if (response.data.status=="ok") {
-                                    console.log("files upload and blog update");
                                     notify({
                                         message: 'успешно загружено',
                                         duration: 10000,
@@ -72,7 +64,6 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
             }, function (response) {
                 if (response.status > 0) {
                     $rootScope.errorMsg = response.status + ': ' + response.data;
-                    console.log($rootScope.errorMsg);
                 }
             }, function (evt) {
                 $rootScope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
@@ -145,14 +136,14 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
 
 
         if ( AuthService.isAuthenticated() ) {
-            UserService.requestGetMsgNew(AuthService.getAuthData())
+            MsgService.requestGetMsgNew(AuthService.getAuthData())
                 .then((response) => {
                         if (response.data.status === 'ok') {
                             $rootScope.new_message=(response.data.new_msg.length>0)?response.data.new_msg.length:0;
                         }}
                     );
 
-            UserService.requestGetMsgCountAll(AuthService.getAuthData())
+            MsgService.requestGetMsgCountAll(AuthService.getAuthData())
                 .then((response) => {
                     console.log(response.data);
                     if (response.data.status === 'ok') {
@@ -263,7 +254,6 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
 
     //добавить маркер
     google.maps.event.addListener($rootScope.map, 'click', function(event) {
-        console.log("")
         places.push(
             {
                 title : 'заголовок точки',
