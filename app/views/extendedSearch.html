@@ -24,6 +24,21 @@
         <div>
             <rzslider rz-slider-model="extendedSearchCtrl.priceSlider.minValue" rz-slider-high="extendedSearchCtrl.priceSlider.maxValue" rz-slider-options="{floor: 0, ceil: extendedSearchCtrl.getMaxPrice(extendedSearchCtrl.ads)}"></rzslider>
         </div>
+        <p>Радиус (км):</p>
+        <div>
+            <rzslider rz-slider-model="extendedSearchCtrl.radiusSlider.value" rz-slider-options="{floor: 0, ceil: 50000}"></rzslider>
+        </div>
+        <div>
+            <ui-gmap-google-map center="extendedSearchCtrl.map.center" zoom="extendedSearchCtrl.map.zoom">
+                <ui-gmap-circle center='extendedSearchCtrl.mapCircle.center'
+                                radius='extendedSearchCtrl.mapCircle.radius'
+                                fill='extendedSearchCtrl.mapCircle.fill'
+                                stroke='extendedSearchCtrl.mapCircle.stroke'>
+                </ui-gmap-circle>
+                <ui-gmap-marker coords="extendedSearchCtrl.currentPosMarker.coords" options="extendedSearchCtrl.currentPosMarker.options" events="extendedSearchCtrl.currentPosMarker.events" idkey="extendedSearchCtrl.currentPosMarker.id"></ui-gmap-marker>
+                <ui-gmap-markers models="extendedSearchCtrl.adsMarkers" coords="'self'" icon="'icon'" options="'options'">
+            </ui-gmap-google-map>
+        </div>
     </div>
     <div class="col-xs-12 col-md-6">
         <div ng-repeat="ad in filterAds = (extendedSearchCtrl.ads

@@ -54,7 +54,16 @@
     cursor: pointer;
 }
 
-/*header style*/
+
+.angular-google-map-container { height: 400px; }
+
+.marker_label {
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
 .navbar-default{
     background-color: #FFFFFF;
     padding-top: 20px;
@@ -73,6 +82,7 @@
     position: relative;
     top: -35px;
     right: 10px;
+
 }
 
 @media screen and (max-width: 400px) {
