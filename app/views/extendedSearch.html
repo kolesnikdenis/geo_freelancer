@@ -38,6 +38,10 @@
                 <ui-gmap-marker coords="extendedSearchCtrl.currentPosMarker.coords" options="extendedSearchCtrl.currentPosMarker.options" events="extendedSearchCtrl.currentPosMarker.events" idkey="extendedSearchCtrl.currentPosMarker.id"></ui-gmap-marker>
                 <ui-gmap-markers models="extendedSearchCtrl.adsMarkers" coords="'self'" icon="'icon'" options="'options'">
             </ui-gmap-google-map>
+            <div class="btn-group" ng-if="extendedSearchCtrl.isAuthenticated">
+                <label class="btn btn-primary" ng-model="extendedSearchCtrl.radioModel" uib-btn-radio="'currentPos'" >Текущая позиция</label>
+                <label class="btn btn-primary" ng-model="extendedSearchCtrl.radioModel" uib-btn-radio="'storedPos'">Позиция из профиля</label>
+            </div>
         </div>
     </div>
     <div class="col-xs-12 col-md-6">
