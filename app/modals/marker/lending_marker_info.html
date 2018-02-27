@@ -1,0 +1,8 @@
+<div class="infoWindowContent">Пользователь: {{name}}<br>mail: <a href="mailto:{{mail}}">{{mail}}</a> <br></div>
+<img ng-show="photo != ''" src="/upload/{{photo}}" width="50px"><br>
+<div width="20px">Ration: <span class="glyphicon glyphicon-star"></span>{{rating}}<div class="progress" style="height: 10px;">
+    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 10px; width: {{rating}}%">
+        <span class="sr-only">{{rating}}</span>
+        </div>
+    </div></div>
+<button ng-click="send_msg_to(id)" class="btn btn-success">Отправить личное сообщение</button><button ng-click="send_msg_to(id)" disabled class="btn btn-success">Посмотреть профиль</button>

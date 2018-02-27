@@ -11,7 +11,7 @@ angular.module('app').factory('AuthService', function(localStorageService) {
         getAuthData() {
             return {
                 username: localStorageService.get('username'),
-                user_id: localStorageService.set('user_id'),
+                user_id: localStorageService.get('user_id'),
                 token: localStorageService.get('token')
             };
         },
