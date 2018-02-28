@@ -27,8 +27,8 @@ angular.module('app').controller('LandingController', function($location, $scope
         });
     });
     $scope.querySearch = function(queryString) {
-        $location.path("/extendedSearch/" + queryString);
-    }
+        $location.path("/extendedSearch/" + (queryString || ''));
+    };
 
     //инициилизация карт 2 шт.)
     var infoWindow = new google.maps.InfoWindow();

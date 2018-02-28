@@ -1,5 +1,7 @@
-angular.module('app').controller('ExtendedSearchController', function($routeParams, $scope, AdsService) {
+angular.module('app').controller('ExtendedSearchController', function($routeParams, $scope, $uibModal, AdsService, UserService, AuthService, MsgService, notify) {
     this.adsMarkers = [];
+    $scope.filterAds = [];
+
     AdsService.getAll().then((resp) => {
         this.ads = resp.data.ads_rows;
     }).then(() => {
@@ -8,7 +10,7 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
     }).then(() => {
         $scope.$watchCollection( () => $scope.filterAds.map((ad) => ad.id),
             () => {
-                this.adsMarkers = $scope.filterAds.map(createMarker);
+                this.adsMarkers = $scope.filterAds.map(createMarker).filter(filterMarkerByRadius.bind(this));
             }
         );
     });
@@ -34,7 +36,7 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
         maxValue: 0,
     };
     this.radiusSlider = {
-        value: 500,
+        value: 3000,
     };
     this.getMaxPrice = function(ads) {
         if (!ads) {
@@ -76,12 +78,16 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
     this.currentPosMarker = {
         id: 0,
         options: { draggable: true },
-        events: {},
-        coords: {}
+        events: {
+            dragend : () => {
+                this.adsMarkers = $scope.filterAds.map(createMarker).filter(filterMarkerByRadius.bind(this));
+            }
+        },
+        coords: { latitude: 45, longitude: -73 }
     };
     this.mapCircle = {
         center: { latitude: 45, longitude: -73 },
-        radius: 500,
+        radius: 3000,
         stroke: {
             color: '#08B21F',
             weight: 2,
@@ -96,6 +102,7 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
     $scope.$watch( () => this.radiusSlider.value,
         (newValue) => {
             this.mapCircle.radius = newValue;
+            this.adsMarkers = $scope.filterAds.map(createMarker).filter(filterMarkerByRadius.bind(this));
         }
     );
 
@@ -104,12 +111,11 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
             this.currentPosMarker.coords = {latitude: location.coords.latitude, longitude: location.coords.longitude};
             this.mapCircle.center = this.currentPosMarker.coords;
             this.map.center = {latitude: location.coords.latitude, longitude: location.coords.longitude};
-            this.map.zoom = 15;
+            this.map.zoom = 10;
         }, (err) => {
             console.error('Failed to get current position', err);
         })
     }
-
 
     function createMarker(ad) {
         const geoInfo = JSON.parse(ad.geo);
@@ -124,4 +130,82 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
             }
         };
     }
+
+    function filterMarkerByRadius (marker) {
+        if (!marker.latitude) {
+            return false;
+        }
+        const markerPos = new google.maps.LatLng(marker.latitude, marker.longitude);
+        const currentPos = new google.maps.LatLng(this.currentPosMarker.coords.latitude, this.currentPosMarker.coords.longitude);
+        const distance = google.maps.geometry.spherical.computeDistanceBetween(markerPos, currentPos);
+
+        return distance <= this.mapCircle.radius;
+    }
+
+    this.radioModel = 'currentPos';
+
+    UserService.requestUserInfo().then((response) => {
+        const userGeo = JSON.parse(response.data.user_profile.geo);
+        this.userProfileLocation = {latitude: userGeo[0].lat, longitude: userGeo[0].lng};
+    }).then(() => {
+        let currentCoords = null;
+        $scope.$watch( () => this.radioModel,
+            (newValue) => {
+                if ((newValue === 'currentPos') && currentCoords) {
+                    this.currentPosMarker.coords.latitude = currentCoords.latitude;
+                    this.currentPosMarker.coords.longitude = currentCoords.longitude;
+                    this.map.center.latitude = currentCoords.latitude;
+                    this.map.center.longitude = currentCoords.longitude;
+                    this.adsMarkers = $scope.filterAds.map(createMarker).filter(filterMarkerByRadius.bind(this));
+                } else if (newValue === 'storedPos') {
+                    currentCoords = { latitude:  this.currentPosMarker.coords.latitude, longitude: this.currentPosMarker.coords.longitude};
+                    this.currentPosMarker.coords.latitude = this.userProfileLocation.latitude;
+                    this.currentPosMarker.coords.longitude = this.userProfileLocation.longitude;
+                    this.map.center.latitude = this.userProfileLocation.latitude;
+                    this.map.center.longitude = this.userProfileLocation.longitude;
+                    this.adsMarkers = $scope.filterAds.map(createMarker).filter(filterMarkerByRadius.bind(this));
+                }
+            }
+        );
+    });
+
+    this.isAuthenticated = AuthService.isAuthenticated();
+
+    this.openModal = function (ad) {
+        const modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'sendMessageModal.html',
+            scope: $scope,
+            backdrop: true,
+            controller: function($scope) {
+                $scope.sendToUserId = ad.user_id;
+            }
+        });
+        modalInstance.result.catch(() => modalInstance.close())
+    };
+
+    this.sendMessage = function (message, toUserId, closeModal) {
+        const requestBody = {
+            from_id: AuthService.getAuthData().user_id,
+            to_user_id: toUserId,
+            msg: message
+        };
+        MsgService.requestSendMsg(requestBody).then((resp) => {
+            notify({
+                message: 'Сообщение успешно отправлено',
+                duration: 10000,
+                classes: 'alert alert-success'
+            });
+            closeModal();
+        })
+        .catch((error) => {
+            notify({
+                message: 'Произошла ошибка, попробуйте позже',
+                classes: 'alert alert-danger',
+                duration: 0,
+            });
+        })
+    };
 });

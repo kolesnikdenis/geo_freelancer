@@ -38,6 +38,10 @@
                 <ui-gmap-marker coords="extendedSearchCtrl.currentPosMarker.coords" options="extendedSearchCtrl.currentPosMarker.options" events="extendedSearchCtrl.currentPosMarker.events" idkey="extendedSearchCtrl.currentPosMarker.id"></ui-gmap-marker>
                 <ui-gmap-markers models="extendedSearchCtrl.adsMarkers" coords="'self'" icon="'icon'" options="'options'">
             </ui-gmap-google-map>
+            <div class="btn-group" ng-if="extendedSearchCtrl.isAuthenticated">
+                <label class="btn btn-primary" ng-model="extendedSearchCtrl.radioModel" uib-btn-radio="'currentPos'" >Текущая позиция</label>
+                <label class="btn btn-primary" ng-model="extendedSearchCtrl.radioModel" uib-btn-radio="'storedPos'">Позиция из профиля</label>
+            </div>
         </div>
     </div>
     <div class="col-xs-12 col-md-6">
@@ -53,9 +57,23 @@
                     <p>Категория: {{ad.category}}</p>
                     <p>Зарплата: {{ad.price}}</p>
                     <p>Опыт работы: {{ad.experience}} лет</p>
+                    <button type="button" class="btn btn-default" ng-click="extendedSearchCtrl.openModal(ad)">Связаться</button>
                 </div>
             </div>
         </div>
         <ul uib-pagination direction-links="false" boundary-links="true" total-items="filterAds.length" ng-model="extendedSearchCtrl.currentPage" items-per-page="extendedSearchCtrl.itemsPerPage"></ul>
     </div>
+    <script type="text/ng-template" id="sendMessageModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Напишите ваше сообщение</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <textarea class="messageText" ng-model="messageText"></textarea>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="extendedSearchCtrl.sendMessage(messageText, sendToUserId, $close)">Отправить</button>
+            <button class="btn btn-warning" type="button" ng-click="$close()">Отмена</button>
+        </div>
+    </script>
 </div>
+
