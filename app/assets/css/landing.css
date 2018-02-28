@@ -187,11 +187,22 @@ p{
 .blog:hover .blog-info{
     display: block;
 }
-.blog-info h4{
+
+#BigMap{
+/*width="920" height="470"*/
+    height:470px;
+    width:100%;
+}
+
+#LittleMap {
+    height:470px;
+    width:100%;
+}
+.blog-info h3{
     font-weight: bold;
-    font-size: 18px;
+    /*font-size: 18px;
     margin-top: 50px;
-    margin-bottom: 120px;
+    margin-bottom: 120px;*/
 }
 
 @media only screen and (min-width: 768px) {
