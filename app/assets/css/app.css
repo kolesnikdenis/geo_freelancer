@@ -57,32 +57,33 @@
 
 .angular-google-map-container { height: 400px; }
 
-.marker_label {
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-
-.navbar-default{
+.navbar-default {
     background-color: #FFFFFF;
     padding-top: 20px;
     min-height: 100px;
 }
-.navbar-brand{
+
+.navbar-brand {
     font-size: 36px !important;
 }
-.navbar-brand span{
+
+.navbar-brand span {
     color: #9CBC7C;
 }
-.active-li>a{
+
+.active-li > a {
     color: #9CBC7C !important;
 }
-.blog-li img{
+
+.blog-li img {
     position: relative;
     top: -35px;
     right: 10px;
+}
 
+.messageText {
+    width: 100%;
+    height: 15rem;
 }
 
 @media screen and (max-width: 400px) {

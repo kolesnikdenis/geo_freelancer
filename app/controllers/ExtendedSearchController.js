@@ -1,4 +1,4 @@
-angular.module('app').controller('ExtendedSearchController', function($routeParams, $scope, AdsService, UserService, AuthService) {
+angular.module('app').controller('ExtendedSearchController', function($routeParams, $scope, $uibModal, AdsService, UserService, AuthService, MsgService, notify) {
     this.adsMarkers = [];
     $scope.filterAds = [];
 
@@ -171,6 +171,41 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
 
     this.isAuthenticated = AuthService.isAuthenticated();
 
+    this.openModal = function (ad) {
+        const modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'sendMessageModal.html',
+            scope: $scope,
+            backdrop: true,
+            controller: function($scope) {
+                $scope.sendToUserId = ad.user_id;
+            }
+        });
+        modalInstance.result.catch(() => modalInstance.close())
+    };
 
-
+    this.sendMessage = function (message, toUserId, closeModal) {
+        const requestBody = {
+            from_id: AuthService.getAuthData().user_id,
+            to_user_id: toUserId,
+            msg: message
+        };
+        MsgService.requestSendMsg(requestBody).then((resp) => {
+            notify({
+                message: 'Сообщение успешно отправлено',
+                duration: 10000,
+                classes: 'alert alert-success'
+            });
+            closeModal();
+        })
+        .catch((error) => {
+            notify({
+                message: 'Произошла ошибка, попробуйте позже',
+                classes: 'alert alert-danger',
+                duration: 0,
+            });
+        })
+    };
 });
