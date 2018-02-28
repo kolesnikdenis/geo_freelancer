@@ -6,7 +6,7 @@ angular.module('app').controller('LandingController', function($location, $scope
             $(".owl-carousel").owlCarousel({
                 items:4,
                 loop:true,
-                margin:1,
+                margin:2,
                 nav:false,
                 responsiveClass:true,
                 merge: true,

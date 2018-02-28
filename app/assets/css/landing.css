@@ -30,15 +30,28 @@ p{
 .picture h1{
     color: #ffffff;
 }
-.maps, .images, iframe{
+.images{
     padding: 0;
 }
-.maps .col-md-4{
-    padding-left: 0;
+.maps{
+    padding-left: 2px;
+}
+.maps-access-service{
+    padding-right: 2px;
 }
 .order{
     padding-top: 127px;
     padding-left: 82px;
+}
+.order h1{
+    padding-bottom: 30px;
+    margin: 0 -15px;
+}
+.order p{
+    font-size: 15px;
+    color: #FFFFFF;
+    margin: 30px -15px;
+    padding: 0;
 }
 
 .search-input{
@@ -52,6 +65,15 @@ p{
 }
 .search-input{
     padding-left: 36px !important;
+}
+.search-input::placeholder{
+    color: #9B9B9B;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus{
+    background-color: #FFFFFF !important;
 }
 
 .plain-search-button{
@@ -69,9 +91,6 @@ p{
     text-decoration: none;
     color: #9CBC7C;
 }
-#categories{
-
-}
 .plain-search-button-categor{
     height: 63px;
     outline: 0;
@@ -79,6 +98,9 @@ p{
     color: #9CBC7C;
     background-color: #ffffff;
     font-size: 12px;
+}
+.maps .col-md-4{
+    padding-left: 2px !important;
 }
 .item:before{
     content: '';
@@ -131,6 +153,7 @@ p{
 .descrition-text{
     margin-bottom: 40px;
 }
+
 .access-service h1{
     text-align: center;
 }
@@ -138,7 +161,25 @@ p{
     background-image: url("https://images.unsplash.com/photo-1499083097717-a156f85f0516?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0857182ce680e944304c9980ec175b10&auto=format&fit=crop&w=751&q=80");
     background-size: cover;
     height: 470px;
+    position: relative;
 }
+.access-service-input{
+    border: 1px solid #9CBC7C;
+    height: 63px;
+    width: 400px;
+    padding: 30px;
+    font-size: 14px;
+    position: absolute;
+    bottom: 24px;
+    right: 370px;
+}
+.access-service-input::placeholder{
+    color: #9B9B9B;
+}
+/*.access-service-input:active{
+    border: 1px solid #9CBC7C;
+}*/
+
 .wage-center{
     vertical-align: middle;
 }
@@ -198,15 +239,18 @@ p{
     height:470px;
     width:100%;
 }
-.blog-info h3{
+.blog-info h4{
     font-weight: bold;
-    /*font-size: 18px;
+    font-size: 18px;
     margin-top: 50px;
-    margin-bottom: 120px;*/
+    margin-bottom: 120px;
 }
 
 @media only screen and (min-width: 768px) {
-
+    .button-doer {
+        height: px;
+        width: ;
+    }
 }
 @media screen and (max-width: 400px) {
 

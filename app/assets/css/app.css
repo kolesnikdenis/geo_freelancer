@@ -56,10 +56,11 @@
 
 /*header style*/
 .navbar-default{
-    background-color: #FFFFFF !important;
+    background-color: #FFFFFF;
     padding-top: 20px;
-    min-height: 100px !important;
-    margin: 0 !important;
+    min-height: 100px;
+    margin: 0;
+    border: none;
 }
 .navbar-brand{
     font-size: 36px !important;
@@ -72,8 +73,12 @@
 }
 .blog-li img{
     position: relative;
-    top: -35px;
+    top: -37px;
     right: 10px;
+    margin-left: 5px;
+}
+.blog-li a{
+    margin-left: 15px;
 }
 .navbar-right li a:hover{
     color: #9CBC7C !important;
