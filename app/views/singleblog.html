@@ -1,0 +1,108 @@
+<div>
+  <div>
+    <nav class="butBlog">
+        <ul>
+            <li><a href='/blogs'>Блог</a></li>
+            <li><a href='/createblog'>Добавьте новый блог</a></li>
+        </ul>
+    </nav>
+
+    <div id="show-blogs">
+            <h1>Блог: {{blogs.id}}</h1>
+            <h2>{{post.title}}</h2>
+            <article>Категория {{blogs.categories}}</article>
+            <br />
+            <article>{{blog.content}}</article>
+            <article class="autor">Автор: {{blog.autor}}</article>
+            <br />
+            <button ng-click="fullContact()">Оставить комментарий▼</button>
+            <div ng-hide="show =='msg1'">
+              <label>Текст комментария:</label>
+              <textarea ng-model="blog.comment" ng-required="true"></textarea>
+            </div>
+  </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<style media="screen">
+.navbar{
+  margin: 0 auto;
+}
+
+button{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+select{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+.autor{
+    float: right;
+
+}
+
+.butBlog ul{
+    list-style-type: none;
+    text-align: center;
+    margin: 0 auto;
+    padding-left: 0px;
+    padding-bottom: 10px;
+
+}
+.butBlog ul li{
+    display: inline-block;
+    margin: 0 10px;
+}
+.butBlog a{
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 5px;
+}
+.butBlog{
+    background: #9CBC7C;
+    padding-top:10px;
+    margin: 0 auto;
+    width: 800px;
+}
+a:active{
+    background: rgba(255,255,255,0.8);
+    color: #444;
+}
+
+
+#show-blogs{
+    max-width: 800px;
+    margin: 0px auto;
+}
+.single-blog{
+    padding: 20px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    background: #eee;
+    border: 1px dotted #aaa;
+}
+#show-blogs a{
+    color: #444;
+    text-decoration: none;
+}
+input[type="text"]{
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+</style>

@@ -1,0 +1,150 @@
+<nav class="butBlog">
+    <ul>
+        <li><a href='/kontakt'>Контакты</a></li>
+        <li><a href='/onas'>О нас</a></li>
+    </ul>
+</nav>
+    <div class="top1">
+        <div class="left">
+          <h1>Контакты</h1>
+            <p>Украина,г.Харьков</p>
+            <h4>ИНФОРМАЦИОННЫЙ ОТДЕЛ</h4>
+            <p>0 800 800 800</p>
+            <p>бесплатные звонки со всех</p>
+            <p>телефонов на территории</p>
+            <p>Украины:</p>
+            <p>+38 (067) 67 067 67</p>
+            <p>+38 (067) 67 067 67</p>
+            <p>email:vuejs@vue.ua</p>
+            <h4>СЛУЖБА ПОДДЕРЖКИ</h4>
+            <p>email: vue@vue.ua</p>
+            <h4>РУКОВОДИТЕЛЬ</h4>
+            <p>+38 (067) 67 067 67</p>
+            <p>email: bigBOSS@bos.ua</p>
+        </div>
+        <div class="message">
+            <h2>ОБРАТНАЯ СВЯЗЬ</h2>
+            <label>Введите ФИО:</label>
+
+            <input type="text" placeholder="Иванов Иван Иванович" ng-required="true"/>
+
+            <label>Введите E-mail:</label>
+
+            <input type="text" placeholder="e-mail@gmail.com" ng-required="true"/>
+
+            <label>Выберите к кому хотите обратится:</label>
+
+            <select ng-model="svyas.komys">
+                <option ng-repeat="komy in komys" ng-required="true">{{ komy }}</option>
+            </select>
+
+            <label>Напишите тему обращения:</label>
+            <input type="text" placeholder="По поводу заявок" ng-required="true"/>
+            <label>Напишите ваше сообщение:</label>
+
+            <textarea ng-required="true"></textarea>
+
+            <button>ОТПРАВИТЬ</button>
+          </div>
+
+    </div>
+
+
+
+
+
+<style media="screen">
+
+.butBlog ul{
+    list-style-type: none;
+    text-align: center;
+    margin: 0 auto;
+    padding-left: 0px;
+    padding-bottom: 10px;
+
+}
+.butBlog ul li{
+    display: inline-block;
+    margin: 0 10px;
+}
+.butBlog a{
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 5px;
+}
+.butBlog{
+    background: #9CBC7C;
+    padding-top:10px;
+    margin: -19px auto;
+    width: 1000px;
+}
+
+
+.top1{
+  margin: 19px auto;
+  line-height: .5;
+  text-align: center;
+  width: 1000px;
+  height: 800px;
+  background: #EEEEEE;
+  padding-top: 10px;
+}
+
+
+
+input{
+    margin-top: 20px;
+    width: 80%;
+    padding: 8px;
+    border-radius: 4px;
+
+}
+
+label{
+    padding-top: 20px;
+}
+
+
+
+select{
+    margin-top: 20px;
+    width: 80%;
+    height: 35px;
+}
+
+textarea{
+  width: 80%;
+  padding: 8px;
+  height: 200px;
+}
+
+.left{
+    width: 40%;
+    float: left;
+    padding: 56px;
+}
+
+.message{
+    width: 60%;
+    float: right;
+    padding: 56px;
+}
+
+
+.left p{
+    margin: 20px 0 0 0;
+}
+
+button{
+    display: block;
+    margin: 20px auto;
+    background: #9CBC7C;
+    color: #fff;
+    border: 0;
+    padding: 14px;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+}
+</style>
