@@ -1,5 +1,6 @@
-angular.module('app').controller('ExtendedSearchController', function($routeParams, $scope, $uibModal, AdsService, UserService, AuthService, MsgService, notify) {
+angular.module('app').controller('ExtendedSearchController', function($routeParams, $scope, $uibModal, AdsService, UserService, AuthService, MsgService, Categories, notify) {
     this.adsMarkers = [];
+    this.categories = Categories;
     $scope.filterAds = [];
 
     AdsService.getAll().then((resp) => {
@@ -70,6 +71,8 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
     this.itemsPerPage = 3;
 
     this.search = $routeParams.queryString;
+
+    this.category = +($routeParams.categoryId) || '';
 
     this.map = {
         center: { latitude: 45, longitude: -73 },

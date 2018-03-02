@@ -31,7 +31,7 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 controller: 'PassResetController',
                 controllerAs: 'passResetCtrl',
             })
-            .when('/extendedSearch/:queryString?', {
+            .when('/extendedSearch/:categoryId/:queryString?', {
                 templateUrl: '/views/extendedSearch.html',
                 controller: 'ExtendedSearchController',
                 controllerAs: 'extendedSearchCtrl',
@@ -40,6 +40,11 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 templateUrl: 'views/userInfo.html',
                 controller: 'ProfileController',
                 controllerAs: 'profileControllerCtrl',
+            })
+            .when('/postAd', {
+                templateUrl: 'views/postAd.html',
+                controller: 'PostAdController',
+                controllerAs: 'postAdCtrl',
             })
             .otherwise({'template': '<h1>Route not found</h1>'})
     });

@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="col-xs-12 col-md-6 postAd">
+        <uib-tabset justified="true">
+            <uib-tab index="0" heading="Найти работу">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form name="postAdCtrl.findJobForm" ng-submit="postAdCtrl.postAd(findJobAdTitle, findJobAdCategory, findJobAdPayment, findJobAdExperience, findJobAdPhone, findJobAdDescription)" novalidate>
+                            <div class="form-group">
+                                <label>Название объявления</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder='Например, "Ищу работу поваром"'
+                                       ng-model="findJobAdTitle"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label>Выберите категорию:</label>
+                                <select class="form-control" ng-model="findJobAdCategory">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Оплата (за час работы):</label>
+                                <input type="email"
+                                       class="form-control"
+                                       ng-model="findJobAdPayment">
+                            </div>
+                            <div class="form-group">
+                                <label>Ваш опыт работы:</label>
+                                <input type="text"
+                                       class="form-control"
+                                       ng-model="findJobAdExperience">
+                            </div>
+                            <div class="form-group">
+                                <label>Ваш номер телефона:</label>
+                                <input type="text"
+                                       class="form-control"
+                                       ng-model="findJobAdPhone"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label>Подробно опишите предоставляемые Вами услуги:</label>
+                                <textarea class="form-control" rows="5" ng-model="findJobAdDescription" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </uib-tab>
+
+            <uib-tab index="1" heading="Найти работника">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form name="postAdCtrl.findWorkerForm" ng-submit="postAdCtrl.postAd(findWorkerAdTitle, findWorkerAdCategory, findWorkerAdPayment, findWorkerAdExperience, findWorkerAdPhone, findWorkerAdDescription) novalidate>
+                            <div class="form-group">
+                                <label>Название объявления</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder='Например, "Ищу сантехника"'
+                                       ng-model="findWorkerAdTitle"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label>Выберите категорию:</label>
+                                <select class="form-control" ng-model="findWorkerAdCategory">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Оплата (за час работы):</label>
+                                <input type="email"
+                                       class="form-control"
+                                       ng-model="findWorkerAdPayment">
+                            </div>
+                            <div class="form-group">
+                                <label>Опыт работы (если нужен):</label>
+                                <input type="text"
+                                       class="form-control"
+                                       ng-model="findWorkerAdExperience">
+                            </div>
+                            <div class="form-group">
+                                <label>Ваш номер телефона:</label>
+                                <input type="text"
+                                       class="form-control"
+                                       ng-model="findWorkerAdPhone"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label>Подробно опишите нужные Вам услуги:</label>
+                                <textarea class="form-control" rows="5" ng-model="findWorkerAdDescription" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </uib-tab>
+
+        </uib-tabset>
+    </div>
+</div>

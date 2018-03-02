@@ -44,6 +44,7 @@
     <script src="/directives/fixErrorUrlImages.js"></script>
     <script src="/directives/comparePasswords.js"></script>
     <script src="/controllers/ProfileController.js"></script>
+    <script src="/controllers/PostAdController.js"></script>
     <script src="/controllers/PassResetEmailController.js"></script>
     <script src="/controllers/PassResetController.js"></script>
     <script src="/controllers/LoginSignupController.js"></script>
@@ -51,6 +52,7 @@
     <script src="/controllers/HeaderController.js"></script>
     <script src="/controllers/ExtendedSearchController.js"></script>
     <script src="/controllers/EmailConfirmationController.js"></script>
+    <script src="/config/categories.js"></script>
     <!-- endinject -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <!-- endbuild -->
@@ -74,7 +76,7 @@
                 <div class="collapse navbar-collapse" uib-collapse="headerCtrl.isNavCollapsed">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active-li"><a href="#">Стать исполнителем</a></li>
+                        <li class="active-li"><a href="/postAd">Стать исполнителем</a></li>
                         <li><a href="#">О нас</a></li>
                         <li><a href="#">Блог</a></li>
                         <li ng-if="!headerCtrl.showProfile"><a href='/login'>Вход</a></li>
