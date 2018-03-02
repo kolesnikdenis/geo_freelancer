@@ -30,7 +30,7 @@ angular.module('app').controller('createBlog',  function($scope, $http) {
 
 
 
-            $http.get('https://freelance.kolesnikdenis.com/api/category/root')
+            $http.get('//freelance.kolesnikdenis.com/api/category/root')
             .then(function (responce){
                   $scope.categories=responce.data.response;
                   console.log($scope.categories)
