@@ -3,6 +3,8 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
     this.categories = Categories;
     $scope.filterAds = [];
 
+    window.ctrl = this;
+
     AdsService.getAll().then((resp) => {
         this.ads = resp.data.ads_rows;
     }).then(() => {
@@ -71,8 +73,8 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
     this.itemsPerPage = 3;
 
     this.search = $routeParams.queryString;
-
-    this.category = +($routeParams.categoryId) || '';
+    
+    this.category = +($routeParams.categoryId) ? $routeParams.categoryId : '';
 
     this.map = {
         center: { latitude: 45, longitude: -73 },

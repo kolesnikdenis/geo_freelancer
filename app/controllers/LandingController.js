@@ -26,9 +26,7 @@ angular.module('app').controller('LandingController', function($location, $scope
             });
         });
     });
-    $scope.querySearch = function(obj) {
-        const queryString = obj.queryString || '';
-        const categoryId = obj.categoryId || 0;
+    $scope.querySearch = function({queryString = '', categoryId = 0}) {
         $location.path(`/extendedSearch/${categoryId}/${queryString}`);
     };
 
