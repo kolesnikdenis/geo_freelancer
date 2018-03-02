@@ -1,0 +1,250 @@
+<nav class="butBlog">
+    <ul>
+        <li><a href='/kontakt'>Контакты</a></li>
+        <li><a href='/onas'>О нас</a></li>
+    </ul>
+</nav>
+<div id="TOP1">
+    <div id="kart">
+      <figure class="effect-jeff">
+        <img src="http://w-hatsapp.ru/wp-content/uploads/2017/05/screenshot-2017-05-19-001-3.png" alt="Name of Runda">
+        <figcaption>
+          <div class="icons">
+            <i class="fa fa-facebook rounded"></i>
+            <i class="fa fa-twitter rounded"></i>
+          </div>
+        </figcaption>
+      </figure>
+      <div class="team-card-text">
+        <h3>Jeff Effect</h3>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p>
+      </div>
+    </div>
+    <div id="kart">
+      <figure class="effect-jeff">
+        <img src="http://pristor.ru/wp-content/uploads/2017/07/Картинки-на-аву-Енот-крутые-классные-красивые-прикольные-8.jpg" alt="Name of Runda">
+        <figcaption>
+          <div class="icons">
+            <i class="fa fa-facebook rounded"></i>
+            <i class="fa fa-twitter rounded"></i>
+          </div>
+        </figcaption>
+      </figure>
+      <div class="team-card-text">
+        <h3>Jeff Effect</h3>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p>
+      </div>
+    </div>
+    <div id="kart">
+      <figure class="effect-jeff">
+        <img src="https://sevia.ru/foto/foto-na-avu/foto-na-avu-08.jpg" alt="Name of Runda">
+        <figcaption>
+          <div class="icons">
+            <i class="fa fa-facebook rounded"></i>
+            <i class="fa fa-twitter rounded"></i>
+          </div>
+        </figcaption>
+      </figure>
+      <div class="team-card-text">
+        <h3>Jeff Effect</h3>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p>
+      </div>
+    </div>
+    <div id="kart">
+      <figure class="effect-jeff">
+        <img src="https://dreem-pics.com/uploads/posts/2017-02/medium/1487294250_zlruumc146k.jpg" alt="Name of Runda">
+        <figcaption>
+          <div class="icons">
+            <i class="fa fa-facebook rounded"></i>
+            <i class="fa fa-twitter rounded"></i>
+          </div>
+        </figcaption>
+      </figure>
+      <div class="team-card-text">
+        <h3>Jeff Effect</h3>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<style scoped>
+.butBlog ul{
+    list-style-type: none;
+    text-align: center;
+    margin: 0 auto;
+    padding-left: 0px;
+    padding-bottom: 10px;
+
+}
+.butBlog ul li{
+    display: inline-block;
+    margin: 0 10px;
+}
+.butBlog a{
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 5px;
+}
+.butBlog{
+    background: #9CBC7C;
+    padding-top:10px;
+    margin: -19px auto;
+    width: 1000px;
+}
+
+#kart{
+  margin: 180px 30px;
+  width: 250px;
+  float: left;
+}
+
+h3, p{
+  font-family: "Open Sans";
+  text-align: center;
+    color: #333;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+p{
+  font-size: 12px
+}
+
+figure{
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+figure img {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    width: 250px;
+    opacity: 0.8;
+}
+
+figure figcaption {
+    padding: 14px 29px 0 0;
+    color: #f5f5f5;
+    text-transform: uppercase;
+    font-size: 2.25em;
+    backface-visibility: hidden;
+    position: absolute;
+    top: -50px;
+
+    width: 400px;
+
+}
+
+figure.effect-jeff {
+    background: linear-gradient(-45deg, #EF4836 0%,#CF000F 100%);
+  box-shadow: 0 9px 0px 0px whitesmoke, 0 -9px 0px 0px #ececec, 2px 0 2px 0px rgba(0, 0, 0, 0.14), -2px 0 2px 0px rgba(0, 0, 0, 0.098);
+}
+
+figure.effect-jeff img{
+    transition: transform 0.35s;
+}
+
+figure.effect-jeff figcaption::after {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #fff;
+    content: '';
+    transform-origin: -19% 0%;
+  opacity: 0;
+  transform: rotate3d(0,0,1,33.4deg)  translate(-600px,0px);
+  transition: transform 0.35s;
+}
+
+figure.effect-jeff:hover figcaption::after {
+    opacity: 1;
+  transform:  scale3d(1,1,1) rotate3d(0,0,1,33.4deg) translate(0px,0px);
+}
+
+figure.effect-jeff .rounded{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px
+}
+
+figure.effect-jeff .icons{
+  margin-top: 80px;
+  position: relative;
+}
+
+figure.effect-jeff i{
+  margin-left: 15%;
+  transition: opacity 0.35s;
+  background-color: #f5f5f5;
+  color: #FF6666;
+  padding: 10px 10px;
+    text-transform: none;
+    font-size: 1.1em;
+    opacity: 0;
+}
+
+figure.effect-jeff .fa-facebook.rounded{
+  width: 50px;
+  height: 50px;
+}
+
+figure.effect-jeff .fa-facebook{
+  position: absolute;
+  padding-left: 13px;
+  margin-top: 35px;
+  margin-left: 19.5%;
+  transform: translate(0px, -200px);
+  /*transition for hover out*/
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+
+figure.effect-jeff:hover .fa-facebook{
+  /*transition for hover in*/
+  transition: transform 0.35s, opacity 1.5s;
+  transition-delay: 0.35s;
+  transform: translate(0px, 0px);
+  opacity: 1;
+}
+
+figure.effect-jeff .fa-twitter{
+  transform: translate(0px, -200px);
+  /*transition for hover out*/
+  transition: transform 0.3s, opacity 0.3s;
+  margin-left: 36%;
+  margin-top: 0px;
+  opacity: 0;
+}
+
+figure.effect-jeff:hover .fa-twitter{
+  /*transition for hover in*/
+  transition: transform 0.35s, opacity 1.5s;
+  transition-delay: 0.35s;
+  transform: translate(0px, 0px);
+  opacity: 1;
+}
+
+figure.effect-jeff:hover img {
+    opacity: 0.55;
+    transform: scale3d(1.05,1.05,1);
+}
+
+.team-card-text{
+
+  margin-top: 0px;
+    background-color: whitesmoke;
+    padding: 20px;
+    box-shadow: 0  1px  4px rgba(0, 0, 0, 0.14), 0  2px  4px rgba(0, 0, 0, 0.098);
+}
