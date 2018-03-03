@@ -9,5 +9,8 @@ angular.module('app').factory('AdsService', function($http) {
         getGeoLast () {
             return $http.get('//freelance.kolesnikdenis.com/api/ads_last')
         },
+        createNewAd (adData) {
+            return $http.post('//freelance.kolesnikdenis.com/api/ads_add', adData)
+        }
     }
 });
