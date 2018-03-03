@@ -360,5 +360,3 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
         });
     }
 });
-
-

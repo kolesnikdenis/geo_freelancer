@@ -17,6 +17,9 @@ angular.module('app').factory('MsgService', function($http) {
         },
         requestMsgDialog(body){
             return $http.get('//freelance.kolesnikdenis.com/api/msg_dialog/'+body)
+        },
+        requestMsgLastRead(body){
+            return $http.get('//freelance.kolesnikdenis.com/api/msg_last_update/'+body)
         }
 
     }

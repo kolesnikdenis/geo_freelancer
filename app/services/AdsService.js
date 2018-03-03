@@ -3,8 +3,8 @@ angular.module('app').factory('AdsService', function($http) {
         getAll () {
             return $http.get('//freelance.kolesnikdenis.com/api/ads')
         },
-        getGeoAll () {
-            return $http.post('//freelance.kolesnikdenis.com/api/ads_geo')
+        getGeoAll (body) {
+            return $http.post('//freelance.kolesnikdenis.com/api/ads_geo',body)
         },
         getGeoLast () {
             return $http.get('//freelance.kolesnikdenis.com/api/ads_last')

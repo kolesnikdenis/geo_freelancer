@@ -1,0 +1,65 @@
+<div>
+    <form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-2" >Фото</label>
+            <div  class="col-sm-10" ng-show="!DetailsAnyUserControllerCtrl.photo==''"  >
+                    <img src="//uwork.pp.ua/upload/{{DetailsAnyUserControllerCtrl.photo}}" width=100 alt="{{DetailsAnyUserControllerCtrl.photo}}"/>
+            </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2 for="name">Имя Фамилия</label>
+        <div  class="col-sm-10" >
+            <i class="fa fa-user"></i>  <label> {{DetailsAnyUserControllerCtrl.infoUser.firstname}} {{DetailsAnyUserControllerCtrl.infoUser.surname}}  </label>
+        </div>
+    </div>
+
+    <div ng-show="DetailsAnyUserControllerCtrl.infoUser.phone" class="form-group">
+        <label  class="control-label col-sm-2" for="Phone number">Номер телефона:</label>
+            <div class="col-sm-10 input-group">
+                <i class="fa fa-phone"></i> {{DetailsAnyUserControllerCtrl.infoUser.phone}}  </label>
+            </div>
+    </div>
+
+    <div ng-show="DetailsAnyUserControllerCtrl.infoUser.city" class="form-group">
+        <label class="control-label col-sm-2"  for="Address">Адрес:</label>
+        <div class="col-sm-10 input-group">
+         город {{DetailsAnyUserControllerCtrl.infoUser.city}} \ адрес {{DetailsAnyUserControllerCtrl.infoUser.address}}<br>
+        дом: {{DetailsAnyUserControllerCtrl.infoUser.house}} \ квартира {{DetailsAnyUserControllerCtrl.infoUser.apartment}}<br>
+        </div>
+    </div>
+
+    <div ng-show="DetailsAnyUserControllerCtrl.infoUser.description" class="form-group">
+        <label class="col-md-2 control-label" for="descr">Пару слов о себе:</label>
+        <div class="col-sm-10 input-group">
+            <blockquote>
+                <p> {{DetailsAnyUserControllerCtrl.infoUser.description}}</p>
+            </blockquote>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="Email Address">Email Address</label>
+        <div class="col-sm-10 input-group">
+                <i class="fa fa-envelope-o fa-fw"></i>
+                <label > {{DetailsAnyUserControllerCtrl.infoUser.mail}}</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Дата регистрации</label>
+        <div class="col-sm-10 input-group">
+            <blockquote>
+
+            <p>{{DetailsAnyUserControllerCtrl.infoUser.datatime}}</p>
+                </blockquote>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 ">Доп возможности</label>
+        <div class="col-sm-7">
+            <button ng-click="DetailsAnyUserControllerCtrl.sendmessage()" class="btn btn-primary active">Написать в приват</button><br>
+            <button ng-click="DetailsAnyUserControllerCtrl.showBlog(DetailsAnyUserControllerCtrl.infoUser.id)" class="btn btn-primary active">Показать блог пользователя</button><br>
+        </div>
+    </div>
+    </form>
+</div>

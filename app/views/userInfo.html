@@ -176,8 +176,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" ></label>
                     <div class="col-md-7">
-                        <a  ng-href="javascript: return false;"  ng-click="save_profile()" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Submit</a>
-                        <a href="#" class="btn btn-danger" value=""><span class="glyphicon glyphicon-remove-sign"></span> Clear</a>
+                        <a  ng-href="javascript: return false;"  ng-click="save_profile()" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> сохранить</a>
                     </div>
                 </div>
             </div>
@@ -222,6 +221,7 @@
 
                 <hr width="50%">
                 <a href="/message" class="btn btn-primary btn-xs" role="button" aria-pressed="true">(Новых \ всего) сообщений <span class="badge badge-light">{{new_message}}\{{all_msg}}</span></a></br>
+                <a href="/bloglistuser/{{profile.id}}"class="btn btn-primary btn-xs" role="button" aria-pressed="true">посмотреть свой блог</a></br>
                 <a href="/createblog" class="btn btn-primary btn-xs" role="button" aria-pressed="true">Написать в блог</a><br>
                 <a href="#" class="btn btn-primary btn-xs" role="button" aria-pressed="true">Стать исполнителем</a><br>
                 <a href="/extendedSearch/?q=#categories" class="btn btn-primary btn-xs" role="button" aria-pressed="true">Поиск Исполнителя</a><br>
