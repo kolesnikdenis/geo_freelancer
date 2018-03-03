@@ -72,16 +72,10 @@
     color: #9CBC7C !important;
 }
 .blog-li button{
-    position: relative;
-    top: -37px;
-    right: 10px;
     background-color: transparent;
     border: none;
     outline: none;
-    /*margin-left: 5px;*/
-}
-.blog-li a{
-    margin-left: 15px;
+    padding: 15px;
 }
 .navbar-right li a:hover{
     color: #9CBC7C !important;

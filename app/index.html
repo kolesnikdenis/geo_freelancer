@@ -70,10 +70,9 @@
                         <li class="active-li"><a href="#">Стать исполнителем</a></li>
                         <li><a href="#">О нас</a></li>
                         <li><a href="#">Блог</a></li>
+                        <li class="blog-li"><button><img src="../img_categor/Zoom.png" alt="search"></button></li>
                         <li ng-if="!headerCtrl.showProfile"><a href='/login'>Вход</a></li>
-                        <li class="blog-li" ng-if="headerCtrl.showProfile"><a href='/profile'>Профиль</a>
-                            <button><img src="../img_categor/Zoom.png" alt="search"></button>
-                        </li>
+                        <li ng-if="headerCtrl.showProfile"><a href='/profile'>Профиль</a></li>
                         <li ng-if="headerCtrl.showProfile"><a class='link-pointer' ng-click="headerCtrl.signOut()">Выход</a></li>
                     </ul>
                 </div>
