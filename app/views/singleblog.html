@@ -8,12 +8,12 @@
     </nav>
 
     <div id="show-blogs">
-            <h1>Блог: {{blogs.id}}</h1>
+            <h1>Блог: {{post.id}}</h1>
             <h2>{{post.title}}</h2>
-            <article>Категория {{blogs.categories}}</article>
+            <article>Категория {{post.categories}}</article>
             <br />
-            <article>{{blog.content}}</article>
-            <article class="autor">Автор: {{blog.autor}}</article>
+            <article>{{post.content}}</article>
+            <article class="autor">Автор: {{post.autor}}</article>
             <br />
             <button ng-click="fullContact()">Оставить комментарий▼</button>
             <div ng-hide="show =='msg1'">
@@ -21,7 +21,6 @@
               <textarea ng-model="blog.comment" ng-required="true"></textarea>
             </div>
   </div>
-
 
 
 

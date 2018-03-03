@@ -16,7 +16,7 @@
                 <textarea ng-model="blog.content" ng-required="true"></textarea>
                 <label>Категории блога:</label>
                 <select ng-model="blog.category">
-                    <option ng-repeat="category in categories">{{ category }}</option>
+                    <option ng-repeat="category in categories">{{ category.name }}</option>
                 </select>
                 <label>Автор:</label>
                 <input type="text" ng-model="blog.autor" ng-required="true" />

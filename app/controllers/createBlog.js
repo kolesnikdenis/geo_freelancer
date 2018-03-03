@@ -3,7 +3,6 @@ angular.module('app').controller('createBlog',  function($scope, $http) {
 
 
 
-
   $scope.blog =  [
             {
                 title: '',
@@ -31,7 +30,22 @@ angular.module('app').controller('createBlog',  function($scope, $http) {
 
 
 
-  $scope.categories = ['','Спорт', 'Наука', 'Программирование', 'Другое'];
+            $http.get('//freelance.kolesnikdenis.com/api/category/root')
+            .then(function (responce){
+                  $scope.categories=responce.data.response;
+                  console.log($scope.categories)
+                }, function error(response){
+                        console.log("Возникла ошибка");
+                }
+            );
+
+  $scope.categories =  [
+            {
+                name: '',
+                id: '',
+                autor: ''
+            }
+          ];
 
 
 

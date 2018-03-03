@@ -6,7 +6,6 @@ $scope.blogs =  [
           {
               title: '',
               content: '',
-              categories: '',
               autor: '',
               id: '',
               datatime: '',
@@ -25,6 +24,22 @@ $scope.blogs =  [
 
 
 
+          $http.get('https://freelance.kolesnikdenis.com/api/category/root')
+          .then(function (responce){
+                $scope.categories=responce.data.response;
+                console.log($scope.categories)
+              }, function error(response){
+                      console.log("Возникла ошибка");
+              }
+          );
+
+      $scope.categories =  [
+          {
+              name: '',
+              id: '',
+              autor: ''
+          }
+        ];
 
 
 
@@ -33,11 +48,6 @@ $scope.blogs =  [
               $scope.show = $scope.show == 'msg1' ? 'msg2' : 'msg1';
 
           };
-
-
-          $scope.categories = ['','Спорт', 'Наука', 'Программирование', 'Другое'];
-
-
 
 
 });

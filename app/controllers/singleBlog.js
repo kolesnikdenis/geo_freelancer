@@ -5,7 +5,6 @@ angular.module('app').controller('singleBlog', function($http, $scope, $routePar
             {
                 title: '',
                 content: '',
-                categories: '',
                 autor: '',
                 id: '',
                 datatime: '',
@@ -18,14 +17,17 @@ angular.module('app').controller('singleBlog', function($http, $scope, $routePar
           $http.get('http://freelance.kolesnikdenis.com/api/blog').then(function (responce){
                 $scope.blogs=responce.data.blog_array;
                 console.log($scope.blogs)
-
+                var postId = Number($routeParams.postId);
+                  $scope.post = _.find($scope.blogs, { id: postId });
+                  console.log($scope.post)
+                  console.log($scope.postId)
                 }, function error(response){
                       console.log("Возникла ошибка");
               }
           );
 
-          var postId = Number($routeParams.postId);
-          $scope.post = _.find($scope.blogs, { id: postId });
+
+
 
 
 
@@ -37,6 +39,5 @@ angular.module('app').controller('singleBlog', function($http, $scope, $routePar
 
 
 console.log($routeParams.postId)
-
 
 });
