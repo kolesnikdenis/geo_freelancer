@@ -3,8 +3,6 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
     this.categories = Categories;
     $scope.filterAds = [];
 
-    window.ctrl = this;
-
     AdsService.getAll().then((resp) => {
         this.ads = resp.data.ads_rows;
     }).then(() => {
