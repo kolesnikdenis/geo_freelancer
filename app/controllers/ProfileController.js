@@ -12,7 +12,6 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
 
     $rootScope.hidden_edit_component = function () {
         $rootScope.marker_work={ radius: 1, title: "",desc: "",lat: 0, lng: 0,id:-1 };
-        console.log("null");
     };
 
     $rootScope.show_all_message= function(){
@@ -31,8 +30,7 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
                     });
                 }
             });
-
-    }
+    };
     $rootScope.uploadFiles = function (files) {
         $rootScope.files = files;
         if (files && files.length) {
@@ -70,7 +68,7 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
             });
         }
     };
-    $rootScope.del_img = function (img_name) {
+    /*$rootScope.del_img = function (img_name) {
         console.log($rootScope.id,$rootScope.table,img_name);
         var data={
             id:$rootScope.id,table:$rootScope.table,del_file: img_name
@@ -81,7 +79,7 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
                     $rootScope.photos = $rootScope.photos.filter(function (i){ if ( i.filename != response.data.del_file ) return i })
                 }
             });
-    };
+    };*/
     $rootScope.save_profile = function () {
         var update = {
             address: $rootScope.profile.address,
@@ -106,7 +104,7 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
                 });
 
             } else {
-                console.log("ne ok",response)
+                //console.log("ne ok",response)
             }
         })
         .catch((error) => {
@@ -145,7 +143,6 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
 
             MsgService.requestGetMsgCountAll(AuthService.getAuthData())
                 .then((response) => {
-                    console.log(response.data);
                     if (response.data.status === 'ok') {
                         $rootScope.all_msg=(response.data.count_all_msg)?response.data.count_all_msg:0;
                     }}
@@ -179,7 +176,7 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
                         notify({
                             message: 'неведома ошибка',
                             classes: 'alert alert-danger',
-                            duration: 11110,
+                            duration: 3000,
                         });
                         console.log(response);
                     }
@@ -191,6 +188,10 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
                         duration: 0,
                     });
                 })
+        }else {
+            $rootScope.$broadcast('unauthenticated');
+            AuthService.removeAuthData();
+            $location.path('/login');
         }
     };
     this.getInfoUser();

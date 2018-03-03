@@ -1,0 +1,38 @@
+<style>
+    .add_formirovka  {
+        display:  flex;
+        flex-flow: row-reverse;
+    }
+    .add_formirovka div  h4{
+        text-align: right;
+    }
+    .add_formirovka div  p{
+        text-align: right;
+    }
+</style>
+<div class="container" >
+        <div class="media" ng-repeat="(key, value) in DialogControllerCtrl.arr_dialog"  >
+            <div class="media" ng-class="value.from_id !== DialogControllerCtrl.to_id?'add_formirovka':''" >
+                <div class="media-left">
+                    <img class="media-object" checkImage src="/upload/{{value.photos}}" style="width:60px">
+                </div>
+
+                <div class="media-body">
+                    <h4 ng-if="value.from_id !== DialogControllerCtrl.to_id" class="media-heading">Вы:<small><i>{{value.datetime}}</i></small></h4>
+                    <h4 ng-if="value.from_id == DialogControllerCtrl.to_id" class="media-heading">{{value.firstname}}: <small><i>{{value.datetime}}</i></small></h4>
+                    <p> {{value.msg}} </p>
+                </div>
+            </div>
+        </div>
+
+    <form>
+        <div class="form-group">
+            <label for="Send_Msg_Body">Отправить сообщение:</label>
+            <textarea class="form-control" id="Send_Msg_Body" ng-model="DialogControllerCtrl.send_message_body.msg" rows="3"></textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" ng-click="DialogControllerCtrl.send()" class="btn btn-primary active">Отправить</button>
+        </div>
+    </form>
+
+</div>

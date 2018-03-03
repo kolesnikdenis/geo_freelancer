@@ -1,0 +1,28 @@
+<style>
+    #show_all_dialogs  tbody > tr {
+        cursor: pointer;
+    }
+</style>
+<div>
+        <legend>Ваши переписки с людьми:</legend>
+    <table id=show_all_dialogs class="table  table-hover  table-sm">
+        <thead>
+        <tr>
+            <th scope="col">Логин</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">всего сообщений \ не прочитанные</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr scope="row" ng-repeat="(key, value) in message"  ng-click="showmessage(value.from_id)">
+            <!--<th scope="row" ng-if="msg_arr.mail">{{msg_arr.mail}}</th>
+            <th scope="row" ng-else >Аноним-ы</th>-->
+            <th scope="row" >{{value.mail?value.mail: 'Аноним-ы'}}</th>
+            <td>{{value.surname?value.surname: '-'}}</td>
+            <td>{{value.firstname?value.firstname: '-'}}</td>
+            <td>{{value.count_msg?value.count_msg: '-'}} \ <img width=24px src="https://findicons.com/files/icons/1676/primo/128/label_blue_new.png" ng-if="lastMsgRead < value.last_msg_id"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
