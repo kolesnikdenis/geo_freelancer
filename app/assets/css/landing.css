@@ -128,36 +128,28 @@ input:-webkit-autofill:focus{
 .descrition h1{
     padding-left: 20px;
 }
-.descrition p{
-    vertical-align: middle;
-}
-/*.descrition-btn{
-    width: 27%;
-}*/
-.descrition-text button{
-    width: 90px;
-    height: 90px;
-    border-radius: 45px;
+.descrition-uwork{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
     background-color: #416777;
     opacity: 0.6;
     color: #ffffff;
     outline: 0;
     border: none;
     margin: 5px 10px;
-    font-size: 12px;
+    position: relative;
+    display: inline-block;
+}
+.descrition-uwork p{
+    position: absolute;
+    top: 32%;
+    text-align: center;
+    font-size: 15px;
+    padding: 0 5px;
 }
 .descrition-text span{
     color: #9CBC7C;
-}
-.descrition-text h2{
-    /*padding-top: 33px;*/
-    font-size: 27px;
-}
-.descrition-text{
-    margin-bottom: 40px;
-}
-.descrition-buttons{
-    margin-bottom: 20px;
 }
 
 .access-service-maps{
@@ -171,7 +163,7 @@ input:-webkit-autofill:focus{
 .access-service-pctr{
     background-image: url("https://images.unsplash.com/photo-1499083097717-a156f85f0516?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0857182ce680e944304c9980ec175b10&auto=format&fit=crop&w=751&q=80");
     background-size: cover;
-    background-position: center;     /* !!!!!!!!!!!!!!! */
+    background-position: center;
     height: 470px;
     position: relative;
 }
@@ -372,7 +364,7 @@ input:-webkit-autofill:focus{
     .maps{
         padding-right: 0;
     }
-    .descrition-text button{
+    .descrition-uwork{
         width: 90px;
         height: 90px;
         border-radius: 45px;
@@ -382,25 +374,13 @@ input:-webkit-autofill:focus{
         outline: 0;
         border: none;
         margin: 5px 10px;
+        display: inline-block;
+    }
+    .descrition-uwork p{
         font-size: 12px;
     }
-   /* .descrition-text button{
-        width: 100%;
-        height: 40px;
-        background-color: #416777;
-        opacity: 0.6;
-        color: #ffffff;
-        outline: 0;
-        border: none;
-        margin: 6px 10px;
-        font-size: 16px;
-        border-radius: unset;
-    }*/
     .descrition-text{
         margin-bottom: 0;
-    }
-    .descrition-text h2{
-        display: none;
     }
     .access-service h1{
         margin: 25px 0 0 0;
