@@ -115,6 +115,8 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
             this.mapCircle.center = this.currentPosMarker.coords;
             this.map.center = {latitude: location.coords.latitude, longitude: location.coords.longitude};
             this.map.zoom = 10;
+            this.currentCoordsStringified = JSON.stringify(this.currentPosMarker.coords);
+            this.positionSelect = this.currentCoordsStringified;
         }, (err) => {
             console.error('Failed to get current position', err);
         })
@@ -145,32 +147,20 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
         return distance <= this.mapCircle.radius;
     }
 
-    this.radioModel = 'currentPos';
-
     UserService.requestUserInfo().then((response) => {
         const userGeo = JSON.parse(response.data.user_profile.geo);
-        this.userProfileLocation = {latitude: userGeo[0].lat, longitude: userGeo[0].lng};
-    }).then(() => {
-        let currentCoords = null;
-        $scope.$watch( () => this.radioModel,
-            (newValue) => {
-                if ((newValue === 'currentPos') && currentCoords) {
-                    this.currentPosMarker.coords.latitude = currentCoords.latitude;
-                    this.currentPosMarker.coords.longitude = currentCoords.longitude;
-                    this.map.center.latitude = currentCoords.latitude;
-                    this.map.center.longitude = currentCoords.longitude;
-                    this.adsMarkers = $scope.filterAds.map(createMarker).filter(filterMarkerByRadius.bind(this));
-                } else if (newValue === 'storedPos') {
-                    currentCoords = { latitude:  this.currentPosMarker.coords.latitude, longitude: this.currentPosMarker.coords.longitude};
-                    this.currentPosMarker.coords.latitude = this.userProfileLocation.latitude;
-                    this.currentPosMarker.coords.longitude = this.userProfileLocation.longitude;
-                    this.map.center.latitude = this.userProfileLocation.latitude;
-                    this.map.center.longitude = this.userProfileLocation.longitude;
-                    this.adsMarkers = $scope.filterAds.map(createMarker).filter(filterMarkerByRadius.bind(this));
-                }
-            }
-        );
-    });
+        this.userProfileLocations = userGeo.map(storedLocation => ({ title: storedLocation.title, latitude: storedLocation.lat, longitude: storedLocation.lng }));
+    }).catch((err) => console.error(err));
+
+    this.updateMapCenter = (newPos) => {
+        const newCoords = JSON.parse(newPos);
+        const {latitude, longitude} = newCoords;
+        this.currentPosMarker.coords.latitude = latitude;
+        this.currentPosMarker.coords.longitude = longitude;
+        this.map.center.latitude = latitude;
+        this.map.center.longitude = longitude;
+        this.adsMarkers = $scope.filterAds.map(createMarker).filter(filterMarkerByRadius.bind(this));
+    };
 
     this.isAuthenticated = AuthService.isAuthenticated();
 
