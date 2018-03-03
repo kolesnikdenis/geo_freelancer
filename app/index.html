@@ -6,6 +6,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="/assets/css/app.css">
     <link rel="stylesheet" href="/assets/css/landing.css">
+    <link rel="stylesheet" href="/assets/css/postAd.css">
     <link rel="stylesheet" href="/bower_components/angular-notify/dist/angular-notify.css">
     <link rel="stylesheet" href="/bower_components/angularjs-slider/dist/rzslider.css">
     <link rel="stylesheet" href="/bower_components/owl.carousel/dist/assets/owl.carousel.css">
@@ -46,6 +47,7 @@
     <script src="/directives/fixErrorUrlImages.js"></script>
     <script src="/directives/comparePasswords.js"></script>
     <script src="/controllers/ProfileController.js"></script>
+    <script src="/controllers/PostAdController.js"></script>
     <script src="/controllers/PassResetEmailController.js"></script>
     <script src="/controllers/PassResetController.js"></script>
     <script src="/controllers/MsgDialogController.js"></script>
@@ -55,6 +57,7 @@
     <script src="/controllers/HeaderController.js"></script>
     <script src="/controllers/ExtendedSearchController.js"></script>
     <script src="/controllers/EmailConfirmationController.js"></script>
+    <script src="/config/categories.js"></script>
     <script src="/controllers/oNas.js"></script>
     <script src="/controllers/singleBlog.js"></script>
     <script src="/controllers/kontakt.js"></script>
@@ -83,7 +86,7 @@
                 <div class="collapse navbar-collapse" uib-collapse="headerCtrl.isNavCollapsed">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active-li"><a href="#">Стать исполнителем</a></li>
+                        <li class="active-li"><a href="/postAd">Разместить объявление</a></li>
                         <li><a href='/kontakt'>Контакты</a></li>
                         <li><a href='/blogs'>Блог</a></li>
                         <li ng-if="!headerCtrl.showProfile"><a href='/login'>Вход</a></li>
