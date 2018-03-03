@@ -4,7 +4,7 @@ body{
     font-size: 16px;
     max-width: 100%;
 }
-.order h1, .descrition h1, .access-service h1, .blog h1{
+.order h1, .descrition h1, .blog h1{
     color: #9CBC7C;
     padding-bottom: 30px;
 }
@@ -35,9 +35,6 @@ p{
 }
 .maps{
     padding-left: 2px;
-}
-.maps-access-service{
-    padding-right: 2px;
 }
 .order{
     padding-top: 127px;
@@ -93,11 +90,13 @@ input:-webkit-autofill:focus{
 }
 .plain-search-button-categor{
     height: 63px;
-    outline: 0;
+    outline: 0 none;
     border: none;
     color: #9CBC7C;
     background-color: #ffffff;
     font-size: 12px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 .maps .col-md-4{
     padding-left: 2px !important;
@@ -132,36 +131,63 @@ input:-webkit-autofill:focus{
 .descrition p{
     vertical-align: middle;
 }
+/*.descrition-btn{
+    width: 27%;
+}*/
 .descrition-text button{
-    width: 150px;
-    height: 150px;
-    border-radius: 75px;
+    width: 90px;
+    height: 90px;
+    border-radius: 45px;
     background-color: #416777;
     opacity: 0.6;
     color: #ffffff;
     outline: 0;
     border: none;
-    margin: 0 10px;
-    font-size: 16px;
+    margin: 5px 10px;
+    font-size: 12px;
 }
 .descrition-text span{
     color: #9CBC7C;
 }
 .descrition-text h2{
-    padding-top: 33px;
+    /*padding-top: 33px;*/
+    font-size: 27px;
 }
 .descrition-text{
     margin-bottom: 40px;
 }
+.descrition-buttons{
+    margin-bottom: 20px;
+}
 
+.access-service-maps{
+    padding-right: 2px;
+}
 .access-service h1{
     text-align: center;
+    margin: 60px 0 65px 0;
+    color: #9CBC7C;
 }
-.pctr-access-service{
+.access-service-pctr{
     background-image: url("https://images.unsplash.com/photo-1499083097717-a156f85f0516?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0857182ce680e944304c9980ec175b10&auto=format&fit=crop&w=751&q=80");
     background-size: cover;
+    background-position: center;     /* !!!!!!!!!!!!!!! */
     height: 470px;
     position: relative;
+}
+.access-service-text{
+    background-color: #FFFFFF;
+    padding: 1px 40px;
+    position: absolute;
+    top: -32px;
+    left: -224px;
+    width: 500px;
+}
+.access-service-text span{
+    color: #9CBC7C;
+}
+.access-service-text p{
+    text-align: center;
 }
 .access-service-input{
     border: 1px solid #9CBC7C;
@@ -172,13 +198,14 @@ input:-webkit-autofill:focus{
     position: absolute;
     bottom: 24px;
     right: 370px;
+    outline: 0 none;
 }
 .access-service-input::placeholder{
     color: #9B9B9B;
 }
-/*.access-service-input:active{
+.access-service-input.text:focus{
     border: 1px solid #9CBC7C;
-}*/
+}
 
 .wage-center{
     vertical-align: middle;
@@ -187,6 +214,8 @@ input:-webkit-autofill:focus{
     background-image: url("https://images.unsplash.com/photo-1500837744038-ec60054ed01e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a6afec6e65db063cc6e263f5a955a54f&auto=format&fit=crop&w=750&q=80");
     height: 470px;
     margin-right: 100px;
+    background-size: cover;
+    background-position: center;
 }
 .wage-h h2{
     color: #4A4A4A;
@@ -246,13 +275,84 @@ input:-webkit-autofill:focus{
     margin-bottom: 120px;
 }
 
-@media only screen and (min-width: 768px) {
-    .button-doer {
-        height: px;
-        width: ;
+@media only screen and (min-width: 1200px) {
+    .descrition-text button{
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
+        background-color: #416777;
+        opacity: 0.6;
+        color: #ffffff;
+        outline: 0;
+        border: none;
+        margin: 5px 10px;
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .access-service-input{
+        right: 270px;
+    }
+    /*.descrition-text h2{
+        display: none;
+    }*/
+    .maps{
+        padding-right: 0;
+    }
+}
+@media only screen and (max-width: 992px) {
+
+}
+@media only screen and (max-width: 768px){
+    .maps{
+        padding-left: 0;
+    }
+    .order p{
+        font-size: 16px;
+    }
+ /*   .descrition-text button{
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
+        background-color: #416777;
+        opacity: 0.6;
+        color: #ffffff;
+        outline: 0;
+        border: none;
+        margin: 5px 10px;
+        font-size: 14px;
+    }*/
+    .access-service-text{
+        left: 224px;
+        top: -498px;
+    }
+    .access-service-pctr{
+        height: 0;
+    }
+    .wage-h h2{
+        padding-top: 10px;
+    }
+    .wage-pctr{
+        height: 270px;
+        margin-right: 50px;
+        background-size: cover;
+    }
+    .wage p{
+        margin-bottom: 20px;
+    }
+    .button-doer{
+        height: 50px;
+        margin-left: 0;
     }
 }
 @media screen and (max-width: 400px) {
+    .order p{
+        font-size: 14px;
+        margin: 20px 0;
+    }
+    .access-service-pctr{
+        display: none;
+    }
 
     .order h1, .descrition h1, .access-service h1, .blog h1{
         font-size: 30px;
@@ -266,13 +366,25 @@ input:-webkit-autofill:focus{
         margin-bottom: 5px;
         font-size: 13px;
     }
-    .search-input, .plain-search-button-categor{
-        margin-left: 20px;
-    }
     .item h3{
         font-size: 18px;
     }
+    .maps{
+        padding-right: 0;
+    }
     .descrition-text button{
+        width: 90px;
+        height: 90px;
+        border-radius: 45px;
+        background-color: #416777;
+        opacity: 0.6;
+        color: #ffffff;
+        outline: 0;
+        border: none;
+        margin: 5px 10px;
+        font-size: 12px;
+    }
+   /* .descrition-text button{
         width: 100%;
         height: 40px;
         background-color: #416777;
@@ -283,15 +395,29 @@ input:-webkit-autofill:focus{
         margin: 6px 10px;
         font-size: 16px;
         border-radius: unset;
+    }*/
+    .descrition-text{
+        margin-bottom: 0;
     }
     .descrition-text h2{
         display: none;
     }
+    .access-service h1{
+        margin: 25px 0 0 0;
+    }
     .pctr-access-service{
         display: none;
     }
+    .wage-h h2{
+        padding: 0;
+        margin-top: 40px;
+        margin-bottom: 17px;
+    }
     .wage-pctr{
         display: none;
+    }
+    .wage p {
+        margin-bottom: 30px;
     }
     iframe{
         width: 100%;
@@ -303,5 +429,8 @@ input:-webkit-autofill:focus{
     .wage button{
         width: 100%;
         margin: 0 10px;
+    }
+    .wage{
+        margin-bottom: 0;
     }
 }

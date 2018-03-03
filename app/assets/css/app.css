@@ -71,11 +71,14 @@
 .active-li>a{
     color: #9CBC7C !important;
 }
-.blog-li img{
+.blog-li button{
     position: relative;
     top: -37px;
     right: 10px;
-    margin-left: 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    /*margin-left: 5px;*/
 }
 .blog-li a{
     margin-left: 15px;

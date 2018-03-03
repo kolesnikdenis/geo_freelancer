@@ -2,18 +2,18 @@
     <div class="picture col-md-8">
         <div class="container">
             <div class="row">
-                <div class="col-md-offset-2 col-md-6 col-xs-12 order">
+                <div class="col-md-offset-2 col-md-6 order">
                     <h1>Заказ услуг для дома</h1>
                     <form class="row plain-search" ng-submit="querySearch(queryString)">
-                        <div class="plain-search-wrapper">
+
                             <div class="plain-search-field">
-                                <input name="q" class="search-input col-md-5" placeholder="Что ищем?" ng-model="queryString">
+                                <input name="q" class="search-input col-xs-5 col-sm-5 col-md-6" placeholder="Что ищем?" ng-model="queryString">
                             </div>
-                            <button class="plain-search-button-categor col-md-2" type="submit"><a href="#categories">Категории</a></button>
-                            <button class="plain-search-button col-md-4" type="submit">Заказать услугу</button>
-                        </div>
+                            <button class="plain-search-button-categor col-xs-3 col-sm-2 col-md-2" type="submit"><a href="#categories">Категории</a></button>
+                            <button class="plain-search-button col-xs-3 col-sm-3 col-md-4" type="submit">Заказать услугу</button>
+
                     </form>
-                    <p class="col-md-6">Он-лайн сервис для поиска работ в Вашем районе</p>
+                    <p class="col-xs-7 col-sm-5 col-md-6">Он-лайн сервис для поиска работ в Вашем районе</p>
                 </div>
             </div>
         </div>
@@ -44,14 +44,18 @@
     </div>
 </div>
 <div class="container">
-    <div class="row descrition-text">
+    <div class="row descrition-text ">
         <p class="col-md-5">Если у Вас нет времени ждать неделями выполнение задания, все специалисты
             заняты или не могуть делать быстро и качественно,зарегистрируйтесь, оставте заявку, и уже
             сегодня все Ваши проблемы будут решены!</p>
-        <button class="col-md-2 col-sm-6">Задание</button>
-        <button class="col-md-2 col-xs-12">Выбор исполнителя</button>
-        <button class="col-md-2 col-xs-12">Выполнение работы</button>
-        <h2 class="col-md-1 col-xs-12"><span>Neighbor</span>Hub</h2>
+        <div class="descrition-buttons col-md-5">
+            <button class="descrition-btn">Создать<br> задание</button>
+            <button class="descrition-btn">Выбор исполнителя</button>
+            <button class="descrition-btn">Выполнение работы</button>
+        </div>
+        <div class="col-md-2">
+            <h2><span>Neighbour</span>Hub</h2>
+        </div>
     </div>
 </div>
 
@@ -59,26 +63,29 @@
     <h1>Узнайте какие услуги доступны уже сейчас в Вашем районе</h1>
 </div>
 <div class="row">
-    <div class="maps-access-service col-md-8">
-        <div id="BigMap"></div>
+    <div class="access-service-maps col-md-8">
+        <div id="BigMap" ></div>
     </div>
-    <div class="pctr-access-service col-md-4">
-
-            <input name="access" class="access-service-input" placeholder="Задайте Ваш район?">
-
+    <div class="access-service-pctr col-md-4">
+    <!--    <div class="access-service-text">
+            <p>Выберете подходящего исполнителя по разным категориям вместе с <span>Neighbour</span>Hub
+            или разместите свое задание.</p>
+        </div>
+        <form class="access-service-form">
+            <input name="access" type="text" class="access-service-input" placeholder="Задайте Ваш район">
+        </form>-->
     </div>
 </div>
 
 <div class="container">
     <div class="row wage">
-        <div class="wage-pctr col-md-5"></div>
+        <div class="wage-pctr col-sm-5 col-md-5"></div>
         <div class="col-md-5 wage-h">
             <h2>Желаете подзаработать?</h2>
         </div>
-        <p class="col-md-5">Если у Вас нет времени ждать неделями выполнение задания, все специалисты
-            заняты или не могуть делать быстро и качественно,зарегистрируйтесь, оставте заявку, и уже
-            сегодня все Ваши проблемы будут решены!</p>
-        <button class="col-md-4 button-doer">Стать исполнителем</button>
+        <p class="col-md-5">Как правило, чаще всего выбирают подрядчика с самой низкой стоимостью.
+            Зачастую, это неверное решение, в чем можно убедиться со следующей реальной истории из жизни.</p>
+        <button class="col-sm-5 col-md-4 button-doer">Стать исполнителем</button>
     </div>
 </div>
 

@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
     <!-- inject:css -->
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="stylesheet" href="/assets/css/landing.css">
     <link rel="stylesheet" href="/bower_components/angular-notify/dist/angular-notify.css">
     <link rel="stylesheet" href="/bower_components/angularjs-slider/dist/rzslider.css">
     <link rel="stylesheet" href="/bower_components/owl.carousel/dist/assets/owl.carousel.css">
@@ -70,7 +72,7 @@
                         <li><a href="#">Блог</a></li>
                         <li ng-if="!headerCtrl.showProfile"><a href='/login'>Вход</a></li>
                         <li class="blog-li" ng-if="headerCtrl.showProfile"><a href='/profile'>Профиль</a>
-                            <img src="../img_categor/Zoom.png" alt="zoom">
+                            <button><img src="../img_categor/Zoom.png" alt="search"></button>
                         </li>
                         <li ng-if="headerCtrl.showProfile"><a class='link-pointer' ng-click="headerCtrl.signOut()">Выход</a></li>
                     </ul>
