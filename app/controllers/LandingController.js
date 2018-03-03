@@ -6,10 +6,12 @@ angular.module('app').controller('LandingController', function($location, $scope
             $(".owl-carousel").owlCarousel({
                 items:4,
                 loop:true,
-                margin:10,
+                margin:1,
                 nav:false,
                 responsiveClass:true,
                 merge: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
                 responsive:{
                     0:{
                         items:1
@@ -25,8 +27,8 @@ angular.module('app').controller('LandingController', function($location, $scope
         });
     });
     $scope.querySearch = function(queryString) {
-        $location.path("/extendedSearch/" + queryString);
-    }
+        $location.path("/extendedSearch/" + (queryString || ''));
+    };
 
     //инициилизация карт 2 шт.)
     var infoWindow = new google.maps.InfoWindow();

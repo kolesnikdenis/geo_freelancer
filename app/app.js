@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMessages', 'cgNotify', 'LocalStorageModule', 'rzModule','ngFileUpload'])
+angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMessages', 'cgNotify', 'LocalStorageModule', 'rzModule','ngFileUpload', 'uiGmapgoogle-maps'])
     .config(function($locationProvider, $routeProvider) {
         $locationProvider.html5Mode({
             enabled: true,
@@ -31,7 +31,7 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 controller: 'PassResetController',
                 controllerAs: 'passResetCtrl',
             })
-            .when('/extendedSearch/:queryString', {
+            .when('/extendedSearch/:queryString?', {
                 templateUrl: '/views/extendedSearch.html',
                 controller: 'ExtendedSearchController',
                 controllerAs: 'extendedSearchCtrl',
@@ -51,7 +51,26 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 controller: 'MessageController',
                 controllerAs: 'MessageControllerCtrl',
             })
-
+            .when('/blogs', {
+                templateUrl: '/views/blogs.html',
+                controller: 'blogs',
+            })
+            .when('/createblog', {
+                templateUrl: '/views/createblog.html',
+                controller: 'createBlog',
+            })
+            .when('/kontakt', {
+                templateUrl: '/views/kontakt.html',
+                controller: 'kontakt',
+            })
+            .when('/onas', {
+                templateUrl: '/views/onas.html',
+                controller: 'oNas',
+            })
+            .when('/blogs/:postId', {
+                templateUrl: '/views/singleblog.html',
+                controller: 'singleBlog',
+            })
             .otherwise({'template': '<h1>Route not found</h1>'})
     });
 

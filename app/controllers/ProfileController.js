@@ -1,12 +1,10 @@
 angular.module('app').controller('ProfileController', function($rootScope, $location, UserService, notify, AuthService, Upload, $timeout,$http,MsgService) {
     $rootScope.new_message=0;
     $rootScope.all_msg=0;
-
     $rootScope.files="";
     $rootScope.table='user';
     $rootScope.errorMsg="";
     $rootScope.photo = {filename: "", alt: ""};
-
     $rootScope.marker_work={ radius: 1, title: "",desc: "",lat: 0, lng: 0,id:-1 };
     $rootScope.select_marker="null select marker";
 
@@ -118,7 +116,7 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
 
     $rootScope.profile =
         {
-            address: "адресс",
+            address: "адрес",
             apartment : "квартира",
             city :"город",
             description: "какой то текст" ,
