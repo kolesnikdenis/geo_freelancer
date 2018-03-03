@@ -41,23 +41,27 @@
     <script src="/services/PassRestoreService.js"></script>
     <script src="/services/MsgService.js"></script>
     <script src="/services/LandingService.js"></script>
+    <script src="/services/BlogService.js"></script>
     <script src="/services/AuthService.js"></script>
     <script src="/services/AdsService.js"></script>
     <script src="/directives/fixErrorUrlImages.js"></script>
     <script src="/directives/comparePasswords.js"></script>
+    <script src="/controllers/singleBlog.js"></script>
+    <script src="/controllers/showblogController.js"></script>
     <script src="/controllers/ProfileController.js"></script>
     <script src="/controllers/PassResetEmailController.js"></script>
     <script src="/controllers/PassResetController.js"></script>
+    <script src="/controllers/oNas.js"></script>
     <script src="/controllers/MsgDialogController.js"></script>
     <script src="/controllers/MessageController.js"></script>
     <script src="/controllers/LoginSignupController.js"></script>
+    <script src="/controllers/listBlogController.js"></script>
     <script src="/controllers/LandingController.js"></script>
+    <script src="/controllers/kontakt.js"></script>
     <script src="/controllers/HeaderController.js"></script>
     <script src="/controllers/ExtendedSearchController.js"></script>
     <script src="/controllers/EmailConfirmationController.js"></script>
-    <script src="/controllers/oNas.js"></script>
-    <script src="/controllers/singleBlog.js"></script>
-    <script src="/controllers/kontakt.js"></script>
+    <script src="/controllers/DetailsanyuserController.js"></script>
     <script src="/controllers/createBlog.js"></script>
     <script src="/controllers/blogs.js"></script>
     <!-- endinject -->
@@ -87,7 +91,7 @@
                         <li><a href='/kontakt'>Контакты</a></li>
                         <li><a href='/blogs'>Блог</a></li>
                         <li ng-if="!headerCtrl.showProfile"><a href='/login'>Вход</a></li>
-                        <li class="blog-li" ng-if="headerCtrl.showProfile"><a href='/profile'>Профиль</a>
+                        <li class="blog-li" ng-if="headerCtrl.showProfile"><a href='/profile'>Профиль<span ng-show="headerCtrl.new_message>0" class="badge badge-light">{{headerCtrl.new_message}}</span></a>
                             <img src="../img_categor/Zoom.png" alt="zoom">
                         </li>
                         <li ng-if="headerCtrl.showProfile"><a class='link-pointer' ng-click="headerCtrl.signOut()">Выход</a></li>

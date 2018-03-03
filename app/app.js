@@ -71,6 +71,21 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 templateUrl: '/views/singleblog.html',
                 controller: 'singleBlog',
             })
+            .when('/infouser/:id', {
+                templateUrl: '/views/detailsanyuser.html',
+                controller: 'DetailsAnyUserController',
+                controllerAs:"DetailsAnyUserControllerCtrl"
+            })
+            .when('/bloglistuser/:id', {
+                templateUrl: '/views/listBlogUser.html',
+                controller: 'listBlogController',
+                controllerAs:"listBlogControllerCtrl"
+            })
+            .when('/showblog/:id', {
+                templateUrl: '/views/ShowBlogContent.html',
+                controller: 'ShowBlogController',
+                controllerAs:"ShowBlogControllerCtrl"
+            })
             .otherwise({'template': '<h1>Route not found</h1>'})
     });
 
@@ -81,6 +96,9 @@ angular.module('app').factory('authInterceptor', function (AuthService) {
         request: function (config) {
             const auth = AuthService.getAuthData();
             if (config.url.match(/\/\/freelance\.kolesnikdenis\.com\/api/)) {
+                config.headers['Auth'] = JSON.stringify(auth);
+            }
+            if (config.url.match(/\/\/uwork\.pp\.ua\/api/)) {
                 config.headers['Auth'] = JSON.stringify(auth);
             }
             return config;

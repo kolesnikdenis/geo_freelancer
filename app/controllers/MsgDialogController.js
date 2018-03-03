@@ -7,6 +7,7 @@ angular.module('app').controller('DialogController', function($routeParams,  $lo
             if (response.data.status === 'ok') {
                 this.lastMsgRead=response.data.user_profile.last_read_msg;
                 this.to_id=response.data.user_profile.id;
+                //console.log("this.lastMsgRead:",this.lastMsgRead);
                 this.send_message_body.from_id=response.data.user_profile.id;
                 if ( JSON.parse(response.data.user_profile.photos) && JSON.parse(response.data.user_profile.photos)[0] && JSON.parse(response.data.user_profile.photos)[0].filename )
                     this.you_photo =JSON.parse(response.data.user_profile.photos)[0].filename;
@@ -19,15 +20,19 @@ angular.module('app').controller('DialogController', function($routeParams,  $lo
                 $location.path('/login');
             }
         });
-    MsgService.requestMsgDialog($routeParams.id).then((response) => {
 
+    MsgService.requestMsgDialog($routeParams.id).then((response) => {
         if ( response.data.status == 'ok') {
             if (response.data.arr_msg.length > 0){
                 for (var i=0; i<response.data.arr_msg.length; i++){
-                    response.data.arr_msg[i].photos = JSON.parse(response.data.arr_msg[i].photos)[0].filename;
+                    if (JSON.parse(response.data.arr_msg[i].photos)[0] && JSON.parse(response.data.arr_msg[i].photos)[0].filename)
+                        response.data.arr_msg[i].photos = JSON.parse(response.data.arr_msg[i].photos)[0].filename;
+                    else
+                        response.data.arr_msg[i].photos="logo-anonymous.png";
                 }
             }
-            //console.log(response.data.arr_msg);
+            //console.log("last id:", response.data.arr_msg[(response.data.arr_msg.length-1)].id, "user last read:", this.lastMsgRead);
+            this.last_id_dialog = response.data.arr_msg[(response.data.arr_msg.length-1)].id;
             this.arr_dialog = response.data.arr_msg;
         }else {
             notify({
@@ -36,8 +41,27 @@ angular.module('app').controller('DialogController', function($routeParams,  $lo
                 duration: 3000,
             });
         }
-        //console.log("dialog response:", response);
     });
+
+    setTimeout(()=>{
+        //console.log(this.lastMsgRead );
+        if (this.lastMsgRead && this.last_id_dialog ){
+            if (this.lastMsgRead  < this.last_id_dialog  ){
+                //console.log("обновляем последний прочитанный посто");
+                MsgService.requestMsgLastRead(this.last_id_dialog).then((response) =>{
+                    if (response.data.status=="ok") {
+                        console.log("обновили");
+                    } else {
+                        notify({
+                            message: 'Увы, но произошла ощибка обновления последнего прочитанного поста',
+                            classes: 'alert alert-danger',
+                            duration: 3000,
+                        });
+                    }
+                })
+            }
+        }
+    },2000)
 
     this.send = function() {
         if (!this.send_message_body.msg || this.send_message_body.msg.length <=0 ) {
