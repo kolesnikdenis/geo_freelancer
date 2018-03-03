@@ -64,7 +64,7 @@
                 <div class="col-md-7">
                     <div class="input-group">
                         <div ng-show="!photo.filename==''"  class="img">
-                            <div class="hover"><button type="button" ng-click="del_img(f.filename)" class="btn btn-danger btn-xs">X</button></div>
+                            <div class="hover"><!--<button type="button" ng-click="del_img(f.filename)" class="btn btn-danger btn-xs">X</button>--></div>
                             <img src="//freelance.kolesnikdenis.com/upload/{{photo.filename}}" width=100 alt="{{photo.alt}}"/>
 
                             <span class="progress" ng-show="progress >= 0">
@@ -211,19 +211,22 @@
                         </div>
                     </div>  </div>
                 <div class="col-xs-2 vcenter">
-                    <button  ng-click="hidden_edit_component()" ng-show="marker_work.id != '-1'" class="btn btn-danger">X</button>
+                    <button  ng-click="hidden_edit_component()" ng-show="marker_work.id != '-1'" class="btn btn-danger btn-xs">X</button>
                 </div>
             </div>
             <div id="map"></div>
-            <button class="btn btn-primary" ng-click="add_my_geo()" >Показать меня на карте</button>
+            <button class="btn btn-primary btn-xs" ng-click="add_my_geo()" >Показать меня на карте</button>
             <div id="class" ng-repeat="(key, marker) in places " >
-                <a  href="javascript: google.maps.event.trigger(profileControllerCtrl.marker[key],'click');" >{{marker.title}} </a><button type="button" ng-click="del_dot(key)" class="btn btn-danger"><i class="fa fa-trash" ></i></button>
+                <a  href="javascript: google.maps.event.trigger(profileControllerCtrl.marker[key],'click');" >{{marker.title}} </a><button type="button" ng-click="del_dot(key)" class="btn btn-danger btn-xs"><i class="fa fa-trash" ></i></button>
             </div>
 
             <hr width="50%">
-            <button type="button" ng-click="show_all_message()" class="btn btn-primary">
+		        <a href="/message" class="btn btn-primary btn-xs" role="button" aria-pressed="true">(Новых \ всего) сообщений <span class="badge badge-light">{{new_message}}\{{all_msg}}</span></a>
+
+            <!--<button type="button" ng-click="show_all_message()" class="btn btn-primary">
                 (Новых \ всего) сообщений<span class="badge badge-light">{{new_message}}\{{all_msg}}</span>
                 <span class="sr-only">unread messages</span>
+            </button>-->
             </button><br>
             <button type="button"  class="btn btn-primary">
                 Написать в блог

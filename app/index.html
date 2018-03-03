@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/bower_components/owl.carousel/dist/assets/owl.carousel.css">
     <link rel="stylesheet" href="/bower_components/owl.carousel/dist/assets/owl.theme.default.css">
     <!-- endinject -->
+    <script src="https://cdn.jsdelivr.net/lodash/4.10.0/lodash.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- endbuild -->
     <!-- inject:js -->
@@ -48,12 +50,19 @@
     <script src="/controllers/PostAdController.js"></script>
     <script src="/controllers/PassResetEmailController.js"></script>
     <script src="/controllers/PassResetController.js"></script>
+    <script src="/controllers/MsgDialogController.js"></script>
+    <script src="/controllers/MessageController.js"></script>
     <script src="/controllers/LoginSignupController.js"></script>
     <script src="/controllers/LandingController.js"></script>
     <script src="/controllers/HeaderController.js"></script>
     <script src="/controllers/ExtendedSearchController.js"></script>
     <script src="/controllers/EmailConfirmationController.js"></script>
     <script src="/config/categories.js"></script>
+    <script src="/controllers/oNas.js"></script>
+    <script src="/controllers/singleBlog.js"></script>
+    <script src="/controllers/kontakt.js"></script>
+    <script src="/controllers/createBlog.js"></script>
+    <script src="/controllers/blogs.js"></script>
     <!-- endinject -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <!-- endbuild -->
@@ -78,8 +87,8 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active-li"><a href="/postAd">Разместить объявление</a></li>
-                        <li><a href="#">О нас</a></li>
-                        <li><a href="#">Блог</a></li>
+                        <li><a href='/kontakt'>Контакты</a></li>
+                        <li><a href='/blogs'>Блог</a></li>
                         <li ng-if="!headerCtrl.showProfile"><a href='/login'>Вход</a></li>
                         <li class="blog-li" ng-if="headerCtrl.showProfile"><a href='/profile'>Профиль</a>
                             <img src="../img_categor/Zoom.png" alt="zoom">

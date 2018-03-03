@@ -46,6 +46,36 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 controller: 'PostAdController',
                 controllerAs: 'postAdCtrl',
             })
+            .when('/messages/:id', {
+                templateUrl: '/views/showMsgDialog.html',
+                controller: 'DialogController',
+                controllerAs:"DialogControllerCtrl"
+            })
+            .when('/message', {
+                templateUrl: 'views/showMsg.html',
+                controller: 'MessageController',
+                controllerAs: 'MessageControllerCtrl',
+            })
+            .when('/blogs', {
+                templateUrl: '/views/blogs.html',
+                controller: 'blogs',
+            })
+            .when('/createblog', {
+                templateUrl: '/views/createblog.html',
+                controller: 'createBlog',
+            })
+            .when('/kontakt', {
+                templateUrl: '/views/kontakt.html',
+                controller: 'kontakt',
+            })
+            .when('/onas', {
+                templateUrl: '/views/onas.html',
+                controller: 'oNas',
+            })
+            .when('/blogs/:postId', {
+                templateUrl: '/views/singleblog.html',
+                controller: 'singleBlog',
+            })
             .otherwise({'template': '<h1>Route not found</h1>'})
     });
 
