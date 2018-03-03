@@ -41,6 +41,16 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 controller: 'ProfileController',
                 controllerAs: 'profileControllerCtrl',
             })
+            .when('/messages/:id', {
+                templateUrl: '/views/showMsgDialog.html',
+                controller: 'DialogController',
+                controllerAs:"DialogControllerCtrl"
+            })
+            .when('/message', {
+                templateUrl: 'views/showMsg.html',
+                controller: 'MessageController',
+                controllerAs: 'MessageControllerCtrl',
+            })
             .when('/blogs', {
                 templateUrl: '/views/blogs.html',
                 controller: 'blogs',

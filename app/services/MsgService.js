@@ -12,6 +12,12 @@ angular.module('app').factory('MsgService', function($http) {
         requestSendMsg(body) {
             return $http.post('//freelance.kolesnikdenis.com/api/msg_send', body)
         },
+        requestUniqueAuthor(body){
+            return $http.get('//freelance.kolesnikdenis.com/api/msg_unique_sender', body)
+        },
+        requestMsgDialog(body){
+            return $http.get('//freelance.kolesnikdenis.com/api/msg_dialog/'+body)
+        }
 
     }
 });
