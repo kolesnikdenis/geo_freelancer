@@ -31,6 +31,46 @@ angular.module('app').controller('singleBlog', function($http, $scope, $routePar
 
 
 
+          $http.get('//freelance.kolesnikdenis.com/api/blog_comment/1')
+          .then(function (responce){
+                $scope.comments=responce.data.comment_blog;
+
+              }, function error(response){
+                      console.log("Возникла ошибка");
+              }
+          );
+
+
+            $scope.comment =  {
+                  id: "",
+                  datetime: "",
+                  user_id: "",
+                  blog_id: "",
+                  msg: "",
+                  firstname: "",
+                  surname: "",
+
+                }
+
+                $scope.addComment = function (comment) {
+                              console.log(comment)
+                              $http.post('//freelance.kolesnikdenis.com/api/blog_comment', comment)
+                              .then(function (responce){
+                                  console.log('comment successfully saved')
+
+                                  $scope.comment = null;
+                                  }
+                              );
+
+                            };
+
+
+
+
+
+
+
+
 
   $scope.show = 'msg1';
   $scope.fullContact = function () {
@@ -39,5 +79,6 @@ angular.module('app').controller('singleBlog', function($http, $scope, $routePar
 
 
 console.log($routeParams.postId)
+
 
 });
