@@ -1,0 +1,13 @@
+.postAd {
+    float: none !important; /* To prevent this value from being overwritten by bootstrap */
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.form-group label {
+    margin-bottom: 10px;
+}
+
+.postAd form {
+    padding: 20px;
+}

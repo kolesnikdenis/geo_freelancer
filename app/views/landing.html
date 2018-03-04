@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-offset-2 col-md-5 col-xs-12 order">
                     <h1>Заказ услуг для дома</h1>
-                        <form class="row plain-search" ng-submit="querySearch(queryString)">
+                        <form class="row plain-search" ng-submit="querySearch({ queryString: queryString })">
                             <div class="plain-search-wrapper">
                                 <div class="plain-search-field">
                                     <input name="q" class="search-input col-md-4" placeholder="Кого искать?" ng-model="queryString">
@@ -25,8 +25,8 @@
 <!--Bootstrap Carousel Categories-->
 <div class="row">
     <div class="owl-carousel owl-theme">
-            <div class="item"  ng-repeat="(key, i) in category">
-                <img style="height: 302px;" checkImage ng-src="{{i.icon}}" alt="{{i.name}}">
+            <div class="item cursor-pointer"  ng-repeat="(key, i) in category"  ng-click="querySearch({ categoryId: i.id })">
+                <img style="height: 302px;" check-image ng-src="{{i.icon}}" alt="{{i.name}}">
                 <h3 class="row col-md-7">{{i.name}}</h3>
                 <a id="categories"></a>
             </div>

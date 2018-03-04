@@ -26,8 +26,8 @@ angular.module('app').controller('LandingController', function($location, $scope
             });
         });
     });
-    $scope.querySearch = function(queryString) {
-        $location.path("/extendedSearch/" + (queryString || ''));
+    $scope.querySearch = function({queryString = '', categoryId = 0}) {
+        $location.path(`/extendedSearch/${categoryId}/${queryString}`);
     };
 
     //инициилизация карт 2 шт.)
