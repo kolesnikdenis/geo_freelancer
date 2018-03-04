@@ -26,7 +26,12 @@
             <article>{{blog.content}}</article>
             <article class="autor">Автор: {{blog.autor}}</article>
             <br />
-        </div>
+       </div>
+       <div  ng-repeat="comment in comments">
+          <p>{{comment.firstname}} {{comment.surname}}</p>
+          <p>{{comment.datetime}}</p>
+          <p>{{comment.msg}}</p>
+       </div>
 
   </div>
 
