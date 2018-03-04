@@ -58,6 +58,7 @@
                     <p>Зарплата: {{ad.price}} гривен</p>
                     <p ng-if="ad.experience">Опыт работы: {{ad.experience}} лет</p>
                     <button type="button" class="btn btn-default" ng-click="extendedSearchCtrl.openModal(ad)">Связаться</button>
+                    <a type="button" class="btn btn-default" ng-href="/infouser/{{ad.user_id}}">Посмотреть профиль</a>
                 </div>
             </div>
         </div>
