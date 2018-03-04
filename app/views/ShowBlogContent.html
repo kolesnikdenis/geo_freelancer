@@ -1,0 +1,41 @@
+<div>
+    <div class="row">
+        <div class="owl-carousel owl-theme">
+            <div class="item"  ng-repeat="(key, i) in ShowBlogControllerCtrl.photos">
+                <img style="max-height: 150px; width: auto" ng-src="/upload/{{i.filename}}" alt="{{i.alt}}">
+            </div>
+            <div></div>
+        </div>
+    </div>
+    <div class="row">
+        <h1>{{ShowBlogControllerCtrl.blog_content.title}}</h1>
+        <label>{{ShowBlogControllerCtrl.blog_content.categories_name}}<small>{{ShowBlogControllerCtrl.blog_content.datatime}}</small></label><br>
+        <label>автор: <small><a href="/infouser/{{ShowBlogControllerCtrl.blog_content.autor}}">{{ShowBlogControllerCtrl.info_author.firstname}}{{ShowBlogControllerCtrl.info_author.lastname}}</a></small></label>
+        <p class="lead">{{ShowBlogControllerCtrl.blog_content.content}}</p>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="media" ng-repeat="(key, value) in ShowBlogControllerCtrl.comments_blog"  >
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object" checkImage ng-src="{{value.photos}}" style="width:60px">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{value.surname}} {{value.firstname}} <small><i>{{value.datetime}}</i></small></h4>
+                    <p> {{value.msg}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form ng-show="ShowBlogControllerCtrl.my_info" ng-keyup="$event.keyCode == 13 && ShowBlogControllerCtrl.send()">
+        <div class="form-group">
+            <label for="Send_Msg_Body">Отправить сообщение:</label><br>
+            <small><i><b>ctrl + enter</b> отправить сообщение</i></small>
+            <textarea class="form-control" id="Send_Msg_Body" ng-model="ShowBlogControllerCtrl.constructor_comment.msg" rows="3"></textarea>
+        </div>
+        <div class="modal-footer">
+            <a href="/message" class="btn btn-warning">Закрыть</a>
+            <button type="submit" ng-click="ShowBlogControllerCtrl.send()" class="btn btn-primary active">Отправить</button>
+        </div>
+    </form>
+</div>
