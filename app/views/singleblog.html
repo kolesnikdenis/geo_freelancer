@@ -8,6 +8,7 @@
     </nav>
 
     <div id="show-blogs">
+      <div class="single-blog">
             <h1>Блог: {{post.id}}</h1>
             <h2>{{post.title}}</h2>
             <article>Категория {{post.categories}}</article>
@@ -15,33 +16,66 @@
             <article>{{post.content}}</article>
             <article class="autor">Автор: {{post.autor}}</article>
             <br />
-            <button ng-click="fullContact()">Оставить комментарий▼</button>
-            <div ng-hide="show =='msg1'">
-              <label>Текст комментария:</label>
-              <textarea ng-model="blog.comment" ng-required="true"></textarea>
-            </div>
-  </div>
 
+      </div>
+      <button ng-click="fullContact()">Оставить комментарий▼</button>
+      <div id="add-blog" ng-hide="show =='msg1'">
+        <label>Контент коментария:</label>
+        <textarea ng-model="comment.msg" ng-required="true"></textarea>
+        <button ng-click="addComment(comment)">Добавить комментарий</button>
+      </div>
+    </div>
+    <div id="show-blogs">
+      <h1>Комментарии:</h1>
+        <div ng-repeat="comment in comments" class="single-blog">
+          <h1>{{comment.firstname}} {{comment.surname}}</h1>
+          <article>{{comment.datetime}}</article>
+          <p>{{comment.msg}}</p>
+        </div>
 
-
-
-
+    </div>
 </div>
 
 
 
 
 
-
 <style media="screen">
+#add-blog *{
+    box-sizing: border-box;
+}
+#add-blog{
+    margin: 20px auto;
+    max-width: 600px;
+    padding-bottom: : 0px;
+}
+label{
+    display: block;
+    margin: 20px 0 10px;
+}
+input[type="text"], textarea, select{
+    display: block;
+    width: 100%;
+    padding: 8px;
+}
+textarea{
+    height:200px;
+}
+
 .navbar{
   margin: 0 auto;
+}
+
+#add-blog button{
+margin-top: 20px;
+background: #9CBC7C;
 }
 
 button{
   width: 100%;
   height: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  background: #9CBC7C;
 }
 
 select{
@@ -94,6 +128,7 @@ a:active{
     box-sizing: border-box;
     background: #eee;
     border: 1px dotted #aaa;
+    border-radius: 20px;
 }
 #show-blogs a{
     color: #444;
