@@ -15,7 +15,7 @@
                 <label>Контент блога:</label>
                 <textarea ng-model="blog.content" ng-required="true"></textarea>
                 <label>Категории блога:</label>
-                <select ng-model="blog.category">
+                <select ng-model="blog.categories">
                     <option ng-repeat="category in categories">{{ category.name }}</option>
                 </select>
                 <label>Автор:</label>
@@ -49,7 +49,7 @@
                 <p>Контент блога:</p>
                 <p>{{ blog.content }}</p>
                 <p>Категория блога:</p>
-                <p>{{ blog.category }}</p>
+                <p>{{ blog.categories }}</p>
                 <p>Автор:</p>
                 <p>{{ blog.autor }}</p>
 
@@ -85,6 +85,7 @@ textarea{
     padding: 10px 20px;
     border: 1px dotted #ccc;
     margin: 30px 0;
+    border-radius: 20px;
 }
 h3{
     margin-top: 10px;

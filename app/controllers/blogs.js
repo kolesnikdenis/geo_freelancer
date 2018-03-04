@@ -36,12 +36,16 @@ $scope.blogs =  [
       $scope.categories =  [
           {
               name: '',
-              id: '',
-              autor: ''
+             
           }
         ];
 
 
+  
+        
+          
+          
+          
 
           $scope.show = 'msg1';
           $scope.fullContact = function () {
