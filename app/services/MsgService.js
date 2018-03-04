@@ -20,7 +20,6 @@ angular.module('app').factory('MsgService', function($http) {
         },
         requestMsgLastRead(body){
             return $http.get('//freelance.kolesnikdenis.com/api/msg_last_update/'+body)
-        }
-
+        },
     }
 });

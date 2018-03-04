@@ -11,6 +11,6 @@ angular.module('app').factory('AdsService', function($http) {
         },
         createNewAd (adData) {
             return $http.post('//freelance.kolesnikdenis.com/api/ads_add', adData)
-        }
+        },
     }
 });

@@ -42,7 +42,7 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 controllerAs: 'profileControllerCtrl',
             })
             .when('/postAd', {
-                templateUrl: 'views/postAd.html',
+                templateUrl: '/views/postAd.html',
                 controller: 'PostAdController',
                 controllerAs: 'postAdCtrl',
             })

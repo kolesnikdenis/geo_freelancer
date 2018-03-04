@@ -1,4 +1,4 @@
-angular.module('app').controller('LandingController', function($location, $scope, LandingService,AdsService,UserService,  $compile,$uibModal,AuthService,MsgService,notify) {
+angular.module('app').controller('LandingController', function($location, $scope, LandingService, AdsService,UserService,  $compile,$uibModal,AuthService,MsgService,notify) {
     $scope.category={};
     LandingService.getAll().then((category) => {
         $scope.category = category.data.response;
@@ -232,7 +232,7 @@ angular.module('app').controller('LandingController', function($location, $scope
                     };
                     index = ttt(index);
                 },5000)
-            })
+            });
 
         },function (err) {
             notify({ message: "ошибка:"+err.message, duration: 3000, classes: 'alert alert-danger'  });
