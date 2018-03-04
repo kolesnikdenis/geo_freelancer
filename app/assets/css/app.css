@@ -54,21 +54,26 @@
     cursor: pointer;
 }
 
-/*header style*/
-.navbar-default{
+
+.angular-google-map-container { height: 400px; }
+
+.navbar-default {
     background-color: #FFFFFF;
     padding-top: 20px;
     min-height: 100px;
     margin: 0;
     border: none;
 }
-.navbar-brand{
+
+.navbar-brand {
     font-size: 36px !important;
 }
-.navbar-brand span{
+
+.navbar-brand span {
     color: #9CBC7C;
 }
-.active-li>a{
+
+.active-li > a {
     color: #9CBC7C !important;
 }
 .blog-li button{
@@ -79,6 +84,11 @@
 }
 .navbar-right li a:hover{
     color: #9CBC7C !important;
+}
+
+.messageText {
+    width: 100%;
+    height: 15rem;
 }
 
 @media screen and (max-width: 400px) {
@@ -103,8 +113,8 @@
         color: red;
         padding-top: 5px;
     }
-
     .navbar-brand{
         font-size: 30px !important;
     }
 }
+

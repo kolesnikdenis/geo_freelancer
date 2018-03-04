@@ -267,6 +267,7 @@ input:-webkit-autofill:focus{
     margin-bottom: 120px;
 }
 
+
 @media only screen and (min-width: 1200px) {
     .descrition-text button{
         width: 120px;
@@ -285,15 +286,11 @@ input:-webkit-autofill:focus{
     .access-service-input{
         right: 270px;
     }
-    /*.descrition-text h2{
-        display: none;
-    }*/
     .maps{
         padding-right: 0;
     }
 }
 @media only screen and (max-width: 992px) {
-
 }
 @media only screen and (max-width: 768px){
     .maps{
@@ -302,18 +299,6 @@ input:-webkit-autofill:focus{
     .order p{
         font-size: 16px;
     }
- /*   .descrition-text button{
-        width: 120px;
-        height: 120px;
-        border-radius: 60px;
-        background-color: #416777;
-        opacity: 0.6;
-        color: #ffffff;
-        outline: 0;
-        border: none;
-        margin: 5px 10px;
-        font-size: 14px;
-    }*/
     .access-service-text{
         left: 224px;
         top: -498px;
