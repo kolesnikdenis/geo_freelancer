@@ -61,6 +61,8 @@
     background-color: #FFFFFF;
     padding-top: 20px;
     min-height: 100px;
+    margin: 0;
+    border: none;
 }
 
 .navbar-brand {
@@ -74,11 +76,14 @@
 .active-li > a {
     color: #9CBC7C !important;
 }
-
-.blog-li img {
-    position: relative;
-    top: -35px;
-    right: 10px;
+.blog-li button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 15px;
+}
+.navbar-right li a:hover{
+    color: #9CBC7C !important;
 }
 
 .messageText {
@@ -108,4 +113,8 @@
         color: red;
         padding-top: 5px;
     }
+    .navbar-brand{
+        font-size: 30px !important;
+    }
 }
+

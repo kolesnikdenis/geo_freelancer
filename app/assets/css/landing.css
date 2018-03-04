@@ -4,7 +4,7 @@ body{
     font-size: 16px;
     max-width: 100%;
 }
-.order h1, .descrition h1, .access-service h1, .blog h1{
+.order h1, .descrition h1, .blog h1{
     color: #9CBC7C;
     padding-bottom: 30px;
 }
@@ -30,12 +30,25 @@ p{
 .picture h1{
     color: #ffffff;
 }
-.maps, .images, iframe{
+.images{
     padding: 0;
+}
+.maps{
+    padding-left: 2px;
 }
 .order{
     padding-top: 127px;
     padding-left: 82px;
+}
+.order h1{
+    padding-bottom: 30px;
+    margin: 0 -15px;
+}
+.order p{
+    font-size: 15px;
+    color: #FFFFFF;
+    margin: 30px -15px;
+    padding: 0;
 }
 
 .search-input{
@@ -49,6 +62,15 @@ p{
 }
 .search-input{
     padding-left: 36px !important;
+}
+.search-input::placeholder{
+    color: #9B9B9B;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus{
+    background-color: #FFFFFF !important;
 }
 
 .plain-search-button{
@@ -66,16 +88,18 @@ p{
     text-decoration: none;
     color: #9CBC7C;
 }
-#categories{
-
-}
 .plain-search-button-categor{
     height: 63px;
-    outline: 0;
+    outline: 0 none;
     border: none;
     color: #9CBC7C;
     background-color: #ffffff;
     font-size: 12px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+.maps .col-md-4{
+    padding-left: 2px !important;
 }
 .item:before{
     content: '';
@@ -104,38 +128,77 @@ p{
 .descrition h1{
     padding-left: 20px;
 }
-.descrition p{
-    vertical-align: middle;
-}
-.descrition-text button{
-    width: 150px;
-    height: 150px;
-    border-radius: 75px;
+.descrition-uwork{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
     background-color: #416777;
     opacity: 0.6;
     color: #ffffff;
     outline: 0;
     border: none;
-    margin: 0 10px;
-    font-size: 16px;
+    margin: 5px 10px;
+    position: relative;
+    display: inline-block;
+}
+.descrition-uwork p{
+    position: absolute;
+    top: 32%;
+    text-align: center;
+    font-size: 15px;
+    padding: 0 5px;
 }
 .descrition-text span{
     color: #9CBC7C;
 }
-.descrition-text h2{
-    padding-top: 33px;
-}
-.descrition-text{
-    margin-bottom: 40px;
+
+.access-service-maps{
+    padding-right: 2px;
 }
 .access-service h1{
     text-align: center;
+    margin: 60px 0 65px 0;
+    color: #9CBC7C;
 }
-.pctr-access-service{
+.access-service-pctr{
     background-image: url("https://images.unsplash.com/photo-1499083097717-a156f85f0516?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0857182ce680e944304c9980ec175b10&auto=format&fit=crop&w=751&q=80");
     background-size: cover;
+    background-position: center;
     height: 470px;
+    position: relative;
 }
+.access-service-text{
+    background-color: #FFFFFF;
+    padding: 1px 40px;
+    position: absolute;
+    top: -32px;
+    left: -224px;
+    width: 500px;
+}
+.access-service-text span{
+    color: #9CBC7C;
+}
+.access-service-text p{
+    text-align: center;
+}
+.access-service-input{
+    border: 1px solid #9CBC7C;
+    height: 63px;
+    width: 400px;
+    padding: 30px;
+    font-size: 14px;
+    position: absolute;
+    bottom: 24px;
+    right: 370px;
+    outline: 0 none;
+}
+.access-service-input::placeholder{
+    color: #9B9B9B;
+}
+.access-service-input.text:focus{
+    border: 1px solid #9CBC7C;
+}
+
 .wage-center{
     vertical-align: middle;
 }
@@ -143,11 +206,16 @@ p{
     background-image: url("https://images.unsplash.com/photo-1500837744038-ec60054ed01e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a6afec6e65db063cc6e263f5a955a54f&auto=format&fit=crop&w=750&q=80");
     height: 470px;
     margin-right: 100px;
+    background-size: cover;
+    background-position: center;
 }
 .wage-h h2{
-    color: #9CBC7C;
+    color: #4A4A4A;
     padding-bottom: 20px;
     padding-top: 100px;
+}
+.wage p{
+    margin-bottom: 50px;
 }
 .button-doer{
     height: 63px;
@@ -192,54 +260,142 @@ p{
     height:470px;
     width:100%;
 }
-.blog-info h3{
+.blog-info h4{
     font-weight: bold;
+    font-size: 18px;
+    margin-top: 50px;
+    margin-bottom: 120px;
 }
 
-.cursor-pointer {
-    cursor: pointer;
-}
 
-@media only screen and (min-width: 768px) {
-
-}
-@media screen and (max-width: 400px) {
-
-    h1{
-        font-size: 24px;
-    }
-    p{
-        font-size: 18px;
-    }
+@media only screen and (min-width: 1200px) {
     .descrition-text button{
-        width: 100%;
-        height: 80px;
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
         background-color: #416777;
         opacity: 0.6;
         color: #ffffff;
         outline: 0;
         border: none;
-        margin: 6px 10px;
-        font-size: 20px;
-        border-radius: unset;
+        margin: 5px 10px;
+        font-size: 14px;
     }
-    .descrition-text h2{
+}
+@media only screen and (max-width: 1024px) {
+    .access-service-input{
+        right: 270px;
+    }
+    .maps{
+        padding-right: 0;
+    }
+}
+@media only screen and (max-width: 992px) {
+}
+@media only screen and (max-width: 768px){
+    .maps{
+        padding-left: 0;
+    }
+    .order p{
+        font-size: 16px;
+    }
+    .access-service-text{
+        left: 224px;
+        top: -498px;
+    }
+    .access-service-pctr{
+        height: 0;
+    }
+    .wage-h h2{
+        padding-top: 10px;
+    }
+    .wage-pctr{
+        height: 270px;
+        margin-right: 50px;
+        background-size: cover;
+    }
+    .wage p{
+        margin-bottom: 20px;
+    }
+    .button-doer{
+        height: 50px;
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 400px) {
+    .order p{
+        font-size: 14px;
+        margin: 20px 0;
+    }
+    .access-service-pctr{
         display: none;
+    }
+
+    .order h1, .descrition h1, .access-service h1, .blog h1{
+        font-size: 30px;
+        padding-bottom: 20px;
+    }
+    p{
+        font-size: 14px;
+    }
+    .search-input, .plain-search-button-categor, .plain-search-button {
+        height: 40px;
+        margin-bottom: 5px;
+        font-size: 13px;
+    }
+    .item h3{
+        font-size: 18px;
+    }
+    .maps{
+        padding-right: 0;
+    }
+    .descrition-uwork{
+        width: 90px;
+        height: 90px;
+        border-radius: 45px;
+        background-color: #416777;
+        opacity: 0.6;
+        color: #ffffff;
+        outline: 0;
+        border: none;
+        margin: 5px 10px;
+        display: inline-block;
+    }
+    .descrition-uwork p{
+        font-size: 12px;
+    }
+    .descrition-text{
+        margin-bottom: 0;
+    }
+    .access-service h1{
+        margin: 25px 0 0 0;
     }
     .pctr-access-service{
         display: none;
     }
+    .wage-h h2{
+        padding: 0;
+        margin-top: 40px;
+        margin-bottom: 17px;
+    }
     .wage-pctr{
         display: none;
+    }
+    .wage p {
+        margin-bottom: 30px;
     }
     iframe{
         width: 100%;
     }
     .button-doer{
-        font-size: 20px;
+        height: 40px;
+        font-size: 16px;
     }
     .wage button{
         width: 100%;
         margin: 0 10px;
+    }
+    .wage{
+        margin-bottom: 0;
     }
 }

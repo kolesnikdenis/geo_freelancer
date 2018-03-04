@@ -1,22 +1,22 @@
 <div class="row">
-    <div class="picture col-lg-8">
+    <div class="picture col-md-8">
         <div class="container">
             <div class="row">
-                <div class="col-md-offset-2 col-md-5 col-xs-12 order">
+                <div class="col-md-offset-2 col-md-6 order">
                     <h1>Заказ услуг для дома</h1>
-                        <form class="row plain-search" ng-submit="querySearch({ queryString: queryString })">
-                            <div class="plain-search-wrapper">
-                                <div class="plain-search-field">
-                                    <input name="q" class="search-input col-md-4" placeholder="Кого искать?" ng-model="queryString">
-                                </div>
-                                <button class="plain-search-button-categor col-md-3" type="submit"><a href="#categories">Категории</a></button>
-                                <button class="plain-search-button col-md-5" type="submit">Заказать услугу</button>
+                     <form class="row plain-search" ng-submit="querySearch({ queryString: queryString })">
+                            <div class="plain-search-field">
+                                <input name="q" class="search-input col-xs-5 col-sm-5 col-md-6" placeholder="Что ищем?" ng-model="queryString">
                             </div>
-                        </form>
+                            <button class="plain-search-button-categor col-xs-3 col-sm-2 col-md-2" type="submit"><a href="#categories">Категории</a></button>
+                            <button class="plain-search-button col-xs-3 col-sm-3 col-md-4" type="submit">Заказать услугу</button>
+                    </form>
+                    <p class="col-xs-7 col-sm-5 col-md-6">Он-лайн сервис для поиска работ в Вашем районе</p>
                 </div>
             </div>
         </div>
     </div>
+
     <div id="" class="maps col-md-4">
         <div id="LittleMap"></div>
     </div>
@@ -27,7 +27,7 @@
     <div class="owl-carousel owl-theme">
             <div class="item cursor-pointer"  ng-repeat="(key, i) in category"  ng-click="querySearch({ categoryId: i.id })">
                 <img style="height: 302px;" check-image ng-src="{{i.icon}}" alt="{{i.name}}">
-                <h3 class="row col-md-7">{{i.name}}</h3>
+                <h3 class="row col-xs-2 col-md-7">{{i.name}}</h3>
                 <a id="categories"></a>
             </div>
         <div></div>
@@ -37,66 +37,72 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 descrition">
-            <h1>Как это работает?</h1>
+            <h1>Как это работает</h1>
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="row descrition-text">
-        <p class="col-md-5">Если у Вас нет времени ждать неделями выполнение задания, все специалисты
-            заняты или не могуть делать быстро и качественно,зарегистрируйтесь, оставте заявку, и уже
-            сегодня все Ваши проблемы будут решены!</p>
-        <button class="col-md-2 col-sm-6">Задание</button>
-        <button class="col-md-2 col-xs-12">Выбор исполнителя</button>
-        <button class="col-md-2 col-xs-12">Выполнение работы</button>
-        <h2 class="col-md-1 col-xs-12"><span>Neighbor</span>Hub</h2>
+    <div class="row">
+        <p class="col-md-6">Если у Вас нет времени ждать неделями выполнение задания, все специалисты
+            заняты или не могуть делать быстро и качественно,мы Вам поможем! Опишите Вашу задачу и
+            выберете подходящего исполнителя по категориям. Или можете сами стать исполнителем. Просто
+            разместите свое объявление.</p>
+        <div class="col-md-6">
+            <div class="descrition-uwork"><p>Создайте задание</p></div>
+            <div class="descrition-uwork"><p>Выбор исполнителя</p></div>
+            <div class="descrition-uwork"><p>Выполнение работы</p></div>
+        </div>
+    </div>
+    <div class="descrition-text col-md-offset-7 col-md-5">
+        <h3><span>Neighbour</span>Hub</h3>
+        <p>Надежные исполнители для любых задач!</p>
     </div>
 </div>
 
-<div class="access-service">
-    <h1>Узнайте какие услуги достойны уже сейчас в Вашем районе</h1>
+<div class="access-service col-md-12">
+    <h1>Узнайте какие услуги доступны уже сейчас в Вашем районе</h1>
 </div>
 <div class="row">
-    <div class="maps-access-service col-md-8">
-        <div id="BigMap"></div>
+    <div class="access-service-maps col-md-8">
+        <div id="BigMap" ></div>
     </div>
-    <div class="pctr-access-service col-md-4"></div>
+    <div class="access-service-pctr col-md-4">
+    <!--    <div class="access-service-text">
+            <p>Выберете подходящего исполнителя по разным категориям вместе с <span>Neighbour</span>Hub
+            или разместите свое задание.</p>
+        </div>
+        <form class="access-service-form">
+            <input name="access" type="text" class="access-service-input" placeholder="Задайте Ваш район">
+        </form>-->
+    </div>
 </div>
 
 <div class="container">
     <div class="row wage">
-        <div class="wage-pctr col-md-5"></div>
+        <div class="wage-pctr col-sm-5 col-md-5"></div>
         <div class="col-md-5 wage-h">
             <h2>Желаете подзаработать?</h2>
         </div>
-        <p class="col-md-4">Если у Вас нет времени ждать неделями выполнение задания, все специалисты
-            заняты или не могуть делать быстро и качественно,зарегистрируйтесь, оставте заявку, и уже
-            сегодня все Ваши проблемы будут решены!</p>
-        <button class="col-md-3 button-doer">Стать исполнителем</button>
+        <p class="col-md-5">Как правило, чаще всего выбирают подрядчика с самой низкой стоимостью.
+            Зачастую, это неверное решение, в чем можно убедиться со следующей реальной истории из жизни.</p>
+        <button class="col-sm-5 col-md-4 button-doer">Стать исполнителем</button>
     </div>
 </div>
 
 <!--Owl Carousel Blog-->
 <div class="container">
     <div class="row blog col-md-4">
-        <h1>На заметку</h1>
+        <h1>Блог</h1>
     </div>
 </div>
 <div class="row col-md-offset-2">
     <div class="owl-carousel">
-        <div class="item blog">
-            <img src="../img_categor/5_5_Строительные работы.jpeg" alt="">
+        <div class="item blog"  ng-repeat="(key, i) in category">
+            <img style="height: 302px;" check-image ng-src="{{i.icon}}" alt="{{i.name}}">
             <div class="blog-info">
-                <h3>Статья</h3>
-                <p>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+                <h4>{{i.name}}</h4>
+                <p>Подробнее о категории читай в нашем блоге</p>
             </div>
         </div>
-        <div class="item"><img src="../img_categor/2_2_Отделочные%20работы.jpeg" alt=""></div>
-        <div class="item"><img src="../img_categor/4_Курьерские%20услуги.jpeg" alt=""></div>
-        <div class="item"><img src="../img_categor/6_Ремонт%20техники.jpeg" alt=""></div>
-        <div class="item"><img src="../img_categor/1_Домашний%20мастер.jpeg" alt=""></div>
-        <div class="item"><img src="../img_categor/5_Строительные%20работы.jpeg" alt=""></div>
-        <div class="item"><img src="../img_categor/7_Логистические%20и%20складские%20услуги.jpeg" alt=""></div>
     </div>
 </div>
