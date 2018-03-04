@@ -36,12 +36,37 @@ $scope.blogs =  [
       $scope.categories =  [
           {
               name: '',
-              id: '',
-              autor: ''
+             
           }
         ];
 
 
+  
+        $http.get('//freelance.kolesnikdenis.com/api/blog_comment/1')
+        .then(function (responce){
+              $scope.comments=responce.data.comment_blog;
+
+            }, function error(response){
+                    console.log("Возникла ошибка");
+            }
+        );
+
+
+          $scope.comments =  [
+                {
+                id: "",
+                datetime: "",
+                user_id: "",
+                blog_id: "",
+                msg: "",
+                firstname: "",
+                surname: "",
+
+              }
+            ];        
+          
+          
+          
 
           $scope.show = 'msg1';
           $scope.fullContact = function () {
