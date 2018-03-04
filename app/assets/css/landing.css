@@ -196,6 +196,10 @@ p{
     font-weight: bold;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 @media only screen and (min-width: 768px) {
 
 }

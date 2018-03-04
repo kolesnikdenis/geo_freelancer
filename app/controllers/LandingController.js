@@ -26,8 +26,8 @@ angular.module('app').controller('LandingController', function($location, $scope
             });
         });
     });
-    $scope.querySearch = function(queryString) {
-        $location.path("/extendedSearch/" + (queryString || ''));
+    $scope.querySearch = function({queryString = '', categoryId = 0}) {
+        $location.path(`/extendedSearch/${categoryId}/${queryString}`);
     };
 
     //инициилизация карт 2 шт.)
@@ -54,19 +54,18 @@ angular.module('app').controller('LandingController', function($location, $scope
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             templateUrl: '/modals/message/send_message.html',
-            //template: '<input type=text class="input"><br><button >отправить сообщение пользователю</button>',
             controller:function($uibModalInstance ,$scope,items){
                 $scope.send_message_body ={to_user_id: to_user_id, from_id:!AuthService.getAuthData().user_id?0:AuthService.getAuthData().user_id, msg: ""};
 
                 $scope.cancel = function () {
                     $uibModalInstance.dismiss('cancel');
-                    console.log('well  bye Bye');
+                    //console.log('well  bye Bye');
                 };
                 $scope.send = function() {
                     if (!$scope.send_message_body.msg || $scope.send_message_body.msg.length <=0 ) {
                         notify({ message: "сообщение не может быть пустым", duration: 3000, classes: 'alert alert-danger'  });
                     } else {
-                        console.log($scope.send_message_body);
+                        //console.log($scope.send_message_body);
                         MsgService.requestSendMsg($scope.send_message_body).then((resp_user) => {
                             if (resp_user.data.status=="ok"){
                                 notify({ message: "Спасибо, Ваше сообщение успешно отправлено", duration: 3000, classes: 'alert alert-info'  });
@@ -184,15 +183,11 @@ angular.module('app').controller('LandingController', function($location, $scope
                     //$scope.map.setCenter(my_coord);
                     createMarker({title:"вы тут", lat: my_coord.lat, lng: my_coord.lng});
                 }
-
             });
-
             AdsService.getGeoLast(my_coord).then((resp) =>{
                 var arr_data=resp.data.ads_rows;
-
                 $scope.map.setCenter(my_coord);
                 $scope.map.setZoom(15);
-
                 var createMarker = function (info){
                     var marker = new google.maps.Marker({
                             map: $scope.map1,
@@ -212,16 +207,11 @@ angular.module('app').controller('LandingController', function($location, $scope
                     });
                     return obj;
                 }
-
-
                 for ( var i=0; arr_data.length > i; i++){
-
                     var geo={};
                     try { geo = JSON.parse(arr_data[i].geo); }
                     catch (err) { geo={} }
-
                     ads_coord = JSON.parse(arr_data[i].geo);
-
                     if (! isNaN( arr_data[i].category) )
                         icon  = "//uwork.pp.ua" + getValue($scope.category, arr_data[i].category)[0].mini_icon
                     else
@@ -250,12 +240,9 @@ angular.module('app').controller('LandingController', function($location, $scope
             })
 
         },function (err) {
-            console.log("error geo:",err);
-            alert(err.message);
+            notify({ message: "ошибка:"+err.message, duration: 3000, classes: 'alert alert-danger'  });
         });
     } else {
-        alert("geo недоступно...")
+        notify({ message: "GEO-локация недоступна", duration: 3000, classes: 'alert alert-danger'  });
     }
-
-
 });
