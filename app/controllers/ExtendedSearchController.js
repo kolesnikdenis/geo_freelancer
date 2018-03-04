@@ -67,6 +67,7 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
             return minValue <= item[fieldName] && item[fieldName] <= maxValue;
         };
     };
+
     this.currentPage = 1;
     this.itemsPerPage = 3;
 
@@ -135,7 +136,11 @@ angular.module('app').controller('ExtendedSearchController', function($routePara
             }
         };
     }
-
+    this.byRadius = () => {
+        return (ad) => {
+            return filterMarkerByRadius.call(this, createMarker(ad));
+        }
+    };
     function filterMarkerByRadius (marker) {
         if (!marker.latitude) {
             return false;
