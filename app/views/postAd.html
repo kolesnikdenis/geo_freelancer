@@ -1,5 +1,8 @@
-<div class="container ">
-    <div class="col-xs-12 col-md-6 postAd">
+<div class=" ">
+    <div class="row">
+        <div class="col-sm-7">
+
+        <div class="col-xs-12 col-md-10 postAd">
         <uib-tabset justified="true">
             <uib-tab index="0" heading="Найти работу">
                 <div class="panel panel-default">
@@ -103,4 +106,12 @@
 
         </uib-tabset>
     </div>
+
+        </div>
+        <div class="col-sm-5">
+
+            <div id="postAdMap"></div>
+            {{postAdCtrl.point}}
+            <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
+        </div>
 </div>
