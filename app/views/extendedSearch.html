@@ -38,9 +38,11 @@
                 <ui-gmap-marker coords="extendedSearchCtrl.currentPosMarker.coords" options="extendedSearchCtrl.currentPosMarker.options" events="extendedSearchCtrl.currentPosMarker.events" idkey="extendedSearchCtrl.currentPosMarker.id"></ui-gmap-marker>
                 <ui-gmap-markers models="extendedSearchCtrl.adsMarkers" coords="'self'" icon="'icon'" options="'options'">
             </ui-gmap-google-map>
-            <div class="btn-group" ng-if="extendedSearchCtrl.isAuthenticated">
-                <label class="btn btn-primary" ng-model="extendedSearchCtrl.radioModel" uib-btn-radio="'currentPos'" >Текущая позиция</label>
-                <label class="btn btn-primary" ng-model="extendedSearchCtrl.radioModel" uib-btn-radio="'storedPos'">Позиция из профиля</label>
+            <div class="form-group" ng-if="extendedSearchCtrl.isAuthenticated">
+                <select ng-model="extendedSearchCtrl.positionSelect" class="form-control" ng-change="extendedSearchCtrl.updateMapCenter(extendedSearchCtrl.positionSelect)">
+                    <option value="{{extendedSearchCtrl.currentCoordsStringified}}">Текущее местонахождение</option>
+                    <option ng-repeat="position in extendedSearchCtrl.userProfileLocations" value={{position}}>{{position.title}}</option>
+                </select>
             </div>
         </div>
     </div>
@@ -48,7 +50,8 @@
         <div ng-repeat="ad in filterAds = (extendedSearchCtrl.ads
         | filter: {title: extendedSearchCtrl.search, category: extendedSearchCtrl.category, adType: adType}
         | filter:extendedSearchCtrl.byRange('price', extendedSearchCtrl.priceSlider.minValue, extendedSearchCtrl.priceSlider.maxValue)
-        | filter:extendedSearchCtrl.byRange('experience', extendedSearchCtrl.experienceSlider.minValue, extendedSearchCtrl.experienceSlider.maxValue))
+        | filter:extendedSearchCtrl.byRange('experience', extendedSearchCtrl.experienceSlider.minValue, extendedSearchCtrl.experienceSlider.maxValue)
+        | filter:extendedSearchCtrl.byRadius())
         | limitTo:extendedSearchCtrl.itemsPerPage:extendedSearchCtrl.itemsPerPage*(extendedSearchCtrl.currentPage-1)">
             <div class="panel panel-default">
                 <div class="panel-heading">{{ad.title}}</div>
