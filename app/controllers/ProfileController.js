@@ -303,7 +303,6 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
         $rootScope.markers.splice(index, 1);
         $rootScope.Circle.splice(index, 1);
         places.splice(index,1);
-
     };
 
     var createMarker = function (info,index){

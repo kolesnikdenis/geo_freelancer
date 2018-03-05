@@ -256,6 +256,12 @@ input:-webkit-autofill:focus{
     width:100%;
 }
 
+#postAdMap{
+    /*width="920" height="470"*/
+    height:400px;
+    width:100%;
+}
+
 #LittleMap {
     height:470px;
     width:100%;
