@@ -39,7 +39,7 @@
                 <ui-gmap-markers models="extendedSearchCtrl.adsMarkers" coords="'self'" icon="'icon'" options="'options'">
             </ui-gmap-google-map>
             <div class="form-group" ng-if="extendedSearchCtrl.isAuthenticated">
-                <select ng-model="extendedSearchCtrl.positionSelect" class="form-control" ng-change="extendedSearchCtrl.updateMapCenter(extendedSearchCtrl.positionSelect)">
+                <select ng-model="extendedSearchCtrl.positionSelect" class="form-control location-dropdown" ng-change="extendedSearchCtrl.updateMapCenter(extendedSearchCtrl.positionSelect)">
                     <option value="{{extendedSearchCtrl.currentCoordsStringified}}">Текущее местонахождение</option>
                     <option ng-repeat="position in extendedSearchCtrl.userProfileLocations" value={{position}}>{{position.title}}</option>
                 </select>
@@ -56,12 +56,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">{{ad.title}}</div>
                 <div class="panel-body">
-                    <p>{{ad.description}}</p>
+                    <p class="description">{{ad.description}}</p>
                     <p>Категория: {{extendedSearchCtrl.categories[ad.category]}}</p>
                     <p>Зарплата: {{ad.price}} гривен</p>
                     <p ng-if="ad.experience">Опыт работы: {{ad.experience}} лет</p>
-                    <button type="button" class="btn btn-default" ng-click="extendedSearchCtrl.openModal(ad)">Связаться</button>
-                    <a type="button" class="btn btn-default" ng-href="/infouser/{{ad.user_id}}">Посмотреть профиль</a>
+                    <button type="button" class="btn btn-default extended-search-button" ng-click="extendedSearchCtrl.openModal(ad)">Связаться</button>
+                    <a type="button" class="btn btn-default extended-search-button" ng-href="/infouser/{{ad.user_id}}">Посмотреть профиль</a>
                 </div>
             </div>
         </div>

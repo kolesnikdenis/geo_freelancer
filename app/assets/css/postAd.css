@@ -9,5 +9,32 @@
 }
 
 .postAd form {
-    padding: 20px;
+    padding: 30px;
+}
+
+div div form .post-ad-button {
+    border-radius: 0;
+    margin-right: 5px;
+    border: none;
+    background-color: #9CBC7C;
+    color: #ffffff;
+    outline: 0;
+}
+
+div .form-control {
+    border-radius: 0;
+}
+
+div .nav-tabs.nav-justified>li>a,
+div .panel.panel-default {
+    border-radius: 0;
+}
+
+div .nav-tabs.nav-justified>li>a {
+    color: #7D93B2;
+    font-size: 2rem;
+}
+
+div .form-group label {
+    font-weight: normal;
 }

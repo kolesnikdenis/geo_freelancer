@@ -1,0 +1,63 @@
+div .col-xs-12 .form-group .form-control {
+    font-family: Lato;
+}
+
+div .extended-search-button {
+    border-radius: 0;
+    margin-right: 5px;
+    border: none;
+    background-color: #9CBC7C;
+    color: #ffffff;
+    outline: 0;
+}
+
+div .panel-default>.panel-heading {
+    color: #7D93B2;
+    font-size: 2.2rem;
+    background-color: #ffffff;
+    border-bottom: none;
+    padding: 15px;
+}
+
+.description {
+    font-size: 2rem;
+}
+
+div .rzslider .rz-pointer {
+    background-color: #9CBC7C;
+    border-radius: 0;
+    top: -8px;
+    width: 20px;
+    height: 20px;
+
+}
+
+div .rzslider .rz-pointer:after,
+div .rzslider .rz-pointer:hover:after,
+div .rzslider .rz-pointer.rz-active:after {
+    background-color: #9CBC7C;
+    border-color: #9CBC7C;
+}
+
+div .rzslider .rz-selection {
+    background-color: #9CBC7C;
+}
+
+div .pagination>.active>a,
+div .pagination>.active>a:focus,
+div .pagination>.active>a:hover,
+div .pagination>.active>span,
+div .pagination>.active>span:focus,
+div .pagination>.active>span:hover {
+    background-color:#9CBC7C;
+    border-color: #9CBC7C;
+}
+
+div .pagination>li>a,
+div .pagination>li>span {
+    color: #000000;
+}
+
+div .location-dropdown {
+    margin-top: 20px;
+}
