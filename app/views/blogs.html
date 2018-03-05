@@ -2,7 +2,8 @@
   <nav class="butBlog">
       <ul>
           <li><a href='/blogs'>Блог</a></li>
-          <li><a href='/createblog'>Добавьте новый блог</a></li>
+          <li ng-if="headerCtrl.showProfile"><a href='/login'>Вход</a></li>
+          <li ng-if="!headerCtrl.showProfile"><a href='/createblog'>Добавьте новый блог</a></li>
       </ul>
   </nav>
 
@@ -26,8 +27,7 @@
             <article>{{blog.content}}</article>
             <article class="autor">Автор: {{blog.autor}}</article>
             <br />
-       </div>
-       
+        </div>
 
   </div>
 
@@ -45,12 +45,15 @@ button{
   height: 40px;
   margin-bottom: 20px;
   background: #9CBC7C;
+  color: #fff;
 }
 
 select{
   width: 100%;
   height: 40px;
   margin-bottom: 20px;
+  border: 1px solid #9CBC7C;
+  background: #ffffff;
 }
 .autor{
     float: right;
@@ -73,22 +76,24 @@ select{
     color: #fff;
     text-decoration: none;
     padding: 12px;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 .butBlog{
     background: #9CBC7C;
     padding-top:10px;
     margin: 0 auto;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
 }
-a:active{
+ a:active{
     background: rgba(255,255,255,0.8);
     color: #444;
 }
 
 
 #show-blogs{
-    max-width: 800px;
+  width: 100%;
+  max-width: 800px;
     margin: 0px auto;
 }
 .single-blog{
@@ -96,8 +101,8 @@ a:active{
     margin: 20px 0;
     box-sizing: border-box;
     background: #eee;
-    border: 1px dotted #aaa;
-    border-radius: 20px;
+    border: 1px solid #9CBC7C
+
 }
 #show-blogs a{
     color: #444;
@@ -107,5 +112,6 @@ input[type="text"]{
     padding: 8px;
     width: 100%;
     box-sizing: border-box;
+    border: 1px solid #9CBC7C
 }
 </style>
