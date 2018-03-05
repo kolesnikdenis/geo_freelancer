@@ -8,6 +8,11 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
     $rootScope.marker_work={ radius: 1, title: "",desc: "",lat: 0, lng: 0,id:-1 };
     $rootScope.select_marker="null select marker";
 
+    if ($rootScope.photo)
+        $rootScope.btn_upload_img_text = "Изменить фото";
+    else
+        $rootScope.btn_upload_img_text = "Добавить фото";
+
     $rootScope.hidden_edit_component = function () {
         $rootScope.marker_work={ radius: 1, title: "",desc: "",lat: 0, lng: 0,id:-1 };
     };

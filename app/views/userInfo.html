@@ -2,8 +2,19 @@
 <div>
     <form class="form-horizontal">
         <legend>Вашь профиль</legend>
-
         <style>
+            .btn-info{
+                background-color: #9CBC7C;
+                border: none;
+                outline: 0;
+                border-radius: 0;
+                width: 47%;
+            }
+
+
+            .btn-info:hover{
+                background-color: #9CBC7C;
+            }
             #ex1Slider .slider-selection {
                 background: #BABABA;
             }
@@ -48,24 +59,21 @@
                 margin-right: 5px; /* Отступ слева */
             }
         </style>
-
-
         <div class="row">
-            <div class="col-sm-7">
+            <div class="col-sm-5">
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="Upload photo">Выбрать фото:</label>
                     <div class="col-md-7">
-                        <button class="btn btn-info" ngf-select="uploadFiles($files)" multiple  accept="image/*">Добавить фото</button>
+                        <button class="btn btn-info" ngf-select="uploadFiles($files)" multiple  accept="image/*">{{btn_upload_img_text}}</button>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="name">Фото</label>
                     <div class="col-md-7">
                         <div class="input-group">
                             <div ng-show="!photo.filename==''"  class="img">
                                 <div class="hover"><!--<button type="button" ng-click="del_img(f.filename)" class="btn btn-danger btn-xs">X</button>--></div>
-                                <img src="//freelance.kolesnikdenis.com/upload/{{photo.filename}}" width=100 alt="{{photo.alt}}"/>
+                                <img src="//uwork.pp.ua/upload/{{photo.filename}}" width=100 alt="{{photo.alt}}"/>
 
                                 <span class="progress" ng-show="progress >= 0">
                         <div ng-show="progress >0 || progress < 100" style="width:{{progress}}%" ng-bind="progress + '%'"></div>
@@ -75,7 +83,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="name">Имя</label>
                     <div class="col-md-7">
@@ -180,7 +187,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-7">
                 <p>карта:</p>
 
                 <div class="row">
@@ -223,8 +230,6 @@
                 <a href="/message" class="btn btn-primary btn-xs" role="button" aria-pressed="true">(Новых \ всего) сообщений <span class="badge badge-light">{{new_message}}\{{all_msg}}</span></a></br>
                 <a href="/bloglistuser/{{profile.id}}"class="btn btn-primary btn-xs" role="button" aria-pressed="true">посмотреть свой блог</a></br>
                 <a href="/createblog" class="btn btn-primary btn-xs" role="button" aria-pressed="true">Написать в блог</a><br>
-                <a href="#" class="btn btn-primary btn-xs" role="button" aria-pressed="true">Стать исполнителем</a><br>
-                <a href="/extendedSearch/?q=#categories" class="btn btn-primary btn-xs" role="button" aria-pressed="true">Поиск Исполнителя</a><br>
             </div>
         </div>
     </form>

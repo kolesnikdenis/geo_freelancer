@@ -91,6 +91,11 @@ angular.module('app', ['ngRoute', 'ngTouch', 'ngAnimate', 'ui.bootstrap', 'ngMes
                 controller: 'ShowBlogController',
                 controllerAs:"ShowBlogControllerCtrl"
             })
+            .when('/activityuser/:id', {
+                templateUrl: '/views/ActivitySheet.html',
+                controller: 'ActivitySheetController',
+                controllerAs:"ActivitySheetControllerCtrl"
+            })
             .otherwise({'template': '<h1>Route not found</h1>'})
     });
 
