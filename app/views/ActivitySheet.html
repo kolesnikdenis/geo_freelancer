@@ -1,0 +1,59 @@
+<style>
+    #show_all_dialogs  tbody > tr {
+        cursor: pointer;
+    }
+</style>
+<div>
+    <legend>Ваши переписки с людьми:</legend>
+    <table id=show_all_dialogs class="table  table-hover  table-sm">
+        <thead>
+        <tr>
+            <th scope="col">Категория</th>
+            <th scope="col">Тип Действия</th>
+            <th scope="col">Заголовок</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Опыт</th>
+            <th scope="col">дата добавления</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr scope="row" ng-repeat="(key, value) in ActivitySheetControllerCtrl.activity_user"  ng-click="ActivitySheetControllerCtrl.showactivity(key)">
+            <th scope="row" >{{value.categories_name}}</th>
+            <td>
+                <p ng-if="value.adType=='lookForWorker'">В поисках работы</p>
+                <p ng-if="value.adType=='lookForJob'">Предлагаю работу</p>
+                <p ng-if="!value.adType">не определился :D</p>
+            </td>
+            <td>{{value.title}}</td>
+            <td>{{value.price?value.price:'0'}} грн.</td>
+            <td>{{value.experience?value.experience:'0'}} лет.</td>
+            <td>{{value.date}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div ng-if="ActivitySheetControllerCtrl.selectId>=0">
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <strong class="d-inline-block mb-2 text-primary">Категория: {{ActivitySheetControllerCtrl.select_item.categories_name}}</strong>
+                        <h3 class="mb-0">
+                            <a class="text-dark" href="#">Заголовок: {{ActivitySheetControllerCtrl.select_item.title}}</a>
+                        </h3>
+                        <div class="mb-1 text-muted">Дата добавления {{ActivitySheetControllerCtrl.select_item.date}}</div>
+                        <p class="card-text mb-auto">Описание: {{ActivitySheetControllerCtrl.select_item.description}}</p>
+                        <p>Контактный телефон: {{ActivitySheetControllerCtrl.select_item.phone}}</p>
+                    </div>
+                    <img ng-show="ActivitySheetControllerCtrl.photo" class="card-img-right flex-auto d-none d-md-block" width=300px src="/upload/{{ActivitySheetControllerCtrl.photo}}"  data-holder-rendered="true">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="ActivityMap"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

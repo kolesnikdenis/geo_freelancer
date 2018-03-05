@@ -260,6 +260,11 @@ input:-webkit-autofill:focus{
     height:470px;
     width:100%;
 }
+#ActivityMap {
+    height:470px;
+    width:100%;
+}
+
 .blog-info h4{
     font-weight: bold;
     font-size: 18px;

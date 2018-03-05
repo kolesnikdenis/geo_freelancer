@@ -11,11 +11,14 @@ angular.module('app').controller('DetailsAnyUserController', function($routePara
             else
                 this.photo = "logo-anonymous.png";
         }
-    })
+    });
 
     this.showBlog = function (id) {
         $location.path('/bloglistuser/'+id);
-    }
+    };
+    showActivitySheet = function (id) {
+        $location.path('/activityuser/'+id);
+    };
     this.sendmessage = function () {
         var modalInstance = $uibModal.open({
             animation: false,

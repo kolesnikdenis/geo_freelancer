@@ -12,5 +12,8 @@ angular.module('app').factory('AdsService', function($http) {
         createNewAd (adData) {
             return $http.post('//freelance.kolesnikdenis.com/api/ads_add', adData)
         },
+        getAdsUser (id) {
+            return $http.get('//freelance.kolesnikdenis.com/api/ads_user/'+id)
+        },
     }
 });
