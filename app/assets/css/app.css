@@ -16,6 +16,25 @@
     margin-top: 10px;
 }
 
+.text-center .login-button {
+    border-radius: 0;
+    margin-right: 5px;
+    border: none;
+    background-color: #9CBC7C;
+    color: #ffffff;
+    outline: 0;
+    padding: 10px 20px;
+}
+
+.text-center .sign-up-button{
+    border-radius: 0;
+    margin-right: 5px;
+    border: none;
+    background-color: #9CBC7C;
+    color: #ffffff;
+    outline: 0;
+}
+
 .login .input-group-addon {
     min-width: 150px;
     text-align: left;
