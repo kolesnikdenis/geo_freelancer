@@ -38,3 +38,7 @@ div .nav-tabs.nav-justified>li>a {
 div .form-group label {
     font-weight: normal;
 }
+
+div .col-sm-5 {
+    margin-top: 40px;
+}
