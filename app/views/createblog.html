@@ -18,10 +18,9 @@
                 <select ng-model="blog.categories">
                     <option ng-repeat="category in categories">{{ category.name }}</option>
                 </select>
-                <label>Автор:</label>
-                <input type="text" ng-model="blog.autor" ng-required="true" />
+                
                 <hr />
-                <button ngf-select="uploadFiles($files)" multiple  accept="image/*">Загрузить картинку</button>
+                
                 <span class="progress" ng-show="progress >= 0">
                     <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
                 </span>
@@ -50,9 +49,6 @@
                 <p>{{ blog.content }}</p>
                 <p>Категория блога:</p>
                 <p>{{ blog.categories }}</p>
-                <p>Автор:</p>
-                <p>{{ blog.autor }}</p>
-
             </div>
     </div>
 </div>
@@ -148,11 +144,6 @@ a:active{
     background: rgba(255,255,255,0.8);
     color: #444;
 }
-
-
-
-
-
 
 .wrapper {
         display: inline-block;

@@ -1,3 +1,4 @@
+
 <div>
   <div>
     <nav class="butBlog">
@@ -21,8 +22,8 @@
       <button ng-click="fullContact()">Оставить комментарий▼</button>
       <div id="add-blog" ng-hide="show =='msg1'">
         <label>Контент коментария:</label>
-        <textarea ng-model="comment.msg" ng-required="true"></textarea>
-        <button ng-click="addComment(comment)">Добавить комментарий</button>
+        <textarea ng-model="constructor_comment.msg" ng-required="true"></textarea>
+        <button ng-click="send()">Добавить комментарий</button>
       </div>
     </div>
     <div id="show-blogs">
@@ -33,7 +34,12 @@
           <p>{{comment.msg}}</p>
         </div>
 
+
+
+
+        
     </div>
+
 </div>
 
 
