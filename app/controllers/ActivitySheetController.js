@@ -1,8 +1,8 @@
-angular.module('app').controller('ActivitySheetController', function($scope,$routeParams,AdsService,UserService,  $compile, $uibModal,AuthService,notify,$location) {
+angular.module('app').controller('ActivitySheetController', function($scope,$routeParams,AService,UserService,  $compile, $uibModal,AuthService,notify,$location) {
     this.user_id= $routeParams.id;
     this.activity_user =[];
     this.selectId=0;
-    AdsService.getAdsUser(this.user_id).then((resp_user) => {
+    AService.getAdsUser(this.user_id).then((resp_user) => {
         this.activity_user= resp_user.data.ads_rows;
 
         for (var i=0; i < this.activity_user.length; i++){

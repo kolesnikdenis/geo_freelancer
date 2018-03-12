@@ -1,4 +1,4 @@
-angular.module('app').controller('DetailsAnyUserController', function($routeParams,AdsService,UserService,  $compile,$uibModal,AuthService,MsgService,notify,$location) {
+angular.module('app').controller('DetailsAnyUserController', function($routeParams,UserService,  $compile,$uibModal,AuthService,MsgService,notify,$location) {
     this.user_id= $routeParams.id;
 
     UserService.requestGetInfoAboutUser(this.user_id).then((resp_user) => {
@@ -16,7 +16,7 @@ angular.module('app').controller('DetailsAnyUserController', function($routePara
     this.showBlog = function (id) {
         $location.path('/bloglistuser/'+id);
     };
-    showActivitySheet = function (id) {
+    this.showActivitySheet = function (id) {
         $location.path('/activityuser/'+id);
     };
     this.sendmessage = function () {

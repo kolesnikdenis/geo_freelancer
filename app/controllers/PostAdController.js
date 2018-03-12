@@ -1,4 +1,4 @@
-angular.module('app').controller('PostAdController', function($scope,$location, AdsService, Categories, notify) {
+angular.module('app').controller('PostAdController', function($scope,$location, AService, Categories, notify) {
     this.categories = Categories;
 
     $scope.Circles;
@@ -135,7 +135,7 @@ angular.module('app').controller('PostAdController', function($scope,$location, 
         };
         console.log(adData );
 
-        AdsService.createNewAd(adData).then((response) => {
+        AService.createNewAd(adData).then((response) => {
             if (response.data.status === 'ok') {
                 notify({
                     message: 'Спасибо что оставили объявление!',

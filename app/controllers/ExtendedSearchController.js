@@ -1,9 +1,9 @@
-angular.module('app').controller('ExtendedSearchController', function($routeParams, $scope, $uibModal, AdsService, UserService, AuthService, MsgService, Categories, notify) {
+angular.module('app').controller('ExtendedSearchController', function($routeParams, $scope, $uibModal, AService, UserService, AuthService, MsgService, Categories, notify) {
     this.adsMarkers = [];
     this.categories = Categories;
     $scope.filterAds = [];
 
-    AdsService.getAll().then((resp) => {
+    AService.getAll().then((resp) => {
         this.ads = resp.data.ads_rows;
     }).then(() => {
         this.priceSlider.maxValue = this.getMaxPrice(this.ads);

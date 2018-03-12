@@ -11,13 +11,9 @@ angular.module('app').controller('createBlog',  function($scope, $http) {
                 autor: ''
             }
 
-
-
-
-
             $scope.addBlog = function (blog) {
                           console.log(blog)
-                          $http.post('//freelance.kolesnikdenis.com/api/blog_add/', blog)
+                          $http.post('//uwork.pp.ua/api/blog_add/', blog)
                           .then(function (responce){
                               console.log('Blog successfully saved')
                             
@@ -31,7 +27,7 @@ angular.module('app').controller('createBlog',  function($scope, $http) {
 
 
 
-            $http.get('https://freelance.kolesnikdenis.com/api/category/root')
+            $http.get('//uwork.pp.ua/api/category/root')
             .then(function (responce){
                   $scope.categories=responce.data.response;
                   console.log($scope.categories)

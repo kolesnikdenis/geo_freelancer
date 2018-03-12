@@ -11,7 +11,7 @@ angular.module('app').controller('singleBlog', function($http, $scope, $routePar
             }
           ];
 
-          $http.get('http://freelance.kolesnikdenis.com/api/blog').then(function (responce){
+          $http.get('//uwork.pp.ua/api/blog').then(function (responce){
                 $scope.blogs=responce.data.blog_array;
                 console.log($scope.blogs)
                 var postId = Number($routeParams.postId);
@@ -24,7 +24,7 @@ angular.module('app').controller('singleBlog', function($http, $scope, $routePar
           );
 
 
-          $http.get('//freelance.kolesnikdenis.com/api/blog_comment/'+$routeParams.postId)
+          $http.get('//uwork.pp.ua/api/blog_comment/'+$routeParams.postId)
           .then(function (responce){
             console.log(responce)
                 $scope.comments=responce.data.comment_blog;

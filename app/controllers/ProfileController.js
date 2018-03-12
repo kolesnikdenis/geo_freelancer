@@ -39,7 +39,7 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
         if (files && files.length) {
             var data1 = { files: files,  table: $rootScope.table, id: $rootScope.profile.id }
             Upload.upload({
-                url: '//freelance.kolesnikdenis.com/api/upload_stream',
+                url: '//uwork.pp.ua/api/upload_stream',
                 data: data1
             }).then(function (response) {
                 $timeout(function () {
@@ -49,7 +49,7 @@ angular.module('app').controller('ProfileController', function($rootScope, $loca
                     }
                     if ($rootScope.result.status=="ok") {
                         data1={ table:$rootScope.table, id: $rootScope.profile.id, filelist:[$rootScope.photo]};
-                        $http.post('//freelance.kolesnikdenis.com/api/save_list_img',data1).then(
+                        $http.post('//uwork.pp.ua/api/save_list_img',data1).then(
                             function (response) {
                                 if (response.data.status=="ok") {
                                     notify({

@@ -20,8 +20,8 @@
         <tr scope="row" ng-repeat="(key, value) in ActivitySheetControllerCtrl.activity_user"  ng-click="ActivitySheetControllerCtrl.showactivity(key)">
             <th scope="row" >{{value.categories_name}}</th>
             <td>
-                <p ng-if="value.adType=='lookForWorker'">В поисках работы</p>
-                <p ng-if="value.adType=='lookForJob'">Предлагаю работу</p>
+                <p ng-if="value.adType=='lookForJob'">В поисках работы</p>
+                <p ng-if="value.adType=='lookForWorker'">Предлагаю работу</p>
                 <p ng-if="!value.adType">не определился :D</p>
             </td>
             <td>{{value.title}}</td>

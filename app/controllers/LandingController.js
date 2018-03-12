@@ -1,4 +1,4 @@
-angular.module('app').controller('LandingController', function($location, $scope, LandingService, AdsService,UserService,  $compile,$uibModal,AuthService,MsgService,notify) {
+angular.module('app').controller('LandingController', function($location, $scope, LandingService, AService, UserService,  $compile,$uibModal,AuthService,MsgService,notify) {
     $scope.category={};
     LandingService.getAll().then((category) => {
         $scope.category = category.data.response;
@@ -126,7 +126,7 @@ angular.module('app').controller('LandingController', function($location, $scope
                     return "/upload/icon_category_map/courier_services.png";
                 }
             }
-            AdsService.getGeoAll(my_coord).then((resp) => {
+            AService.getGeoAll(my_coord).then((resp) => {
                 var arr_data=resp.data.ads_rows;
                 var createMarker = function (info,who_marker){
                     if ( !who_marker ) {
@@ -186,7 +186,7 @@ angular.module('app').controller('LandingController', function($location, $scope
                     createMarker({title:"вы тут", lat: my_coord.lat, lng: my_coord.lng});
                 }
             });
-            AdsService.getGeoLast(my_coord).then((resp) =>{
+            AService.getGeoLast(my_coord).then((resp) =>{
                 var arr_data=resp.data.ads_rows;
                 $scope.map.setCenter(my_coord);
                 $scope.map.setZoom(15);
